@@ -372,6 +372,39 @@ h6,
   @include headings(0.8vw);
 }
 
+@include mediaQuery(mobile) {
+
+  h1,
+  .h1 {
+    @include headings(6vw);
+  }
+
+  h2,
+  .h2 {
+    @include headings(5vw);
+  }
+
+  h3,
+  .h3 {
+    @include headings(4vw);
+  }
+
+  h4,
+  .h4 {
+    @include headings(4vw);
+  }
+
+  h5,
+  .h5 {
+    @include headings(3vw);
+  }
+
+  h6,
+  .h6 {
+    @include headings(2vw);
+  }
+}
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;

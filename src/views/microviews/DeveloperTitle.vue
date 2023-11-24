@@ -41,5 +41,15 @@ defineProps({
     border-top: 2px solid var(--item-color);
     border-bottom: 2px solid var(--item-color);
   }
+
+  @include mediaQuery(mobile) {
+    h1.title {
+      font-size: 8vw;
+    }
+
+    h4.subtitle {
+      font-size: 4vw;
+    }
+  }
 }
 </style>

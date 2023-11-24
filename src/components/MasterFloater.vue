@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import MasterIcon from '@/components/MasterIcon.vue'
 import ActionOutside from '@/utils/ActionOutside.js'
 
@@ -40,6 +41,10 @@ ActionOutside(target, 'click', () => {
 const toggleMenu = () => {
   isVisible.value = !isVisible.value
 }
+
+const methodClick = () => {
+  isVisible.value = false
+}
 </script>
 
 <template>
@@ -53,7 +58,12 @@ const toggleMenu = () => {
       title="Floating Menu"
     />
     <div v-if="isVisible" class="floating_menu">
-      <component :is="bodyComponent" />
+      <header class="menu">
+        <nav>
+          <RouterLink to="/" @click="methodClick">Resume</RouterLink>
+          <RouterLink to="/coverletter" @click="methodClick">Cover Letter</RouterLink>
+        </nav>
+      </header>
     </div>
   </div>
 </template>
@@ -79,6 +89,45 @@ const toggleMenu = () => {
     @include floatingBox(top_left, 76);
     width: auto;
     white-space: nowrap;
+  }
+
+  .menu {
+    padding: 0;
+
+    nav {
+      display: inline-flex;
+      flex-direction: column;
+
+      a {
+        -webkit-app-region: no-drag;
+        color: var(--glob-dark);
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        height: 100%;
+
+        &:not(:last-child) {
+          border-bottom: px2rem(2) dotted var(--glob-dark);
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          opacity: 0.7;
+          background: var(--black-lt);
+          color: var(--glob-light);
+        }
+
+        &.router-link-exact-active {
+          color: var(--primary);
+
+          &:hover {
+            color: var(--glob-light);
+          }
+        }
+      }
+    }
   }
 }
 
