@@ -19,6 +19,7 @@
     position: relative;
     flex: 1 0 auto;
     height: auto;
+    padding-bottom: 2rem;
   }
   .main {
     &_sidebar {
@@ -36,6 +37,22 @@
       width: calc(70vw - 0.5rem);
       background: var(--bg-color);
       color: var(--item-color);
+    }
+  }
+}
+
+@include mediaQuery(mobile) {
+  .main_template {
+    flex-direction: column;
+
+    .main {
+      &_sidebar {
+        width: calc(100vw - 0.5rem);
+      }
+
+      &_content {
+        width: calc(100vw - 0.5rem);
+      }
     }
   }
 }

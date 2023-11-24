@@ -57,7 +57,7 @@ onMounted(() => {
       <span class="line_name" :title="line.iName">{{ line.iValue }}</span>
     </span>
   </div>
-  <MasterPrintBreak />
+
   <div class="dev_education">
     <div class="flex-between">
       <h3 class="section_title">Education</h3>
@@ -103,8 +103,10 @@ onMounted(() => {
       <span class="social_id">{{ line.iValue }}</span>
     </div>
   </div>
+  <MasterPrintBreak />
 
   <div class="dev_skills">
+    <span class="print_margin"></span>
     <div class="flex-between">
       <h3 class="section_title">Skills</h3>
       <MasterIcon svgName="skills" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />

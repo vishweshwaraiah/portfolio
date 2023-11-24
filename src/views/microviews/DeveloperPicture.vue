@@ -16,7 +16,8 @@ import DevPic from '@/assets/Vishu.jpg'
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 20rem;
+  height: auto;
+  padding: 2rem 0;
 
   span.triangle {
     position: absolute;

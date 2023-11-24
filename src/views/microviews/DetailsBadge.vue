@@ -99,11 +99,15 @@ const cardWrapper = computed(() => {
     position: relative;
   }
 
-  .work_details.type {
-    background-color: var(--item-color);
-    color: var(--bg-color);
-    padding: px2rem(5);
-    border-radius: px2rem(5);
+  .work_details {
+    white-space: nowrap;
+
+    &.type {
+      background-color: var(--item-color);
+      color: var(--bg-color);
+      padding: px2rem(5);
+      border-radius: px2rem(5);
+    }
   }
 
   &.is_fantasy * {

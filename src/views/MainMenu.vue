@@ -13,29 +13,39 @@ import { RouterLink } from 'vue-router'
 
 <style lang="scss" scoped>
 .menu {
-  padding: 1rem;
+  padding: 0;
 
   nav {
     display: inline-flex;
-    gap: px2rem(10);
     flex-direction: column;
 
     a {
       -webkit-app-region: no-drag;
-      background-color: var(--menu-color);
-      border-radius: var(--radius-default);
-      box-shadow: boxShadow(menu);
       color: var(--glob-dark);
       font-weight: bold;
-      padding: 0 1rem;
+      padding: 0.5rem 1rem;
       height: 100%;
+
+      &:not(:last-child) {
+        border-bottom: px2rem(2) dotted var(--glob-dark);
+      }
 
       &:focus {
         outline: none;
       }
 
-      &.router-link-exact-active {
+      &:hover {
+        opacity: 0.7;
+        background: var(--black-lt);
         color: var(--glob-light);
+      }
+
+      &.router-link-exact-active {
+        color: var(--primary);
+
+        &:hover {
+          color: var(--glob-light);
+        }
       }
     }
   }

@@ -39,9 +39,15 @@ body {
   @include hideScroll();
 }
 
-@include mediaQuery(mobile, tablet, laptop) {
+@include mediaQuery(mobile) {
   body {
-    font-size: 1.5vw;
+    font-size: 3vw;
+  }
+}
+
+@include mediaQuery(tablet, laptop) {
+  body {
+    font-size: 2vw;
   }
 }
 

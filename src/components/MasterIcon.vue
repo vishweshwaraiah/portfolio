@@ -48,6 +48,8 @@ const SvgIcon = defineAsyncComponent(() => {
 const svgWrapper = computed(() => {
   const defaults = ['svg-holder']
 
+  defaults.push(props.size)
+
   if (props.class) {
     defaults.push(props.class)
   }

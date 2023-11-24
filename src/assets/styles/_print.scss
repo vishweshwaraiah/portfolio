@@ -1,7 +1,85 @@
 @media print {
 
+    header,
+    footer,
+    aside,
     nav,
-    aside {
+    iframe,
+    .menu {
         display: none;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        font-size: 8pt;
+
+        .main {
+            &_sidebar {
+                display: block;
+                width: 100mm;
+            }
+
+            &_content {
+                display: block;
+                width: 110mm;
+            }
+        }
+
+        .print_margin {
+            margin-top: 2rem;
+            display: block;
+        }
+
+        .svg-holder {
+
+            &.small {
+                height: px2rem(18);
+                width: px2rem(18);
+
+                .is_rounded {
+                    height: px2rem(32);
+                    width: px2rem(32);
+                }
+            }
+
+            &.medium {
+                height: px2rem(28);
+                width: px2rem(28);
+
+                &.is_rounded {
+                    height: px2rem(46);
+                    width: px2rem(46);
+                }
+            }
+
+            &.large {
+                height: px2rem(46);
+                width: px2rem(46);
+
+                .is_rounded {
+                    height: px2rem(52);
+                    width: px2rem(52);
+                }
+            }
+        }
+    }
+
+    @page {
+        /* set margin on each page */
+        margin: 0;
+
+        /* set page size */
+        size: A4;
+
+        @top-center {
+            content: "Title | Subtitle";
+        }
+
+        @bottom-center {
+            content: "Copyright [current year] | [page number]"
+        }
     }
 }

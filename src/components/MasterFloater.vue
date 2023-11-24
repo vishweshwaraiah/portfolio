@@ -45,7 +45,7 @@ const toggleMenu = () => {
 <template>
   <div :class="`floating_box ${classNames}`" ref="target">
     <MasterIcon
-      svgName="menu"
+      svgName="menu-bars"
       size="medium"
       fillColor="var(--item-color)"
       class="floating_btn"

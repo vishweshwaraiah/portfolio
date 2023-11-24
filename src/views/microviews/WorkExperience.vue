@@ -2,6 +2,7 @@
 import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
+import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 
 const props = defineProps({
   sectionTitle: {
@@ -27,6 +28,7 @@ const props = defineProps({
     </div>
     <MasterHrLine thickness="2px" />
     <div class="experience_item" v-for="(item, i) in workExpList" :key="i">
+      <span :class="item.print_margin ? 'print_margin' : ''"></span>
       <div class="work_header">
         <DetailsBadge
           class="work_duration"
@@ -74,6 +76,7 @@ const props = defineProps({
         </div>
       </div>
       <MasterHrLine />
+      <MasterPrintBreak v-if="item.print_break" />
     </div>
   </div>
 </template>
@@ -91,11 +94,12 @@ const props = defineProps({
 
     .work_duration {
       min-width: 5rem;
+      width: auto;
     }
 
     .work_designation {
       padding-left: 2%;
-      min-width: 90%;
+      min-width: 80%;
 
       .job_title {
         text-transform: uppercase;
@@ -115,6 +119,7 @@ const props = defineProps({
     }
     .work_skills .skill_name {
       margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
