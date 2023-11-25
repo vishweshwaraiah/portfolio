@@ -67,7 +67,7 @@ const printPage = () => {
         <nav>
           <RouterLink to="/" @click="methodClick">Resume</RouterLink>
           <RouterLink to="/coverletter" @click="methodClick">Cover Letter</RouterLink>
-          <RouterLink to="#" @click="printPage">Print Profile</RouterLink>
+          <RouterLink :to="{}" @click="printPage">Print Profile</RouterLink>
         </nav>
       </header>
     </div>
