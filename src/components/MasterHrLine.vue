@@ -17,6 +17,10 @@ const props = defineProps({
   hrColor: {
     default: 'var(--item-color)',
     type: String
+  },
+  styleType: {
+    default: 'solid',
+    type: String
   }
 })
 
@@ -29,7 +33,7 @@ const thick_value = ref(props.thickness)
 
 <style lang="scss" scoped>
 .hr_line {
-  border: v-bind(thick_value) solid v-bind(hrColor);
+  border: v-bind(thick_value) v-bind(styleType) v-bind(hrColor);
   margin-top: v-bind(marginTop);
   margin-bottom: v-bind(marginBottom);
 }

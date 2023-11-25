@@ -99,8 +99,8 @@ onMounted(() => {
         :hoverInverse="true"
         bgColor="var(--theme-one)"
         :title="line.iName"
+        :labelAfter="line.iValue"
       />
-      <span class="social_id">{{ line.iValue }}</span>
     </div>
   </div>
   <MasterPrintBreak />
@@ -200,9 +200,13 @@ onMounted(() => {
 }
 
 .dev_social .social_line {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
+  padding: px2rem(10) 0;
+
+  .svg-holder {
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
 
   .social_id {
     padding-left: px2rem(10);

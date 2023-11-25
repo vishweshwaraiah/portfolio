@@ -103,6 +103,7 @@ const props = defineProps({
 
       .job_title {
         text-transform: uppercase;
+        font-family: var(--secondary-font-family);
       }
 
       .job_company,

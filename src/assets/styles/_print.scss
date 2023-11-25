@@ -36,32 +36,32 @@
         .svg-holder {
 
             &.small {
-                height: px2rem(18);
-                width: px2rem(18);
-
-                .is_rounded {
-                    height: px2rem(32);
-                    width: px2rem(32);
-                }
-            }
-
-            &.medium {
-                height: px2rem(28);
-                width: px2rem(28);
-
-                &.is_rounded {
-                    height: px2rem(46);
-                    width: px2rem(46);
-                }
-            }
-
-            &.large {
-                height: px2rem(46);
-                width: px2rem(46);
+                height: px2rem(36);
+                width: px2rem(36);
 
                 .is_rounded {
                     height: px2rem(52);
                     width: px2rem(52);
+                }
+            }
+
+            &.medium {
+                height: px2rem(38);
+                width: px2rem(38);
+
+                &.is_rounded {
+                    height: px2rem(54);
+                    width: px2rem(54);
+                }
+            }
+
+            &.large {
+                height: px2rem(40);
+                width: px2rem(40);
+
+                .is_rounded {
+                    height: px2rem(56);
+                    width: px2rem(56);
                 }
             }
         }

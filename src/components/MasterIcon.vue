@@ -109,9 +109,14 @@ const getSize = computed(() => {
     border-radius: 50%;
   }
 
-  .label-before,
+  .label-before {
+    padding-right: 1rem;
+    margin-bottom: 0;
+  }
+
   .label-after {
-    margin: auto;
+    padding-left: 1rem;
+    margin-bottom: 0;
   }
 }
 </style>
