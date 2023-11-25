@@ -45,6 +45,11 @@ const toggleMenu = () => {
 const methodClick = () => {
   isVisible.value = false
 }
+
+const printPage = () => {
+  window?.print()
+  methodClick()
+}
 </script>
 
 <template>
@@ -62,6 +67,7 @@ const methodClick = () => {
         <nav>
           <RouterLink to="/" @click="methodClick">Resume</RouterLink>
           <RouterLink to="/coverletter" @click="methodClick">Cover Letter</RouterLink>
+          <RouterLink to="#" @click="printPage">Print Profile</RouterLink>
         </nav>
       </header>
     </div>

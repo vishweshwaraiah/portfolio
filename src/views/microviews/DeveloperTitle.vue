@@ -21,7 +21,7 @@ defineProps({
 <style lang="scss" scoped>
 .master_title {
   position: relative;
-  background-color: var(--header-color);
+  background-color: var(--theme-color);
   padding: 1rem 2rem;
   width: auto;
   border-width: 5px 0 5px 0;

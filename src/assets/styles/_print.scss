@@ -1,5 +1,13 @@
 @media print {
 
+    @page {
+        page: wide;
+        margin: 0;
+        size: A4;
+        width: 100%;
+        height: auto;
+    }
+
     header,
     footer,
     aside,
@@ -13,18 +21,20 @@
     body {
         width: 100%;
         height: 100%;
-        margin: 0px;
+        margin: 0;
         font-size: 8pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
 
         .main {
             &_sidebar {
                 display: block;
-                width: 100mm;
+                height: 100%;
             }
 
             &_content {
                 display: block;
-                width: 110mm;
+                height: 100%;
             }
         }
 
@@ -36,12 +46,12 @@
         .svg-holder {
 
             &.small {
-                height: px2rem(36);
-                width: px2rem(36);
+                height: px2rem(32);
+                width: px2rem(32);
 
                 .is_rounded {
-                    height: px2rem(52);
-                    width: px2rem(52);
+                    height: px2rem(48);
+                    width: px2rem(48);
                 }
             }
 
@@ -50,8 +60,8 @@
                 width: px2rem(38);
 
                 &.is_rounded {
-                    height: px2rem(54);
-                    width: px2rem(54);
+                    height: px2rem(60);
+                    width: px2rem(60);
                 }
             }
 
@@ -60,26 +70,10 @@
                 width: px2rem(40);
 
                 .is_rounded {
-                    height: px2rem(56);
-                    width: px2rem(56);
+                    height: px2rem(65);
+                    width: px2rem(65);
                 }
             }
-        }
-    }
-
-    @page {
-        /* set margin on each page */
-        margin: 0;
-
-        /* set page size */
-        size: A4;
-
-        @top-center {
-            content: "Title | Subtitle";
-        }
-
-        @bottom-center {
-            content: "Copyright [current year] | [page number]"
         }
     }
 }

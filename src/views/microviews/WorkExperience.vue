@@ -34,7 +34,7 @@ const props = defineProps({
           class="work_duration"
           :content="item.badge_content"
           textColor="var(--glob-dark)"
-          bgColor="var(--theme-one)"
+          bgColor="var(--theme-color)"
           :isFantasy="true"
         />
         <div class="work_designation">

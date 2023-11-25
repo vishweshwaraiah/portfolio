@@ -5,8 +5,10 @@ const Responsibilities = [
   'Identify ideas to improve system performance and impact availability.',
   'Resolve complex technical design issues.',
   'Analyze user requirements and convert requirements to designs.',
-  'Work on Complex and multi level (nested level) tables.',
-  'Multi-task and change from one task to another without loss of efficiency or composure.'
+  'Managing the complete software development process from conception to deployment.',
+  'Multi-task and change from one task to another without loss of efficiency or composure.',
+  'Front-end website architecture development, Ensuring application responsiveness.',
+  'Testing and fixing bugs as well as other programming issues.'
 ]
 
 export default Responsibilities

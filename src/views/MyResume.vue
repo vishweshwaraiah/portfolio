@@ -9,6 +9,10 @@ import WorkExpList from '@/stores/data/WorkExperience.js'
 import AboutDev from '@/stores/data/AboutDeveloper.js'
 import PersonalData from '@/stores/data/PersonalDetails.js'
 import Responsibilities from '@/views/microviews/Responsibilities.vue'
+
+const subTitle = 'Senior Fullstack Developer'
+const devTitle = 'Vishweshwarayya K J'
+const sectionTitle = 'Work Experience'
 </script>
 
 <template>
@@ -19,8 +23,8 @@ import Responsibilities from '@/views/microviews/Responsibilities.vue'
     </template>
     <template #content>
       <AboutDeveloper :content="AboutDev" />
-      <DeveloperTitle title="Vishweshwarayya K J" subtitle="Senior Fullstack Developer" />
-      <WorkExperience sectionTitle="Work Experience" :workExpList="WorkExpList" />
+      <DeveloperTitle :title="devTitle" :subtitle="subTitle" />
+      <WorkExperience :sectionTitle="sectionTitle" :workExpList="WorkExpList" />
       <Responsibilities />
     </template>
   </MasterTemplate>

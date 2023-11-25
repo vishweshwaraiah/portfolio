@@ -5,6 +5,7 @@ import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
+import ReferenceDetails from '@/views/microviews/ReferenceDetails.vue'
 
 const props = defineProps({
   details: {
@@ -33,7 +34,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="dev_contact">
+  <div class="personal_details dev_contact">
     <div class="flex-between">
       <h3 class="section_title">Contact</h3>
       <MasterIcon
@@ -51,14 +52,14 @@ onMounted(() => {
         fillColor="var(--glob-dark)"
         :hoverInverse="true"
         roundSpace="8px"
-        bgColor="var(--theme-one)"
+        bgColor="var(--theme-color)"
         :title="line.iName"
       />
       <span class="line_name" :title="line.iName">{{ line.iValue }}</span>
     </span>
   </div>
 
-  <div class="dev_education">
+  <div class="personal_details dev_education">
     <div class="flex-between">
       <h3 class="section_title">Education</h3>
       <MasterIcon svgName="degree" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
@@ -80,7 +81,7 @@ onMounted(() => {
     </div>
   </div>
 
-  <div class="dev_social">
+  <div class="personal_details dev_social">
     <div class="flex-between">
       <h3 class="section_title">Social Media</h3>
       <MasterIcon
@@ -97,7 +98,7 @@ onMounted(() => {
         size="medium"
         fillColor="var(--glob-dark)"
         :hoverInverse="true"
-        bgColor="var(--theme-one)"
+        bgColor="var(--theme-color)"
         :title="line.iName"
         :labelAfter="line.iValue"
       />
@@ -105,7 +106,7 @@ onMounted(() => {
   </div>
   <MasterPrintBreak />
 
-  <div class="dev_skills">
+  <div class="personal_details dev_skills">
     <span class="print_margin"></span>
     <div class="flex-between">
       <h3 class="section_title">Skills</h3>
@@ -119,12 +120,12 @@ onMounted(() => {
         class="skill_name"
         :content="line"
         textColor="var(--item-color)"
-        bgColor="var(--theme-one)"
+        bgColor="var(--theme-color)"
       />
     </div>
   </div>
 
-  <div class="dev_expertise">
+  <div class="personal_details dev_expertise">
     <div class="flex-between">
       <h3 class="section_title">Expertise</h3>
       <MasterIcon svgName="expert" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
@@ -137,10 +138,15 @@ onMounted(() => {
     </div>
   </div>
 
-  <div class="dev_hobbies">
+  <div class="personal_details dev_hobbies">
     <div class="flex-between">
       <h3 class="section_title">Hobbies</h3>
-      <MasterIcon svgName="expert" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
+      <MasterIcon
+        svgName="support"
+        size="medium"
+        fillColor="var(--bg-color)"
+        :hoverInverse="true"
+      />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
     <div class="hobbies_line">
@@ -151,11 +157,27 @@ onMounted(() => {
           fillColor="var(--item-color)"
           :hoverInverse="true"
           roundSpace="10%"
-          bgColor="var(--theme-one)"
+          bgColor="var(--theme-color)"
           :title="line.iName"
         />
         <label>{{ line.iName }}</label>
       </span>
+    </div>
+  </div>
+
+  <div class="personal_details dev_refs">
+    <div class="flex-between">
+      <h3 class="section_title">References</h3>
+      <MasterIcon
+        svgName="friends"
+        size="medium"
+        fillColor="var(--bg-color)"
+        :hoverInverse="true"
+      />
+    </div>
+    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
+    <div class="refs_line">
+      <ReferenceDetails />
     </div>
   </div>
 </template>
@@ -172,12 +194,7 @@ onMounted(() => {
   }
 }
 
-.dev_contact,
-.dev_education,
-.dev_social,
-.dev_skills,
-.dev_expertise,
-.dev_hobbies {
+.personal_details {
   @include parentBox();
 }
 
@@ -248,5 +265,11 @@ onMounted(() => {
       margin-top: px2rem(8);
     }
   }
+}
+
+.dev_refs .refs_line {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 </style>

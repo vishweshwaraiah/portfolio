@@ -1,5 +1,5 @@
 <script setup>
-import DevPic from '@/assets/Vishu.jpg'
+import DevPic from '@/assets/Vishu.png'
 </script>
 
 <template>
@@ -24,7 +24,7 @@ import DevPic from '@/assets/Vishu.jpg'
     width: 100%;
     height: 100%;
     clip-path: polygon(100% 0%, 0% 100%, 0% 0%);
-    background: var(--header-color);
+    background: var(--theme-color);
     top: 0;
     left: 0;
     z-index: 100;

@@ -26,7 +26,7 @@
       @include commonCode();
       display: flex;
       flex-direction: column;
-      width: calc(30vw - 0.5rem);
+      width: calc(30vw);
       background: var(--sidebar-bg-color);
       color: var(--sidebar-txt-color);
     }
@@ -34,7 +34,7 @@
     &_content {
       @include commonCode();
       display: block;
-      width: calc(70vw - 0.5rem);
+      width: calc(70vw);
       background: var(--bg-color);
       color: var(--item-color);
     }
@@ -46,12 +46,9 @@
     flex-direction: column;
 
     .main {
-      &_sidebar {
-        width: calc(100vw - 0.5rem);
-      }
-
+      &_sidebar,
       &_content {
-        width: calc(100vw - 0.5rem);
+        width: calc(100vw);
       }
     }
   }
