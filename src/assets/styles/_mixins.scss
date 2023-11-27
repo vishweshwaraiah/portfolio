@@ -435,3 +435,13 @@
     padding-left: px2rem(5);
   }
 }
+
+@mixin verticalBar($thickness: 2) {
+  &::after {
+    content: '';
+    margin: px2rem(0) px2rem(5);
+    border-left: px2rem($thickness) solid var(--glob-dark);
+    height: px2rem(15);
+    align-self: center;
+  }
+}

@@ -85,12 +85,8 @@ defineProps({
           display: inline-flex;
         }
 
-        .ref_role::after {
-          content: '';
-          margin: px2rem(0) px2rem(5);
-          border-left: px2rem(2) solid var(--glob-dark);
-          height: px2rem(15);
-          align-self: center;
+        .ref_role {
+          @include verticalBar();
         }
       }
 

@@ -47,8 +47,8 @@ const methodClick = () => {
 }
 
 const printPage = () => {
-  window?.print()
   methodClick()
+  window?.print()
 }
 </script>
 
@@ -65,9 +65,31 @@ const printPage = () => {
     <div v-if="isVisible" class="floating_menu">
       <header class="menu">
         <nav>
-          <RouterLink to="/" @click="methodClick">Resume</RouterLink>
-          <RouterLink to="/coverletter" @click="methodClick">Cover Letter</RouterLink>
-          <RouterLink :to="{}" @click="printPage">Print Profile</RouterLink>
+          <RouterLink class="flex-between" to="/" @click="methodClick">
+            <span>Resume</span>
+            <MasterIcon
+              svgName="printer"
+              class="has_print"
+              @click="printPage"
+              fillColor="var(--item-color)"
+              size="small"
+              title="Print Page"
+              :hoverInverse="true"
+            />
+          </RouterLink>
+          <RouterLink class="flex-between" to="/coverletter" @click="methodClick">
+            <span>Cover Letter</span>
+            <MasterIcon
+              svgName="printer"
+              class="has_print"
+              @click="printPage"
+              fillColor="var(--item-color)"
+              size="small"
+              title="Print Page"
+              :hoverInverse="true"
+            />
+          </RouterLink>
+          <RouterLink to="/about" @click="methodClick">About</RouterLink>
         </nav>
       </header>
     </div>
@@ -95,41 +117,51 @@ const printPage = () => {
     @include floatingBox(top_left, 76);
     width: auto;
     white-space: nowrap;
-  }
 
-  .menu {
-    padding: 0;
+    .menu {
+      padding: 0;
 
-    nav {
-      display: inline-flex;
-      flex-direction: column;
+      nav {
+        display: inline-flex;
+        flex-direction: column;
 
-      a {
-        -webkit-app-region: no-drag;
-        color: var(--glob-dark);
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        height: 100%;
+        a {
+          -webkit-app-region: no-drag;
+          color: var(--glob-dark);
+          font-weight: bold;
+          padding: 0.5rem 1rem;
+          height: 100%;
 
-        &:not(:last-child) {
-          border-bottom: px2rem(2) dotted var(--glob-dark);
-        }
+          &.flex-between {
+            gap: 1rem;
 
-        &:focus {
-          outline: none;
-        }
+            .has_print {
+              display: none;
+            }
+          }
 
-        &:hover {
-          opacity: 0.7;
-          background: var(--black-lt);
-          color: var(--glob-light);
-        }
+          &:not(:last-child) {
+            border-bottom: px2rem(2) dotted var(--glob-dark);
+          }
 
-        &.router-link-exact-active {
-          color: var(--primary);
+          &:focus {
+            outline: none;
+          }
 
           &:hover {
+            opacity: 0.7;
+            background: var(--black-lt);
             color: var(--glob-light);
+          }
+
+          &.router-link-active {
+            .has_print {
+              display: block;
+            }
+
+            &:hover {
+              color: var(--glob-light);
+            }
           }
         }
       }

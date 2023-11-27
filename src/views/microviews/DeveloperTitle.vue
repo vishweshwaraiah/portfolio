@@ -1,4 +1,7 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { dateDifference } from '@/utils/globals.js'
+
 defineProps({
   title: {
     default: '',
@@ -9,12 +12,20 @@ defineProps({
     type: String
   }
 })
+const startedDate = new Date('January 2013')
+const expYears = ref('')
+
+onMounted(() => {
+  const diffDate = dateDifference(startedDate, new Date())
+  expYears.value = diffDate
+})
 </script>
 
 <template>
   <div class="master_title section_title">
     <h1 class="title">{{ title }}</h1>
     <h4 class="subtitle">{{ subtitle }}</h4>
+    <h4 class="exp_years">From Past {{ expYears }}</h4>
   </div>
 </template>
 
@@ -31,23 +42,27 @@ defineProps({
   font-weight: bolder;
   margin: auto auto 2rem auto;
 
-  h1.title {
+  .title {
     font-size: 5vw;
   }
 
-  h4.subtitle {
+  .subtitle {
     font-size: 2.5vw;
-    padding: 0.625rem;
+    padding: 0.625rem 0;
     border-top: 2px solid var(--item-color);
     border-bottom: 2px solid var(--item-color);
   }
 
+  .exp_years {
+    margin-top: 0.625rem;
+  }
+
   @include mediaQuery(mobile) {
-    h1.title {
+    .title {
       font-size: 8vw;
     }
 
-    h4.subtitle {
+    .subtitle {
       font-size: 4vw;
     }
   }

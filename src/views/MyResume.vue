@@ -19,7 +19,7 @@ const sectionTitle = 'Work Experience'
 <template>
   <MasterTemplate class="my_resume">
     <template #sidebar>
-      <DeveloperPicture />
+      <DeveloperPicture :hasTriangle="true" />
       <PersonalDetails :details="PersonalData" :developerRefs="References" />
     </template>
     <template #content>

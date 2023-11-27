@@ -77,6 +77,7 @@ const props = defineProps({
       </div>
       <MasterHrLine margin-bottom="3rem" />
       <MasterPrintBreak v-if="item.print_break" />
+      <MasterPrintBreak v-else action="avoid" />
     </div>
   </div>
 </template>
