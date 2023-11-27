@@ -9,7 +9,7 @@ import Responsibilities from '@/stores/data/Responsibilities.js'
     <div class="flex-between">
       <h1 class="section_title">Roles & Responsibilities</h1>
       <MasterIcon
-        svgName="others-list"
+        svgName="tasks-dark"
         size="medium"
         fillColor="var(--item-color)"
         :hoverInverse="true"

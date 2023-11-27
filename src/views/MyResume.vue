@@ -8,6 +8,7 @@ import PersonalDetails from '@/views/microviews/PersonalDetails.vue'
 import WorkExpList from '@/stores/data/WorkExperience.js'
 import AboutDev from '@/stores/data/AboutDeveloper.js'
 import PersonalData from '@/stores/data/PersonalDetails.js'
+import References from '@/stores/data/ReferenceDetails.js'
 import Responsibilities from '@/views/microviews/Responsibilities.vue'
 
 const subTitle = 'Senior Fullstack Developer'
@@ -19,7 +20,7 @@ const sectionTitle = 'Work Experience'
   <MasterTemplate class="my_resume">
     <template #sidebar>
       <DeveloperPicture />
-      <PersonalDetails :details="PersonalData" />
+      <PersonalDetails :details="PersonalData" :developerRefs="References" />
     </template>
     <template #content>
       <AboutDeveloper :content="AboutDev" />

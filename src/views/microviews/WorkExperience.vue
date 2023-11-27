@@ -75,7 +75,7 @@ const props = defineProps({
           />
         </div>
       </div>
-      <MasterHrLine />
+      <MasterHrLine margin-bottom="3rem" />
       <MasterPrintBreak v-if="item.print_break" />
     </div>
   </div>
@@ -104,12 +104,14 @@ const props = defineProps({
       .job_title {
         text-transform: uppercase;
         font-family: var(--secondary-font-family);
+        margin-bottom: 1rem;
       }
 
       .job_company,
       .job_location {
         display: flex;
         align-items: baseline;
+        margin-bottom: px2rem(2);
       }
     }
   }

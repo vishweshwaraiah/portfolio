@@ -1,275 +1,54 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { IsValidObject } from '@/utils/globals.js'
-import MasterIcon from '@/components/MasterIcon.vue'
-import MasterHrLine from '@/components/MasterHrLine.vue'
-import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
-import ReferenceDetails from '@/views/microviews/ReferenceDetails.vue'
+import DeveloperContact from '@/views/microviews/DeveloperContact.vue'
+import DeveloperEducation from '@/views/microviews/DeveloperEducation.vue'
+import DeveloperSocials from '@/views/microviews/DeveloperSocials.vue'
+import DeveloperSkills from '@/views/microviews/DeveloperSkills.vue'
+import DeveloperExpertise from '@/views/microviews/DeveloperExpertise.vue'
+import DeveloperReferences from '@/views/microviews/DeveloperReferences.vue'
+import DeveloperHobbies from '@/views/microviews/DeveloperHobbies.vue'
 
 const props = defineProps({
   details: {
     default: () => {},
     type: Object
+  },
+  developerRefs: {
+    default: () => [],
+    type: Array
   }
 })
 
 const devContact = ref([])
 const devEducation = ref([])
-const socialMedia = ref([])
+const devSocials = ref([])
 const devSkills = ref([])
 const devExpertise = ref([])
 const devHobbies = ref([])
+const devRefs = ref([])
 
 onMounted(() => {
   if (IsValidObject(props.details)) {
     devContact.value = props.details.contact
     devEducation.value = props.details.education
-    socialMedia.value = props.details.social
+    devSocials.value = props.details.social
     devSkills.value = props.details.skills
     devExpertise.value = props.details.expertise
     devHobbies.value = props.details.hobbies
+    devRefs.value = props.developerRefs
   }
 })
 </script>
 
 <template>
-  <div class="personal_details dev_contact">
-    <div class="flex-between">
-      <h3 class="section_title">Contact</h3>
-      <MasterIcon
-        svgName="contact"
-        size="medium"
-        fillColor="var(--bg-color)"
-        :hoverInverse="true"
-      />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <span class="contact_line" v-for="(line, i) in devContact" :key="i">
-      <MasterIcon
-        :svgName="line.iconName"
-        size="small"
-        fillColor="var(--glob-dark)"
-        :hoverInverse="true"
-        roundSpace="8px"
-        bgColor="var(--theme-color)"
-        :title="line.iName"
-      />
-      <span class="line_name" :title="line.iName">{{ line.iValue }}</span>
-    </span>
-  </div>
-
-  <div class="personal_details dev_education">
-    <div class="flex-between">
-      <h3 class="section_title">Education</h3>
-      <MasterIcon svgName="degree" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="education_line" v-for="(line, i) in devEducation" :key="i">
-      <label class="passed_year">
-        <DetailsBadge
-          class="year"
-          :content="line.year"
-          textColor="var(--bg-color)"
-          bgColor="var(--secondary)"
-        />
-      </label>
-      <div class="strong">{{ line.name }}</div>
-      <div class="strong x-small italic">{{ line.institute }}</div>
-      <div class="strong x-small italic mb-2">{{ line.location }}</div>
-      <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    </div>
-  </div>
-
-  <div class="personal_details dev_social">
-    <div class="flex-between">
-      <h3 class="section_title">Social Media</h3>
-      <MasterIcon
-        svgName="message"
-        size="medium"
-        fillColor="var(--bg-color)"
-        :hoverInverse="true"
-      />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="social_line" v-for="(line, i) in socialMedia" :key="i">
-      <MasterIcon
-        :svgName="line.iconName"
-        size="medium"
-        fillColor="var(--glob-dark)"
-        :hoverInverse="true"
-        bgColor="var(--theme-color)"
-        :title="line.iName"
-        :labelAfter="line.iValue"
-      />
-    </div>
-  </div>
+  <DeveloperContact :devContact="devContact" sectionTitle="Contact" />
+  <DeveloperEducation :devEducation="devEducation" sectionTitle="Education" />
+  <DeveloperSocials :devSocials="devSocials" sectionTitle="Social Media" />
   <MasterPrintBreak />
-
-  <div class="personal_details dev_skills">
-    <span class="print_margin"></span>
-    <div class="flex-between">
-      <h3 class="section_title">Skills</h3>
-      <MasterIcon svgName="skills" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="skills_line">
-      <DetailsBadge
-        v-for="(line, i) in devSkills"
-        :key="i"
-        class="skill_name"
-        :content="line"
-        textColor="var(--item-color)"
-        bgColor="var(--theme-color)"
-      />
-    </div>
-  </div>
-
-  <div class="personal_details dev_expertise">
-    <div class="flex-between">
-      <h3 class="section_title">Expertise</h3>
-      <MasterIcon svgName="expert" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="expertise_line">
-      <span v-for="(line, i) in devExpertise" :key="i" class="expertise_name">
-        {{ i + 1 + '. ' + line }}
-      </span>
-    </div>
-  </div>
-
-  <div class="personal_details dev_hobbies">
-    <div class="flex-between">
-      <h3 class="section_title">Hobbies</h3>
-      <MasterIcon
-        svgName="support"
-        size="medium"
-        fillColor="var(--bg-color)"
-        :hoverInverse="true"
-      />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="hobbies_line">
-      <span v-for="(line, i) in devHobbies" :key="i" class="hobbies_name">
-        <MasterIcon
-          :svgName="line.iconName"
-          size="large"
-          fillColor="var(--item-color)"
-          :hoverInverse="true"
-          roundSpace="10%"
-          bgColor="var(--theme-color)"
-          :title="line.iName"
-        />
-        <label>{{ line.iName }}</label>
-      </span>
-    </div>
-  </div>
-
-  <div class="personal_details dev_refs">
-    <div class="flex-between">
-      <h3 class="section_title">References</h3>
-      <MasterIcon
-        svgName="friends"
-        size="medium"
-        fillColor="var(--bg-color)"
-        :hoverInverse="true"
-      />
-    </div>
-    <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
-    <div class="refs_line">
-      <ReferenceDetails />
-    </div>
-  </div>
+  <DeveloperSkills :devSkills="devSkills" sectionTitle="Skills" />
+  <DeveloperExpertise :devExpertise="devExpertise" sectionTitle="Expertise" />
+  <DeveloperHobbies :devHobbies="devHobbies" sectionTitle="Hobbies" />
+  <DeveloperReferences :devRefs="devRefs" sectionTitle="References" />
 </template>
-
-<style lang="scss" scoped>
-@mixin parentBox() {
-  display: flex;
-  flex-direction: column;
-  padding: 0 2rem;
-  margin-bottom: 2rem;
-
-  .section_title {
-    padding-left: px2rem(5);
-  }
-}
-
-.personal_details {
-  @include parentBox();
-}
-
-.dev_contact .contact_line {
-  display: flex;
-  align-items: center;
-  padding: 0.25rem;
-
-  .line_name {
-    padding-left: px2rem(10);
-  }
-}
-
-.dev_education .education_line {
-  padding-left: px2rem(5);
-
-  .passed_year {
-    display: block;
-  }
-}
-
-.dev_social .social_line {
-  padding: px2rem(10) 0;
-
-  .svg-holder {
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
-  .social_id {
-    padding-left: px2rem(10);
-  }
-}
-
-.dev_skills .skills_line {
-  padding: 0.25rem;
-
-  .skill_name {
-    display: inline-block;
-    margin: 0 px2rem(5) px2rem(5) 0;
-  }
-}
-
-.dev_expertise .expertise_line {
-  padding: 0.25rem;
-
-  .expertise_name {
-    display: block;
-    padding: px2rem(10) 0;
-    text-transform: uppercase;
-    font-weight: bolder;
-  }
-}
-
-.dev_hobbies .hobbies_line {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: px2rem(8);
-
-  .hobbies_name {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    label {
-      margin-top: px2rem(8);
-    }
-  }
-}
-
-.dev_refs .refs_line {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-</style>

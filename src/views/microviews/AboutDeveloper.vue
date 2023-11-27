@@ -19,7 +19,7 @@ defineProps({
     <div class="flex-between">
       <h1 class="section_title">{{ sectionTitle }}</h1>
       <MasterIcon
-        svgName="done-all"
+        svgName="others-list"
         size="medium"
         fillColor="var(--item-color)"
         :hoverInverse="true"

@@ -178,15 +178,6 @@
   font-size: $size;
 }
 
-@mixin AmountType {
-  color: var(--white);
-  padding: px2rem(3) px2rem(6);
-  border-radius: var(--radius-default);
-  margin: auto;
-  line-height: 1;
-  min-width: px2rem(200);
-}
-
 @mixin formControl($height: 40) {
   font-size: 1rem;
   font-weight: 400;
@@ -432,4 +423,15 @@
   -webkit-line-clamp: $numLines;
   -webkit-box-orient: vertical;
   line-height: $lineHeight;
+}
+
+@mixin personalDetailsBox() {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+
+  .section_title {
+    padding-left: px2rem(5);
+  }
 }

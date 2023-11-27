@@ -1833,8 +1833,20 @@ span.err {
   font-size: var(--x-small);
 }
 
+.thin-text {
+  font-weight: 100;
+}
+
+.d-block {
+  display: block;
+}
+
 .section_title,
 .section_title>* {
   font-family: var(--secondary-font-family);
   text-transform: uppercase;
+}
+
+.personal_details {
+  @include personalDetailsBox();
 }

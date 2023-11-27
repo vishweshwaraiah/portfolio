@@ -37,7 +37,7 @@ const PersonalDetails = {
       year: '2006-2008',
       institute: 'Basaveshwar Science College',
       location: 'Bagalokote',
-      name: 'Pre-University School'
+      name: 'Pre-University College'
     },
     {
       year: '2008-2012',
@@ -90,8 +90,9 @@ const PersonalDetails = {
   expertise: [
     'Web Developement',
     'JavaScript',
+    'Recat JS / Vue JS',
     'Object Oriented Methodologies',
-    'CSS/SCSS',
+    'Cascading Style Sheets / SCSS',
     'Project Management'
   ],
   hobbies: [
