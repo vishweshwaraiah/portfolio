@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "deploy": "cd dist && cp index.html 404.html",
+    "build": "vite build && npm run deploy",
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "deploy": "cd dist && cp index.html 404.html && cd ../../ && cp -r portfolio/dist/* vishweshwaraiah.github.io/"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "pinia": "^2.1.7",

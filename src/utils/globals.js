@@ -324,27 +324,32 @@ export const classNames = (clsArray) => {
   return classes
 }
 
-export const dateDifference = (startingDate, endingDate) => {
-  let startDate = new Date(new Date(startingDate).toISOString().slice(0, 10))
-  if (!endingDate) {
-    endingDate = new Date().toISOString().slice(0, 10) // need date in YYYY-MM-DD format
+export const dateDiffer = (props) => {
+  let { startedDate, endedDate, format = 'YMD' } = props
+  let startDate = new Date(new Date(startedDate).toISOString().slice(0, 10))
+  if (!endedDate) {
+    endedDate = new Date().toISOString().slice(0, 10) // get date in YYYY-MM-DD format
   }
-  let endDate = new Date(endingDate)
+  let endDate = new Date(endedDate)
   if (startDate > endDate) {
     const swap = startDate
     startDate = endDate
     endDate = swap
   }
+
   const startYear = startDate.getFullYear()
+  const endYear = endDate.getFullYear()
   const february = (startYear % 4 === 0 && startYear % 100 !== 0) || startYear % 400 === 0 ? 29 : 28
+
   const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-  let yearDiff = endDate.getFullYear() - startYear
+  let yearDiff = endYear - startYear
   let monthDiff = endDate.getMonth() - startDate.getMonth()
   if (monthDiff < 0) {
     yearDiff--
     monthDiff += 12
   }
+
   let dayDiff = endDate.getDate() - startDate.getDate()
   if (dayDiff < 0) {
     if (monthDiff > 0) {
@@ -356,5 +361,13 @@ export const dateDifference = (startingDate, endingDate) => {
     dayDiff += daysInMonth[startDate.getMonth()]
   }
 
-  return yearDiff + ' Years ' + monthDiff + ' Months ' + dayDiff + ' Days'
+  if (format === 'Y.M') {
+    return yearDiff + '.' + monthDiff + ' Years '
+  } else if (format === 'YM') {
+    return yearDiff + ' Years ' + monthDiff + ' Months '
+  } else if (format === 'Y+') {
+    return yearDiff + '+ Years '
+  } else {
+    return yearDiff + ' Years ' + monthDiff + ' Months ' + dayDiff + ' Days'
+  }
 }

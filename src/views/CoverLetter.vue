@@ -25,7 +25,7 @@ const sectionTitle = 'Cover Letter'
 <template>
   <MasterTemplate class="cover_letter">
     <template #sidebar>
-      <DeveloperPicture />
+      <DeveloperPicture :hasTriangle="true" />
       <DeveloperContact :devContact="devContact" sectionTitle="Contact" />
     </template>
     <template #content>

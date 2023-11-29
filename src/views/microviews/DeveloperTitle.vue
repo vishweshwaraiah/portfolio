@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { dateDifference } from '@/utils/globals.js'
+import { dateDiffer } from '@/utils/globals.js'
 
 defineProps({
   title: {
@@ -12,11 +12,11 @@ defineProps({
     type: String
   }
 })
-const startedDate = new Date('January 2013')
+const startedDate = new Date('January 2013Z')
 const expYears = ref('')
 
 onMounted(() => {
-  const diffDate = dateDifference(startedDate, new Date())
+  const diffDate = dateDiffer({ startedDate, format: 'YM' })
   expYears.value = diffDate
 })
 </script>

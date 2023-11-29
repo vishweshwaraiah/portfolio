@@ -9,6 +9,10 @@ const props = defineProps({
 const breakClass = () => {
   if (props.action === 'always') {
     return 'page_break'
+  } else if (props.action === 'break_before') {
+    return 'break_before'
+  } else if (props.action === 'break_after') {
+    return 'break_after'
   } else {
     return 'avoid_break'
   }
@@ -28,6 +32,14 @@ const breakClass = () => {
 
   .avoid_break {
     page-break-inside: avoid;
+  }
+
+  .break_before {
+    page-break-before: always;
+  }
+
+  .break_after {
+    break-after: page;
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup>
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
+import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 
 defineProps({
   devRefs: {
@@ -60,6 +61,7 @@ defineProps({
         </span>
       </div>
     </div>
+    <MasterPrintBreak action="break_after" />
   </div>
 </template>
 
