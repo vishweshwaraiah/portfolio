@@ -30,5 +30,6 @@ import MasterButton from '@/components/MasterButton.vue'
   font-size: 1rem;
   height: 100vh;
   background-color: var(--theme-color);
+  padding: 5vw;
 }
 </style>

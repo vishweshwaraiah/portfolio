@@ -362,12 +362,12 @@ export const dateDiffer = (props) => {
   }
 
   if (format === 'Y.M') {
-    return yearDiff + '.' + monthDiff + ' Years '
+    return yearDiff + '.' + monthDiff + ' years '
   } else if (format === 'YM') {
-    return yearDiff + ' Years ' + monthDiff + ' Months '
+    return yearDiff + ' years ' + monthDiff + ' months '
   } else if (format === 'Y+') {
-    return yearDiff + '+ Years '
+    return yearDiff + '+ years '
   } else {
-    return yearDiff + ' Years ' + monthDiff + ' Months ' + dayDiff + ' Days'
+    return yearDiff + ' years ' + monthDiff + ' months ' + dayDiff + ' days'
   }
 }

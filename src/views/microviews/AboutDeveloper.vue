@@ -1,6 +1,11 @@
 <script setup>
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
+import { dateDiffer } from '@/utils/globals.js'
+
+const startedDate = new Date('January 2013Z')
+
+const diffDate = dateDiffer({ startedDate, format: 'Y+' })
 
 defineProps({
   content: {
@@ -30,7 +35,7 @@ defineProps({
       {{ content.developer_aim }}
     </p>
     <p class="developer_exp" v-if="content.developer_exp">
-      {{ content.developer_exp }}
+      {{ `${diffDate} ${content.developer_exp}` }}
     </p>
   </div>
 </template>
