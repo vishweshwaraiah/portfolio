@@ -22,7 +22,7 @@ defineProps({
         svgName="contact"
         size="medium"
         fillColor="var(--bg-color)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -31,7 +31,7 @@ defineProps({
         :svgName="line.iconName"
         size="small"
         fillColor="var(--glob-dark)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
         roundSpace="5px"
         bgColor="var(--theme-color)"
         :title="line.iName"

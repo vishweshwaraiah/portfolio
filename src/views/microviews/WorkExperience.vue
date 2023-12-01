@@ -24,7 +24,7 @@ const props = defineProps({
         svgName="company"
         size="medium"
         fillColor="var(--item-color)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
       />
     </div>
     <MasterHrLine thickness="2px" />
@@ -53,7 +53,7 @@ const props = defineProps({
               svgName="company"
               size="small"
               fillColor="var(--item-color)"
-              :hoverInverse="true"
+              hoverColor="var(--theme-color)"
             />
             <span class="px-2">{{ item.job_company }}</span>
           </span>
@@ -62,7 +62,7 @@ const props = defineProps({
               svgName="family-house"
               size="small"
               fillColor="var(--item-color)"
-              :hoverInverse="true"
+              hoverColor="var(--theme-color)"
             />
             <span class="px-2">{{ item.job_location }}</span>
           </span>

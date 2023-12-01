@@ -30,7 +30,12 @@ const fromDeveloper = letterContent.from_developer
   <div class="cover_letter">
     <div class="flex-between">
       <h1 class="section_title">{{ sectionTitle }}</h1>
-      <MasterIcon svgName="user" size="medium" fillColor="var(--item-color)" :hoverInverse="true" />
+      <MasterIcon
+        svgName="user"
+        size="medium"
+        fillColor="var(--item-color)"
+        hoverColor="var(--theme-color)"
+      />
     </div>
     <MasterHrLine thickness="2px" />
     <div class="letter_content">

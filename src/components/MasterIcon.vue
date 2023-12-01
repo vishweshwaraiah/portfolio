@@ -19,9 +19,9 @@ const props = defineProps({
     default: 'var(--item-color)',
     type: String
   },
-  hoverInverse: {
-    default: false,
-    type: Boolean
+  hoverColor: {
+    default: '',
+    type: String
   },
   roundSpace: {
     default: '',
@@ -54,7 +54,7 @@ const svgWrapper = computed(() => {
     defaults.push(props.class)
   }
 
-  if (props.hoverInverse) {
+  if (props.hoverColor) {
     defaults.push('hover-inverse')
   }
 
@@ -99,7 +99,7 @@ const getSize = computed(() => {
 
   &.hover-inverse {
     &:hover svg {
-      fill: v-bind(bgColor);
+      fill: v-bind(hoverColor);
     }
   }
 

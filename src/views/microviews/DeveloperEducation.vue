@@ -19,7 +19,12 @@ defineProps({
   <div class="personal_details dev_education">
     <div class="flex-between">
       <h3 class="section_title">{{ sectionTitle }}</h3>
-      <MasterIcon svgName="degree" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
+      <MasterIcon
+        svgName="degree"
+        size="medium"
+        fillColor="var(--bg-color)"
+        hoverColor="var(--theme-color)"
+      />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
     <div class="education_line" v-for="(line, i) in devEducation" :key="i">
@@ -38,7 +43,7 @@ defineProps({
           svgName="school-college"
           size="x-small"
           fillColor="var(--bg-color)"
-          :hoverInverse="true"
+          hoverColor="var(--theme-color)"
         />
         {{ line.institute }}
       </div>
@@ -47,7 +52,7 @@ defineProps({
           svgName="location"
           size="x-small"
           fillColor="var(--bg-color)"
-          :hoverInverse="true"
+          hoverColor="var(--theme-color)"
         />
         {{ line.location }}
       </div>

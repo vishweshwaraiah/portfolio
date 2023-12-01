@@ -18,7 +18,12 @@ defineProps({
   <div class="personal_details dev_expertise">
     <div class="flex-between">
       <h3 class="section_title">{{ sectionTitle }}</h3>
-      <MasterIcon svgName="expert" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
+      <MasterIcon
+        svgName="expert"
+        size="medium"
+        fillColor="var(--bg-color)"
+        hoverColor="var(--theme-color)"
+      />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
     <div class="expertise_line">

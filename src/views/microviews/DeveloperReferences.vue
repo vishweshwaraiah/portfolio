@@ -23,7 +23,7 @@ defineProps({
         svgName="friends"
         size="medium"
         fillColor="var(--bg-color)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -46,7 +46,7 @@ defineProps({
             svgName="phone-call"
             size="x-small"
             fillColor="var(--item-color)"
-            :hoverInverse="true"
+            hoverColor="var(--theme-color)"
           />
           {{ refdetail.ref_mobile }}
         </span>
@@ -55,7 +55,7 @@ defineProps({
             svgName="email-small"
             size="x-small"
             fillColor="var(--item-color)"
-            :hoverInverse="true"
+            hoverColor="var(--theme-color)"
           />
           {{ refdetail.ref_email }}
         </span>

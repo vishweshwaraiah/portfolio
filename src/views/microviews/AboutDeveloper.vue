@@ -27,7 +27,7 @@ defineProps({
         svgName="others-list"
         size="medium"
         fillColor="var(--item-color)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
       />
     </div>
     <MasterHrLine thickness="2px" />

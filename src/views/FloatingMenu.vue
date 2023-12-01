@@ -74,7 +74,7 @@ const printPage = () => {
               fillColor="var(--item-color)"
               size="small"
               title="Print Page"
-              :hoverInverse="true"
+              hoverColor="var(--theme-color)"
             />
           </RouterLink>
           <RouterLink class="flex-between" to="/coverletter" @click="methodClick">
@@ -86,7 +86,7 @@ const printPage = () => {
               fillColor="var(--item-color)"
               size="small"
               title="Print Page"
-              :hoverInverse="true"
+              hoverColor="var(--theme-color)"
             />
           </RouterLink>
           <RouterLink to="/about" @click="methodClick">About</RouterLink>

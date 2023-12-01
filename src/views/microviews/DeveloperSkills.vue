@@ -20,7 +20,12 @@ defineProps({
     <span class="print_margin"></span>
     <div class="flex-between">
       <h3 class="section_title">{{ sectionTitle }}</h3>
-      <MasterIcon svgName="skills" size="medium" fillColor="var(--bg-color)" :hoverInverse="true" />
+      <MasterIcon
+        svgName="skills"
+        size="medium"
+        fillColor="var(--bg-color)"
+        hoverColor="var(--theme-color)"
+      />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
     <div class="skills_line">

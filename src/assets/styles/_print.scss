@@ -1,10 +1,16 @@
 @media print {
+
+  @page wide {
+    size: a4 landscape;
+  }
+
   @page {
     page: wide;
     margin: 0;
     size: A4;
     width: 100%;
     height: auto;
+    float: none;
   }
 
   aside,
@@ -28,14 +34,22 @@
     top: 0;
   }
 
+  main {
+    min-height: 100%;
+  }
+
   html,
   body {
+    display: block;
     width: 100%;
     height: 100%;
     margin: 0;
     font-size: 8pt;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    float: none;
+    background: var(--sidebar-bg-color);
+    background-size: cover;
 
     .main {
       &_sidebar {
@@ -58,7 +72,7 @@
       display: block;
     }
 
-    .master_title > .exp_years {
+    .master_title>.exp_years {
       margin-top: 5pt;
     }
 

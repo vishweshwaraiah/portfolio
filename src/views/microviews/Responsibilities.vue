@@ -2,6 +2,7 @@
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import useResponsibilitiesStore from '@/stores/responsibilities.js'
+import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 
 const responsibilities = useResponsibilitiesStore()
 const devRnRs = responsibilities.getResponsibilities
@@ -15,7 +16,7 @@ const devRnRs = responsibilities.getResponsibilities
         svgName="tasks-dark"
         size="medium"
         fillColor="var(--item-color)"
-        :hoverInverse="true"
+        hoverColor="var(--theme-color)"
       />
     </div>
     <MasterHrLine thickness="2px" />
@@ -25,6 +26,7 @@ const devRnRs = responsibilities.getResponsibilities
       </span>
     </div>
   </div>
+  <MasterPrintBreak action="always" />
 </template>
 
 <style lang="scss" scoped>
