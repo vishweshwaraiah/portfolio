@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 const useExperiencesStore = defineStore('experiences', () => {
   const experiences = ref([
     {
-      badge_content: {
+      exp_details: {
         from: 'Oct 2021',
         to: 'Present',
         type: 'Full-Time'
@@ -19,7 +19,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       print_margin: false
     },
     {
-      badge_content: {
+      exp_details: {
         from: 'Oct 2019',
         to: 'Oct 2021',
         type: 'Full-Time'
@@ -34,7 +34,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       print_margin: false
     },
     {
-      badge_content: {
+      exp_details: {
         from: 'Apr 2018',
         to: 'Aug 2019',
         type: 'Full-Time'
@@ -49,7 +49,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       print_margin: false
     },
     {
-      badge_content: {
+      exp_details: {
         from: 'Jan 2017',
         to: 'Mar 2018',
         type: 'Full-Time'
@@ -73,7 +73,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       print_margin: true // bcz we had a page break in previous item
     },
     {
-      badge_content: {
+      exp_details: {
         from: 'Jun 2014',
         to: 'Nov 2016',
         type: 'Full-Time'
@@ -88,7 +88,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       print_margin: false
     },
     {
-      badge_content: {
+      exp_details: {
         from: 'Jan 2017',
         to: 'Mar 2018',
         type: 'Full-Time'

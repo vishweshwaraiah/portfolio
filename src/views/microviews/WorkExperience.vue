@@ -1,4 +1,5 @@
 <script setup>
+import { dateDiffer } from '@/utils/globals.js'
 import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
@@ -32,13 +33,21 @@ const props = defineProps({
       <div class="work_header">
         <DetailsBadge
           class="work_duration"
-          :content="item.badge_content"
+          :content="item.exp_details"
           textColor="var(--glob-dark)"
           bgColor="var(--theme-color)"
           :isFantasy="true"
         />
         <div class="work_designation">
-          <h3 class="job_title">{{ item.job_title }}</h3>
+          <div class="job_title">
+            <h3>{{ item.job_title }}</h3>
+            <span class="exp_badge">
+              For
+              {{
+                dateDiffer({ from: item.exp_details.from, to: item.exp_details.to, format: 'Y+' })
+              }}
+            </span>
+          </div>
           <span class="job_company">
             <MasterIcon
               svgName="company"
@@ -103,9 +112,17 @@ const props = defineProps({
       min-width: 80%;
 
       .job_title {
+        display: flex;
         text-transform: uppercase;
         font-family: var(--secondary-font-family);
         margin-bottom: 1rem;
+        align-items: baseline;
+
+        .exp_badge {
+          display: inline-block;
+          margin-left: 0.5rem;
+          margin-bottom: 0.25rem;
+        }
       }
 
       .job_company,

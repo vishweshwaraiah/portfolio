@@ -3,9 +3,9 @@ import { defineStore } from 'pinia'
 import { dateDiffer } from '@/utils/globals.js'
 
 const useCoverLetterStore = defineStore('coverletter', () => {
-  const startedDate = new Date('January 2013Z')
+  const from = new Date('January 2013Z')
 
-  const diffDate = dateDiffer({ startedDate, format: 'Y+' })
+  const diffDate = dateDiffer({ from, format: 'Y+' })
 
   const coverletter = ref({
     appliedRole: 'Full-stack Developer',

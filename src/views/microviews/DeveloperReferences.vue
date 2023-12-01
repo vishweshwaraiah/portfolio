@@ -70,7 +70,8 @@ defineProps({
   .refs_details {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    margin: 0.625rem 0;
+    gap: 1rem;
 
     .refs_line {
       background-color: var(--theme-color);

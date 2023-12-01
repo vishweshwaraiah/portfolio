@@ -325,12 +325,12 @@ export const classNames = (clsArray) => {
 }
 
 export const dateDiffer = (props) => {
-  let { startedDate, endedDate, format = 'YMD' } = props
-  let startDate = new Date(new Date(startedDate).toISOString().slice(0, 10))
-  if (!endedDate) {
-    endedDate = new Date().toISOString().slice(0, 10) // get date in YYYY-MM-DD format
+  let { from, to, format = 'YMD' } = props
+  let startDate = new Date(new Date(from).toISOString().slice(0, 10))
+  if (!to || to.toLowerCase() === 'present') {
+    to = new Date().toISOString().slice(0, 10) // get date in YYYY-MM-DD format
   }
-  let endDate = new Date(endedDate)
+  let endDate = new Date(to)
   if (startDate > endDate) {
     const swap = startDate
     startDate = endDate
@@ -361,13 +361,17 @@ export const dateDiffer = (props) => {
     dayDiff += daysInMonth[startDate.getUTCMonth()]
   }
 
+  const ydt = yearDiff > 1 ? yearDiff + ' years ' : yearDiff + ' year '
+  const mdt = monthDiff > 1 ? monthDiff + ' months ' : monthDiff + ' month '
+  const ddt = dayDiff > 1 ? dayDiff + ' days ' : dayDiff + ' day '
+
   if (format === 'Y.M') {
     return yearDiff + '.' + monthDiff + ' years '
   } else if (format === 'YM') {
-    return yearDiff + ' years ' + monthDiff + ' months '
+    return ydt + mdt
   } else if (format === 'Y+') {
     return yearDiff + '+ years '
   } else {
-    return yearDiff + ' years ' + monthDiff + ' months ' + dayDiff + ' days'
+    return ydt + mdt + ddt
   }
 }

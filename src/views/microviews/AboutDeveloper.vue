@@ -3,9 +3,9 @@ import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import { dateDiffer } from '@/utils/globals.js'
 
-const startedDate = new Date('January 2013Z')
+const from = new Date('January 2013Z')
 
-const diffDate = dateDiffer({ startedDate, format: 'Y+' })
+const diffDate = dateDiffer({ from, format: 'Y+' })
 
 defineProps({
   content: {

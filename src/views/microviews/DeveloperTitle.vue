@@ -12,11 +12,11 @@ defineProps({
     type: String
   }
 })
-const startedDate = new Date('January 2013Z')
+const from = new Date('January 2013Z')
 const expYears = ref('')
 
 onMounted(() => {
-  const diffDate = dateDiffer({ startedDate, format: 'YM' })
+  const diffDate = dateDiffer({ from, format: 'YM' })
   expYears.value = diffDate
 })
 </script>
