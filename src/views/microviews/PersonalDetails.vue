@@ -1,9 +1,9 @@
 <script setup>
 import useContactStore from '@/stores/contact.js'
 import useEducationStore from '@/stores/education.js'
+import useSocialsStore from '@/stores/socials.js'
 import useSkillsStore from '@/stores/skills.js'
 import useExpertiseStore from '@/stores/expertise.js'
-import useSocialsStore from '@/stores/socials.js'
 import useHobbiesStore from '@/stores/hobbies.js'
 import useRefsStore from '@/stores/references.js'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
@@ -12,8 +12,8 @@ import DeveloperEducation from '@/views/microviews/DeveloperEducation.vue'
 import DeveloperSocials from '@/views/microviews/DeveloperSocials.vue'
 import DeveloperSkills from '@/views/microviews/DeveloperSkills.vue'
 import DeveloperExpertise from '@/views/microviews/DeveloperExpertise.vue'
-import DeveloperReferences from '@/views/microviews/DeveloperReferences.vue'
 import DeveloperHobbies from '@/views/microviews/DeveloperHobbies.vue'
+import DeveloperReferences from '@/views/microviews/DeveloperReferences.vue'
 
 const contact = useContactStore()
 const education = useEducationStore()

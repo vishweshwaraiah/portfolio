@@ -1,20 +1,20 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { dateDiffer } from '@/utils/globals.js'
 
 const useCoverLetterStore = defineStore('coverletter', () => {
-  const coverletter = ref({
-    to_address: {
-      to_name: 'Dear Hiring Manager,',
-      addr_lines: [
-        'Flat 12061, Building 1, Tower 2',
-        'Prestige Jindal City, Anchepalya',
-        'Near Parle Toll',
-        'Bengaluru - 560073'
-      ]
-    },
+  const startedDate = new Date('January 2013Z')
 
-    intro_desc:
-      'I am writing to express my interest in the Full Stack Developer position at your company. I have 10 years of experience in developing and maintaining web applications using various technologies and frameworks.',
+  const diffDate = dateDiffer({ startedDate, format: 'Y+' })
+
+  const coverletter = ref({
+    appliedRole: 'Full-stack Developer',
+    hirerName: 'Hiring Manager',
+    addrLine1: 'Flat 12061, Building 1, Tower 2',
+    addrLine2: 'Prestige Jindal City, Anchepalya',
+    addrLine3: 'Near Parle Toll',
+    addrLine4: 'Bengaluru - 560073',
+    intro_desc: `I am writing to express my interest in the Full-stack Developer position at your company. I have ${diffDate} of experience in developing and maintaining web applications using various technologies and frameworks.`,
 
     expertise_desc:
       'As a full stack developer, I have expertise in both front-end and back-end development, as well as database management and deployment. Some of the skills and tools that I use include HTML, CSS, JavaScript, React Js, Vue Js, Node.js, MongoDB, AWS, Git, and Agile methodologies. I have successfully delivered several projects for clients across different domains and industries, such as e-commerce, education, healthcare, and social media.',
@@ -31,9 +31,11 @@ const useCoverLetterStore = defineStore('coverletter', () => {
     from_developer: 'Vishweshwarayya K J'
   })
 
-  const getCoverLetter = computed(() => coverletter.value)
+  const letterContent = computed(() => coverletter.value)
 
-  return { getCoverLetter }
+  return {
+    letterContent
+  }
 })
 
 export default useCoverLetterStore
