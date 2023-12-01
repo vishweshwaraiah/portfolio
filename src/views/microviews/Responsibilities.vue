@@ -1,7 +1,10 @@
 <script setup>
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
-import Responsibilities from '@/stores/data/Responsibilities.js'
+import useResponsibilitiesStore from '@/stores/responsibilities.js'
+
+const responsibilities = useResponsibilitiesStore()
+const devRnRs = responsibilities.getResponsibilities
 </script>
 
 <template>
@@ -17,7 +20,7 @@ import Responsibilities from '@/stores/data/Responsibilities.js'
     </div>
     <MasterHrLine thickness="2px" />
     <div class="roles_resp_list">
-      <span v-for="(item, idx) in Responsibilities" :key="idx">
+      <span v-for="(item, idx) in devRnRs" :key="idx">
         {{ idx + 1 + '. ' + item }}
       </span>
     </div>

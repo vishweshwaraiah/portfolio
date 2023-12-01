@@ -5,11 +5,15 @@ import WorkExperience from '@/views/microviews/WorkExperience.vue'
 import DeveloperPicture from '@/views/microviews/DeveloperPicture.vue'
 import AboutDeveloper from '@/views/microviews/AboutDeveloper.vue'
 import PersonalDetails from '@/views/microviews/PersonalDetails.vue'
-import WorkExpList from '@/stores/data/WorkExperience.js'
-import AboutDev from '@/stores/data/AboutDeveloper.js'
-import PersonalData from '@/stores/data/PersonalDetails.js'
-import References from '@/stores/data/ReferenceDetails.js'
+import useExperiencesStore from '@/stores/experiences.js'
+import useAboutDevStore from '@/stores/aboutdev.js'
 import Responsibilities from '@/views/microviews/Responsibilities.vue'
+
+const aboutDev = useAboutDevStore()
+const aboutDevData = aboutDev.getAboutDev
+
+const experiences = useExperiencesStore()
+const experiencesData = experiences.getExperiences
 
 const subTitle = 'Senior Fullstack Developer'
 const devTitle = 'Vishweshwarayya K J'
@@ -20,12 +24,12 @@ const sectionTitle = 'Work Experience'
   <MasterTemplate class="my_resume">
     <template #sidebar>
       <DeveloperPicture :hasTriangle="true" />
-      <PersonalDetails :details="PersonalData" :developerRefs="References" />
+      <PersonalDetails />
     </template>
     <template #content>
-      <AboutDeveloper :content="AboutDev" />
+      <AboutDeveloper :content="aboutDevData" />
       <DeveloperTitle :title="devTitle" :subtitle="subTitle" />
-      <WorkExperience :sectionTitle="sectionTitle" :workExpList="WorkExpList" />
+      <WorkExperience :sectionTitle="sectionTitle" :workExpList="experiencesData" />
       <Responsibilities />
     </template>
   </MasterTemplate>

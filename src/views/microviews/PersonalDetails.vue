@@ -1,6 +1,11 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { IsValidObject } from '@/utils/globals.js'
+import useContactStore from '@/stores/contact.js'
+import useEducationStore from '@/stores/education.js'
+import useSkillsStore from '@/stores/skills.js'
+import useExpertiseStore from '@/stores/expertise.js'
+import useSocialsStore from '@/stores/socials.js'
+import useHobbiesStore from '@/stores/hobbies.js'
+import useRefsStore from '@/stores/references.js'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 import DeveloperContact from '@/views/microviews/DeveloperContact.vue'
 import DeveloperEducation from '@/views/microviews/DeveloperEducation.vue'
@@ -10,36 +15,21 @@ import DeveloperExpertise from '@/views/microviews/DeveloperExpertise.vue'
 import DeveloperReferences from '@/views/microviews/DeveloperReferences.vue'
 import DeveloperHobbies from '@/views/microviews/DeveloperHobbies.vue'
 
-const props = defineProps({
-  details: {
-    default: () => {},
-    type: Object
-  },
-  developerRefs: {
-    default: () => [],
-    type: Array
-  }
-})
+const contact = useContactStore()
+const education = useEducationStore()
+const skills = useSkillsStore()
+const expertise = useExpertiseStore()
+const socials = useSocialsStore()
+const hobbies = useHobbiesStore()
+const references = useRefsStore()
 
-const devContact = ref([])
-const devEducation = ref([])
-const devSocials = ref([])
-const devSkills = ref([])
-const devExpertise = ref([])
-const devHobbies = ref([])
-const devRefs = ref([])
-
-onMounted(() => {
-  if (IsValidObject(props.details)) {
-    devContact.value = props.details.contact
-    devEducation.value = props.details.education
-    devSocials.value = props.details.social
-    devSkills.value = props.details.skills
-    devExpertise.value = props.details.expertise
-    devHobbies.value = props.details.hobbies
-    devRefs.value = props.developerRefs
-  }
-})
+const devContact = contact.getContact
+const devEducation = education.getEducation
+const devSocials = socials.getSocials
+const devSkills = skills.getSkills
+const devExpertise = expertise.getExpertise
+const devHobbies = hobbies.getHobbies
+const devRefs = references.getReferences
 </script>
 
 <template>

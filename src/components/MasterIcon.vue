@@ -16,7 +16,7 @@ const props = defineProps({
     type: String
   },
   fillColor: {
-    default: '',
+    default: 'var(--item-color)',
     type: String
   },
   hoverInverse: {
@@ -99,13 +99,13 @@ const getSize = computed(() => {
 
   &.hover-inverse {
     &:hover svg {
-      fill: var(--bg-color);
+      fill: v-bind(bgColor);
     }
   }
 
   &.is_rounded {
     padding: v-bind(roundSpace);
-    background: v-bind('bgColor');
+    background: v-bind(bgColor);
     border-radius: 50%;
   }
 

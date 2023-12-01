@@ -337,20 +337,20 @@ export const dateDiffer = (props) => {
     endDate = swap
   }
 
-  const startYear = startDate.getFullYear()
-  const endYear = endDate.getFullYear()
+  const startYear = startDate.getUTCFullYear()
+  const endYear = endDate.getUTCFullYear()
   const february = (startYear % 4 === 0 && startYear % 100 !== 0) || startYear % 400 === 0 ? 29 : 28
 
   const daysInMonth = [31, february, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
   let yearDiff = endYear - startYear
-  let monthDiff = endDate.getMonth() - startDate.getMonth()
+  let monthDiff = endDate.getUTCMonth() - startDate.getUTCMonth()
   if (monthDiff < 0) {
     yearDiff--
     monthDiff += 12
   }
 
-  let dayDiff = endDate.getDate() - startDate.getDate()
+  let dayDiff = endDate.getUTCDate() - startDate.getUTCDate()
   if (dayDiff < 0) {
     if (monthDiff > 0) {
       monthDiff--
@@ -358,7 +358,7 @@ export const dateDiffer = (props) => {
       yearDiff--
       monthDiff = 11
     }
-    dayDiff += daysInMonth[startDate.getMonth()]
+    dayDiff += daysInMonth[startDate.getUTCMonth()]
   }
 
   if (format === 'Y.M') {
