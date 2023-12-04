@@ -16,7 +16,7 @@ const from = new Date('January 2013Z')
 const expYears = ref('')
 
 onMounted(() => {
-  const diffDate = dateDiffer({ from, format: 'YM' })
+  const diffDate = dateDiffer({ from, format: 'Y+' })
   expYears.value = diffDate
 })
 </script>

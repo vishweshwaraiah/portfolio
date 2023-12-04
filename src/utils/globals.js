@@ -324,6 +324,28 @@ export const classNames = (clsArray) => {
   return classes
 }
 
+export const monthsToYears = (months) => {
+  return Math.floor(months / 12) + ' years and ' + (months % 12) + ' months'
+}
+
+export const monthDiffer = (d1, d2) => {
+  if (typeof d1 === 'string' && d1.toLowerCase() === 'present') {
+    d1 = new Date()
+  } else {
+    d1 = new Date(d1)
+  }
+  if (typeof d2 === 'string' && d2.toLowerCase() === 'present') {
+    d2 = new Date()
+  } else {
+    d2 = new Date(d2)
+  }
+  let months
+  months = (d2.getFullYear() - d1.getFullYear()) * 12
+  months -= d1.getMonth() + 1
+  months += d2.getMonth()
+  return months <= 0 ? 0 : months
+}
+
 export const dateDiffer = (props) => {
   let { from, to, format = 'YMD' } = props
   let startDate = new Date(new Date(from).toISOString().slice(0, 10))
