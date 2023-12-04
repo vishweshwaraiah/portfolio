@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   action: {
     default: 'always',
@@ -6,21 +8,21 @@ const props = defineProps({
   }
 })
 
-const breakClass = () => {
-  if (props.action === 'always') {
-    return 'page_break'
+const breakClass = computed(() => {
+  if (props.action === 'avoid') {
+    return 'avoid_break'
   } else if (props.action === 'break_before') {
     return 'break_before'
   } else if (props.action === 'break_after') {
     return 'break_after'
   } else {
-    return 'avoid_break'
+    return 'page_break'
   }
-}
+})
 </script>
 
 <template lang="html">
-  <div :class="breakClass()"></div>
+  <div :class="breakClass"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -32,14 +34,18 @@ const breakClass = () => {
 
   .avoid_break {
     page-break-inside: avoid;
+    page-break-after: avoid;
+    page-break-before: avoid;
   }
 
   .break_before {
+    break-before: always;
     page-break-before: always;
   }
 
   .break_after {
-    break-after: page;
+    break-after: always;
+    page-break-after: always;
   }
 }
 </style>

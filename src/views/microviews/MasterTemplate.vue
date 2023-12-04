@@ -13,28 +13,24 @@
 
 <style lang="scss" scoped>
 .main_template {
-  display: flex;
+  display: grid;
+  grid-template-columns: fit-content(30vw) 1fr;
+  width: 100vw;
+  height: 100vh;
 
   @mixin commonCode {
     position: relative;
-    flex: 1 0 auto;
     height: auto;
-    padding-bottom: 2rem;
   }
   .main {
     &_sidebar {
       @include commonCode();
-      display: flex;
-      flex-direction: column;
-      width: calc(30vw);
       background: var(--sidebar-bg-color);
       color: var(--sidebar-txt-color);
     }
 
     &_content {
       @include commonCode();
-      display: block;
-      width: calc(70vw);
       background: var(--bg-color);
       color: var(--item-color);
     }

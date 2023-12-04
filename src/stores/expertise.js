@@ -5,9 +5,9 @@ const useExpertiseStore = defineStore('expertise', () => {
   const expertise = ref([
     'Web Developement',
     'JavaScript',
-    'Recat JS / Vue JS',
-    'Object Oriented Methodologies',
-    'Cascading Style Sheets / SCSS',
+    'Recat.js / Vue.js',
+    'OOPS Concepts',
+    'Cascading Style Sheets',
     'Project Management'
   ])
 

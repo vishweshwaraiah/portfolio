@@ -48,20 +48,7 @@
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     float: none;
-    background: var(--sidebar-bg-color);
     background-size: cover;
-
-    .main {
-      &_sidebar {
-        display: block;
-        height: 100%;
-      }
-
-      &_content {
-        display: block;
-        height: 100%;
-      }
-    }
 
     .cover_letter {
       font-size: 10pt;
@@ -76,32 +63,15 @@
       margin-top: 5pt;
     }
 
-    .svg-holder {
-      align-self: stretch;
+    .personal_details {
 
-      &.is_rounded {
-        align-self: center;
+      &.dev_contact .contact_line,
+      &.dev_social .social_line {
+        padding: 1rem 0.5rem;
       }
 
-      &.x-small,
-      &.small {
-        height: 10pt;
-        width: 10pt;
-      }
-
-      &.small.is_rounded {
-        height: 16pt;
-        width: 16pt;
-      }
-
-      &.medium {
-        height: 14pt;
-        width: 14pt;
-      }
-
-      &.large {
-        height: 20pt;
-        width: 20pt;
+      &.dev_education .education_line {
+        padding-top: 0.5rem;
       }
     }
   }

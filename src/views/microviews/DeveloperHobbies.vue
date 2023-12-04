@@ -30,7 +30,7 @@ defineProps({
       <span v-for="(line, i) in devHobbies" :key="i" class="hobbies_name">
         <MasterIcon
           :svgName="line.iconName"
-          size="large"
+          size="x-large"
           fillColor="var(--item-color)"
           hoverColor="var(--theme-color)"
           roundSpace="10%"

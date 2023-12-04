@@ -375,3 +375,15 @@ export const dateDiffer = (props) => {
     return ydt + mdt + ddt
   }
 }
+
+export const px2rem = (size) => {
+  const remPx = 16
+  const remSize = size / remPx
+  return remSize + 'rem'
+}
+
+export const px2pt = (size) => {
+  const ptPx = 72 / 96
+  const ptSize = size * ptPx
+  return ptSize + 'pt'
+}

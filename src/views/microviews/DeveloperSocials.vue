@@ -44,12 +44,6 @@ defineProps({
 .dev_social .social_line {
   padding: px2rem(10) 0;
 
-  .svg-holder {
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-  }
-
   .social_id {
     padding-left: px2rem(10);
   }

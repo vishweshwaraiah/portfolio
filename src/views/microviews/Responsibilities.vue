@@ -25,8 +25,9 @@ const devRnRs = responsibilities.getResponsibilities
         {{ idx + 1 + '. ' + item }}
       </span>
     </div>
+    <MasterHrLine margin-bottom="2rem" />
   </div>
-  <MasterPrintBreak action="always" />
+  <MasterPrintBreak />
 </template>
 
 <style lang="scss" scoped>

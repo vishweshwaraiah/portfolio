@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
+import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 import useCoverLetterStore from '@/stores/coverletter.js'
 
 const sectionTitle = 'Cover Letter'
@@ -67,6 +68,7 @@ const fromDeveloper = letterContent.from_developer
       <div class="letter_footer from_developer mt-3 mb-1">{{ fromDeveloper }}</div>
     </div>
   </div>
+  <MasterPrintBreak />
 </template>
 
 <style lang="scss" scoped>

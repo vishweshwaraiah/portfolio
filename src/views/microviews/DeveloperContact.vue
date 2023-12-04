@@ -1,6 +1,7 @@
 <script setup>
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
+import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
 
 defineProps({
   devContact: {
@@ -29,15 +30,17 @@ defineProps({
     <span class="contact_line" v-for="(line, i) in devContact" :key="i">
       <MasterIcon
         :svgName="line.iconName"
-        size="small"
+        size="medium"
         fillColor="var(--glob-dark)"
         hoverColor="var(--theme-color)"
         roundSpace="5px"
         bgColor="var(--theme-color)"
         :title="line.iName"
+        :labelAfter="line.iValue"
+        class="line_name"
       />
-      <span class="line_name" :title="line.iName">{{ line.iValue }}</span>
     </span>
+    <MasterPrintBreak action="avoid" />
   </div>
 </template>
 
@@ -46,9 +49,5 @@ defineProps({
   display: flex;
   align-items: center;
   padding: 0.5rem;
-
-  .line_name {
-    padding-left: px2rem(10);
-  }
 }
 </style>

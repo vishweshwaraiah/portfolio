@@ -1,6 +1,7 @@
 <script setup>
+import { ref } from 'vue'
 import { defineAsyncComponent, computed } from 'vue'
-import { classNames } from '@/utils/globals.js'
+import { classNames, px2rem } from '@/utils/globals.js'
 
 const props = defineProps({
   size: {
@@ -41,6 +42,12 @@ const props = defineProps({
   }
 })
 
+const isRounded = ref('')
+
+if (props.roundSpace !== '') {
+  isRounded.value = 'is_rounded'
+}
+
 const SvgIcon = defineAsyncComponent(() => {
   return import(`@/assets/icons/${props.svgName}.svg`)
 })
@@ -58,23 +65,20 @@ const svgWrapper = computed(() => {
     defaults.push('hover-inverse')
   }
 
-  if (props.roundSpace) {
-    defaults.push('is_rounded')
-  }
   return classNames(defaults)
 })
 
 const getSize = computed(() => {
   if (props.size === 'x-large') {
-    return '54'
+    return px2rem(48)
   } else if (props.size === 'large') {
-    return '40'
+    return px2rem(40)
   } else if (props.size === 'medium') {
-    return '32'
+    return px2rem(32)
   } else if (props.size === 'small') {
-    return '20'
+    return px2rem(24)
   } else if (props.size === 'x-small') {
-    return '16'
+    return px2rem(16)
   } else {
     return props.size
   }
@@ -84,7 +88,7 @@ const getSize = computed(() => {
 <template lang="html">
   <span :class="svgWrapper">
     <label v-if="labelBefore" :class="`label-before ${size}`">{{ labelBefore }}</label>
-    <svg class="shadow-svg-dark" :fill="fillColor" :height="getSize" :width="getSize">
+    <svg :class="`shadow-svg-dark ${isRounded}`" :fill="fillColor">
       <SvgIcon />
     </svg>
     <label v-if="labelAfter" :class="`label-after ${size}`">{{ labelAfter }}</label>
@@ -93,9 +97,11 @@ const getSize = computed(() => {
 
 <style lang="scss">
 .svg-holder {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  height: auto;
+  width: auto;
 
   &.hover-inverse {
     &:hover svg {
@@ -103,20 +109,43 @@ const getSize = computed(() => {
     }
   }
 
-  &.is_rounded {
-    padding: v-bind(roundSpace);
-    background: v-bind(bgColor);
-    border-radius: 50%;
+  svg {
+    height: v-bind(getSize);
+    width: v-bind(getSize);
+
+    &.is_rounded {
+      padding: v-bind(roundSpace);
+      background: v-bind(bgColor);
+      border-radius: 50%;
+    }
   }
 
   .label-before {
+    flex: 1;
     padding-right: 1rem;
     margin-bottom: 0;
   }
 
   .label-after {
+    flex: 1;
     padding-left: 1rem;
     margin-bottom: 0;
+  }
+}
+
+@media print {
+  .svg-holder {
+    &.is_rounded {
+      align-self: center;
+    }
+
+    &.x-small,
+    &.small,
+    &.medium,
+    &.large,
+    &.x-large {
+      height: 100%;
+    }
   }
 }
 </style>

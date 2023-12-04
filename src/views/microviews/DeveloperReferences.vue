@@ -61,7 +61,7 @@ defineProps({
         </span>
       </div>
     </div>
-    <MasterPrintBreak action="break_after" />
+    <MasterPrintBreak />
   </div>
 </template>
 
