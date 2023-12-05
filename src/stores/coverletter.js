@@ -1,20 +1,22 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { dateDiffer } from '@/utils/globals.js'
+import { careerStarted } from '@/utils/constants.js'
 
 const useCoverLetterStore = defineStore('coverletter', () => {
-  const from = new Date('January 2013Z')
+  const from = careerStarted
 
   const diffDate = dateDiffer({ from, format: 'Y+' })
 
+  const appliedRole = ref('Full-stack Developer')
+
   const coverletter = ref({
-    appliedRole: 'Full-stack Developer',
     hirerName: 'Hiring Manager',
     addrLine1: 'Flat 12061, Building 1, Tower 2',
     addrLine2: 'Prestige Jindal City, Anchepalya',
     addrLine3: 'Near Parle Toll',
     addrLine4: 'Bengaluru - 560073',
-    intro_desc: `I am writing to express my interest in the Full-stack Developer position at your company. I have ${diffDate} of experience in developing and maintaining web applications using various technologies and frameworks.`,
+    intro_desc: `I am writing to express my interest in the ${appliedRole.value} position at your company. I have ${diffDate} of experience in developing and maintaining web applications using various technologies and frameworks.`,
 
     expertise_desc:
       'As a full stack developer, I have expertise in both front-end and back-end development, as well as database management and deployment. Some of the skills and tools that I use include HTML5, CSS3, JavaScript, React.js, Vue.js, Node.js, Java, Spring-Boot, MySQL, AWS, Git, and Agile methodologies. I have successfully delivered several projects for clients across different domains and industries, such as e-commerce, education, healthcare, and social media.',
@@ -33,8 +35,11 @@ const useCoverLetterStore = defineStore('coverletter', () => {
 
   const letterContent = computed(() => coverletter.value)
 
+  const devRole = appliedRole.value
+
   return {
-    letterContent
+    letterContent,
+    devRole
   }
 })
 

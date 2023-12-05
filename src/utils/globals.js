@@ -349,7 +349,7 @@ export const monthDiffer = (d1, d2) => {
 export const dateDiffer = (props) => {
   let { from, to, format = 'YMD' } = props
   let startDate = new Date(new Date(from).toISOString().slice(0, 10))
-  if (!to || to.toLowerCase() === 'present') {
+  if (!to) {
     to = new Date().toISOString().slice(0, 10) // get date in YYYY-MM-DD format
   }
   let endDate = new Date(to)
@@ -396,6 +396,33 @@ export const dateDiffer = (props) => {
   } else {
     return ydt + mdt + ddt
   }
+}
+
+export const toUTCDate = (dateStr) => {
+  const montStrs = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
+
+  let year = new Date().getUTCFullYear()
+  let month = new Date().getUTCMonth()
+  if (dateStr.toLowerCase() !== 'present') {
+    const dateArr = dateStr.split(' ')
+    year = dateArr[1]
+    month = montStrs.findIndex((month) => month === dateArr[0])
+  }
+
+  return new Date(Date.UTC(year, month))
 }
 
 export const px2rem = (size) => {

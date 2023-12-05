@@ -39,7 +39,7 @@
 
 @include mediaQuery(mobile) {
   .main_template {
-    flex-direction: column;
+    grid-template-columns: 1fr;
 
     .main {
       &_sidebar,

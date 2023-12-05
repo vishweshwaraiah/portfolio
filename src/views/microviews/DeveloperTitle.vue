@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { dateDiffer } from '@/utils/globals.js'
+import { careerStarted } from '@/utils/constants.js'
 
 defineProps({
   title: {
@@ -12,7 +13,7 @@ defineProps({
     type: String
   }
 })
-const from = new Date('January 2013Z')
+const from = careerStarted
 const expYears = ref('')
 
 onMounted(() => {

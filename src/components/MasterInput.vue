@@ -1,136 +1,3 @@
-<style lang="scss" scoped>
-.input-group {
-  width: v-bind(inputWidth);
-
-  &.label-left {
-    display: inline-flex;
-    white-space: nowrap;
-
-    .input-label {
-      margin: auto;
-      margin-right: px2rem(10);
-
-      &:after {
-        content: ':';
-      }
-    }
-  }
-
-  .input-pad {
-    padding: px2rem(5);
-  }
-
-  .input-span {
-    position: relative;
-
-    .clear-icon ~ .master-input,
-    .right-icon ~ .master-input {
-      padding-right: px2rem(45);
-    }
-
-    .left-icon ~ .master-input {
-      padding-left: px2rem(45);
-    }
-
-    &.textarea {
-      .clear-icon {
-        height: auto;
-      }
-
-      textarea {
-        resize: none;
-        @include hideScroll;
-      }
-    }
-
-    .left-icon,
-    .clear-icon,
-    .right-icon {
-      position: absolute;
-      padding: 1rem;
-      cursor: pointer;
-      width: px2rem(45);
-      height: 100%;
-      z-index: 202;
-    }
-
-    .left-icon {
-      left: 0;
-    }
-    .clear-icon,
-    .right-icon {
-      right: 0;
-    }
-  }
-}
-</style>
-<template lang="html">
-  <div :class="mainWrapper">
-    <label v-if="inputLabel" :for="inputId" class="input-label">
-      {{ inputLabel }}
-    </label>
-    <span :class="inputWrapper">
-      <MasterIcon
-        v-if="leftIcon"
-        :svgIcon="SearchIcon"
-        size="small"
-        class="left-icon"
-        fillColor="var(--item-color)"
-      />
-      <MasterIcon
-        @click="clearInput"
-        v-if="clearTrue && inputValue"
-        size="small"
-        :svgIcon="CloseIcon"
-        class="clear-icon"
-        fillColor="var(--item-color)"
-      />
-      <MasterIcon
-        v-if="rightIcon && !inputValue"
-        :svgIcon="CheckedIcon"
-        size="small"
-        class="right-icon"
-        fillColor="var(--item-color)"
-      />
-      <textarea
-        v-if="inputType === 'textarea'"
-        :class="`master-input`"
-        :id="inputId"
-        :name="inputName"
-        :rows="inputRows"
-        :placeholder="inputPlaceholder"
-        :value="inputValue"
-        :required="inputRequired"
-        :readonly="isReadOnly"
-        @input="updateInput"
-        @focus="onFocus"
-        @blur="onBlur"
-        @keypress="readOnlyInput"
-      >
-      </textarea>
-      <input
-        v-else
-        :class="`master-input`"
-        :id="inputId"
-        :type="inputType"
-        :name="inputName"
-        :value="inputValue"
-        :checked="inputValue"
-        :placeholder="inputPlaceholder"
-        :required="inputRequired"
-        :readonly="isReadOnly"
-        @input="updateInput"
-        @focus="onFocus"
-        @blur="onBlur"
-        @keypress="readOnlyInput"
-      />
-    </span>
-    <span class="err small" v-if="!validInput && inputRequired">
-      {{ errMessage }}
-    </span>
-  </div>
-</template>
-
 <script setup>
 import { computed, ref } from 'vue'
 import MasterIcon from '@/components/MasterIcon.vue'
@@ -255,3 +122,137 @@ const readOnlyInput = (e) => {
   if (props.isReadOnly) e.preventDefault()
 }
 </script>
+
+<template lang="html">
+  <div :class="mainWrapper">
+    <label v-if="inputLabel" :for="inputId" class="input-label">
+      {{ inputLabel }}
+    </label>
+    <span :class="inputWrapper">
+      <MasterIcon
+        v-if="leftIcon"
+        :svgIcon="SearchIcon"
+        size="small"
+        class="left-icon"
+        fillColor="var(--item-color)"
+      />
+      <MasterIcon
+        @click="clearInput"
+        v-if="clearTrue && inputValue"
+        size="small"
+        :svgIcon="CloseIcon"
+        class="clear-icon"
+        fillColor="var(--item-color)"
+      />
+      <MasterIcon
+        v-if="rightIcon && !inputValue"
+        :svgIcon="CheckedIcon"
+        size="small"
+        class="right-icon"
+        fillColor="var(--item-color)"
+      />
+      <textarea
+        v-if="inputType === 'textarea'"
+        :class="`master-input`"
+        :id="inputId"
+        :name="inputName"
+        :rows="inputRows"
+        :placeholder="inputPlaceholder"
+        :value="inputValue"
+        :required="inputRequired"
+        :readonly="isReadOnly"
+        @input="updateInput"
+        @focus="onFocus"
+        @blur="onBlur"
+        @keypress="readOnlyInput"
+      >
+      </textarea>
+      <input
+        v-else
+        :class="`master-input`"
+        :id="inputId"
+        :type="inputType"
+        :name="inputName"
+        :value="inputValue"
+        :checked="inputValue"
+        :placeholder="inputPlaceholder"
+        :required="inputRequired"
+        :readonly="isReadOnly"
+        @input="updateInput"
+        @focus="onFocus"
+        @blur="onBlur"
+        @keypress="readOnlyInput"
+      />
+    </span>
+    <span class="err small" v-if="!validInput && inputRequired">
+      {{ errMessage }}
+    </span>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.input-group {
+  width: v-bind(inputWidth);
+
+  &.label-left {
+    display: inline-flex;
+    white-space: nowrap;
+
+    .input-label {
+      margin: auto;
+      margin-right: px2rem(10);
+
+      &:after {
+        content: ':';
+      }
+    }
+  }
+
+  .input-pad {
+    padding: px2rem(5);
+  }
+
+  .input-span {
+    position: relative;
+
+    .clear-icon ~ .master-input,
+    .right-icon ~ .master-input {
+      padding-right: px2rem(45);
+    }
+
+    .left-icon ~ .master-input {
+      padding-left: px2rem(45);
+    }
+
+    &.textarea {
+      .clear-icon {
+        height: auto;
+      }
+
+      textarea {
+        resize: none;
+        @include hideScroll;
+      }
+    }
+
+    .left-icon,
+    .clear-icon,
+    .right-icon {
+      position: absolute;
+      padding: 1rem;
+      cursor: pointer;
+      width: px2rem(45);
+      height: 100%;
+      z-index: 202;
+    }
+
+    .left-icon {
+      left: 0;
+    }
+    .clear-icon,
+    .right-icon {
+      right: 0;
+    }
+  }
+}
+</style>

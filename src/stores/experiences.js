@@ -89,8 +89,8 @@ const useExperiencesStore = defineStore('experiences', () => {
     },
     {
       exp_details: {
-        from: 'Jan 2017',
-        to: 'Mar 2018',
+        from: 'Jan 2013',
+        to: 'Feb 2014',
         type: 'Full-Time'
       },
       job_title: 'Web Developer',

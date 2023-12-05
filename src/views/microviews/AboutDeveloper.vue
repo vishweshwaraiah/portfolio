@@ -2,8 +2,9 @@
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import { dateDiffer } from '@/utils/globals.js'
+import { careerStarted } from '@/utils/constants.js'
 
-const from = new Date('January 2013Z')
+const from = careerStarted
 
 const diffDate = dateDiffer({ from, format: 'Y+' })
 

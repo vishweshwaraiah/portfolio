@@ -1,5 +1,5 @@
 <script setup>
-import { dateDiffer } from '@/utils/globals.js'
+import { dateDiffer, toUTCDate } from '@/utils/globals.js'
 import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
@@ -15,6 +15,14 @@ const props = defineProps({
     type: Array
   }
 })
+
+const getDateDifference = (exp_details) => {
+  const { from, to } = exp_details
+  const fromDate = toUTCDate(from)
+  const toDate = toUTCDate(to)
+
+  return dateDiffer({ from: fromDate, to: toDate, format: 'YM' })
+}
 </script>
 <template>
   <div class="work_experience">
@@ -43,9 +51,7 @@ const props = defineProps({
             <h3>{{ item.job_title }}</h3>
             <span class="exp_badge">
               For
-              {{
-                dateDiffer({ from: item.exp_details.from, to: item.exp_details.to, format: 'Y+' })
-              }}
+              {{ getDateDifference(item.exp_details) }}
             </span>
           </div>
           <span class="job_company">
@@ -142,6 +148,13 @@ const props = defineProps({
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
     }
+  }
+}
+
+@include mediaQuery(mobile) {
+  .work_experience .work_header .work_designation .job_title {
+    flex-direction: column;
+    margin-bottom: 0;
   }
 }
 </style>
