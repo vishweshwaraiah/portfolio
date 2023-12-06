@@ -36,7 +36,7 @@ defineProps({
         </div>
         <MasterHrLine
           thickness="1px"
-          styleType="dotted"
+          styleType="solid"
           hrColor="var(--glob-dark)"
           margin-top="0.5rem"
           margin-bottom="0.5rem"
@@ -77,7 +77,6 @@ defineProps({
       background-color: var(--theme-color);
       color: var(--glob-dark);
       padding: px2rem(10);
-      border-radius: px2rem(5);
 
       .section_title {
         padding-left: 0;

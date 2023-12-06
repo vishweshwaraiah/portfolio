@@ -88,9 +88,9 @@ const getSize = computed(() => {
 <template lang="html">
   <span :class="svgWrapper">
     <label v-if="labelBefore" :class="`label-before ${size}`">{{ labelBefore }}</label>
-    <svg :class="`shadow-svg-dark ${isRounded}`" :fill="fillColor">
-      <SvgIcon />
-    </svg>
+    <div :class="`svg_box ${isRounded}`">
+      <SvgIcon class="shadow-svg-dark" :fill="fillColor" />
+    </div>
     <label v-if="labelAfter" :class="`label-after ${size}`">{{ labelAfter }}</label>
   </span>
 </template>
@@ -103,13 +103,15 @@ const getSize = computed(() => {
   height: auto;
   width: auto;
 
-  &.hover-inverse {
-    &:hover svg {
-      fill: v-bind(hoverColor);
-    }
+  &.hover-inverse:hover svg {
+    fill: v-bind(hoverColor);
   }
 
-  svg {
+  div.svg_box {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
     height: v-bind(getSize);
     width: v-bind(getSize);
 

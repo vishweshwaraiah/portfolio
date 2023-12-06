@@ -33,7 +33,7 @@ defineProps({
           size="x-large"
           fillColor="var(--item-color)"
           hoverColor="var(--theme-color)"
-          roundSpace="10%"
+          roundSpace="20%"
           bgColor="var(--theme-color)"
           :title="line.iName"
         />
