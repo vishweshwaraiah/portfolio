@@ -77,6 +77,18 @@ const printPage = () => {
               hoverColor="var(--theme-color)"
             />
           </RouterLink>
+          <RouterLink class="flex-between" to="/projects" @click="methodClick">
+            <span>Projects</span>
+            <MasterIcon
+              svgName="printer"
+              class="has_print"
+              @click="printPage"
+              fillColor="var(--item-color)"
+              size="small"
+              title="Print Page"
+              hoverColor="var(--theme-color)"
+            />
+          </RouterLink>
           <RouterLink class="flex-between" to="/coverletter" @click="methodClick">
             <span>Cover Letter</span>
             <MasterIcon

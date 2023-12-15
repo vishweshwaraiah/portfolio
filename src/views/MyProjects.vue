@@ -3,31 +3,36 @@ import DeveloperTitle from '@/views/microviews/DeveloperTitle.vue'
 import MasterTemplate from '@/views/microviews/MasterTemplate.vue'
 import DeveloperPicture from '@/views/microviews/DeveloperPicture.vue'
 import DeveloperContact from '@/views/microviews/DeveloperContact.vue'
-import DeveloperLetter from '@/views/microviews/DeveloperLetter.vue'
+import ProjectsGrid from './microviews/ProjectsGrid.vue'
 import useContactStore from '@/stores/contact.js'
+import useProjectsStore from '@/stores/projects'
 
 const contact = useContactStore()
 const devContact = contact.getContact
 
+const projects = useProjectsStore()
+const projectsList = projects.getProjects
+
 const subTitle = 'Senior Fullstack Developer'
 const devTitle = 'Vishweshwarayya K J'
+const sectionTitle = 'Projects'
 </script>
 
 <template>
-  <MasterTemplate class="cover_letter">
+  <MasterTemplate class="worked_projects">
     <template #sidebar>
       <DeveloperPicture :hasTriangle="true" />
       <DeveloperContact :devContact="devContact" sectionTitle="Contact" />
     </template>
     <template #content>
       <DeveloperTitle :title="devTitle" :subtitle="subTitle" />
-      <DeveloperLetter />
+      <ProjectsGrid :projectsList="projectsList" :sectionTitle="sectionTitle" />
     </template>
   </MasterTemplate>
 </template>
 
 <style>
-.cover_letter {
+.worked_projects {
   display: block;
 }
 </style>

@@ -14,7 +14,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_location: 'Bengaluru, Karnataka',
       work_description:
         "This is a Design system project built with React JS, Angular JS, JavaScript, Stencil Js,HTML and CSS...I'm Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices.",
-      work_skills: ['JavaScript', 'Core Java', 'HTML', 'CSS', 'SCSS', 'Spring-Boot'],
+      work_skills: ['JavaScript', 'Core Java', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'Spring-Boot'],
       print_break: false,
       print_margin: false
     },
@@ -29,7 +29,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_location: 'Bengaluru, Karnataka',
       work_description:
         "I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on Projects like Macy's and KFC India using technologies like Java Spring-boot, React Js, Vue Js, Node Js, HTML and CSS",
-      work_skills: ['JavaScript', 'Core Java', 'HTML', 'CSS', 'SCSS', 'Spring-Boot'],
+      work_skills: ['JavaScript', 'Core Java', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'Spring-Boot'],
       print_break: false,
       print_margin: false
     },
@@ -44,7 +44,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_location: 'Bengaluru, Karnataka',
       work_description:
         'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked with clients on Project FocusVision(Decipher) using technologies like JavaScript, jQuery, HTML and CSS',
-      work_skills: ['JavaScript', 'HTML', 'CSS', 'SCSS', 'jQuery'],
+      work_skills: ['JavaScript', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'jQuery'],
       print_break: true,
       print_margin: false
     },
@@ -61,8 +61,9 @@ const useExperiencesStore = defineStore('experiences', () => {
         'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on Internal Banking(KYC - FCDD) Project using technologies like JavaScript, Spring-boot, D3.JS, React Js, Vue Js, HTML, CSS and SCSS',
       work_skills: [
         'JavaScript',
-        'HTML',
-        'CSS',
+        'Node JS',
+        'HTML5',
+        'CSS3',
         'SCSS',
         'Spring-Boot',
         'D3.JS',

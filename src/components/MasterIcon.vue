@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import { defineAsyncComponent, computed } from 'vue'
 import { classNames, px2rem } from '@/utils/globals.js'
 
@@ -42,12 +41,6 @@ const props = defineProps({
   }
 })
 
-const isRounded = ref('')
-
-if (props.roundSpace !== '') {
-  isRounded.value = 'is_rounded'
-}
-
 const SvgIcon = defineAsyncComponent(() => {
   return import(`@/assets/icons/${props.svgName}.svg`)
 })
@@ -63,6 +56,16 @@ const svgWrapper = computed(() => {
 
   if (props.hoverColor) {
     defaults.push('hover-inverse')
+  }
+
+  return classNames(defaults)
+})
+
+const boxWrapper = computed(() => {
+  const defaults = ['svg_box']
+
+  if (props.roundSpace !== '') {
+    defaults.push('is_rounded')
   }
 
   return classNames(defaults)
@@ -88,7 +91,7 @@ const getSize = computed(() => {
 <template lang="html">
   <span :class="svgWrapper">
     <label v-if="labelBefore" :class="`label-before ${size}`">{{ labelBefore }}</label>
-    <div :class="`svg_box ${isRounded}`">
+    <div :class="boxWrapper">
       <SvgIcon class="shadow-svg-dark" :fill="fillColor" />
     </div>
     <label v-if="labelAfter" :class="`label-after ${size}`">{{ labelAfter }}</label>
@@ -114,6 +117,11 @@ const getSize = computed(() => {
     justify-content: center;
     height: v-bind(getSize);
     width: v-bind(getSize);
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
 
     &.is_rounded {
       padding: v-bind(roundSpace);
