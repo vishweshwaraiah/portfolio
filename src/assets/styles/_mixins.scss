@@ -1,14 +1,14 @@
 @mixin mediaQuery($keys...) {
   // map holding breakpoint values
   $mobileMin: 320px;
-  $mobileMax: 599px;
+  $mobileMax: 600px;
   $tabletMin: 600px;
   $tabletMax: 768px;
-  $laptopMin: 769px;
+  $laptopMin: 768px;
   $laptopMax: 960px;
-  $desktopMin: 961px;
+  $desktopMin: 960px;
   $desktopMax: 1200px;
-  $monitorMin: 1201px;
+  $monitorMin: 1200px;
   $monitorMax: 1800px;
 
   @each $key in $keys {
@@ -72,43 +72,81 @@
 
   @if $type ==linear {
     @return $linear-shadow $default-color;
-  } @else if $type ==menu {
+  }
+
+  @else if $type ==menu {
     @return $menu-shadow;
-  } @else if $type ==notify {
+  }
+
+  @else if $type ==notify {
     @return $notify-shadow $default-color;
-  } @else if $type ==svg-light {
+  }
+
+  @else if $type ==svg-light {
     @return $svg-light-shadow $secondary-color;
-  } @else if $type ==svg-dark {
+  }
+
+  @else if $type ==svg-dark {
     @return $svg-dark-shadow $secondary-color;
-  } @else if $type ==dark {
+  }
+
+  @else if $type ==dark {
     @return $dark-shadow $default-color;
-  } @else if $type ==minimal {
+  }
+
+  @else if $type ==minimal {
     @return $minimal-shadow $default-color;
-  } @else if $type ==focus {
+  }
+
+  @else if $type ==focus {
     @return $focus-shadow $default-color;
-  } @else if $type ==focus and $variant ==primary {
+  }
+
+  @else if $type ==focus and $variant ==primary {
     @return $focus-shadow $primary-color;
-  } @else if $type ==focus and $variant ==secondary {
+  }
+
+  @else if $type ==focus and $variant ==secondary {
     @return $focus-shadow $secondary-color;
-  } @else if $type ==focus and $variant ==success {
+  }
+
+  @else if $type ==focus and $variant ==success {
     @return $focus-shadow $success-color;
-  } @else if $type ==focus and $variant ==info {
+  }
+
+  @else if $type ==focus and $variant ==info {
     @return $focus-shadow $info-color;
-  } @else if $type ==focus and $variant ==warning {
+  }
+
+  @else if $type ==focus and $variant ==warning {
     @return $focus-shadow $warning-color;
-  } @else if $type ==focus and $variant ==danger {
+  }
+
+  @else if $type ==focus and $variant ==danger {
     @return $focus-shadow $danger-color;
-  } @else if $type ==top {
+  }
+
+  @else if $type ==top {
     @return $top-shadow $default-color;
-  } @else if $type ==bottom {
+  }
+
+  @else if $type ==bottom {
     @return $bottom-shadow $default-color;
-  } @else if $type ==card {
+  }
+
+  @else if $type ==card {
     @return $card-shadow $default-color;
-  } @else if $type ==card-hover {
+  }
+
+  @else if $type ==card-hover {
     @return $card-hover-shadow $default-color;
-  } @else if $type ==text {
+  }
+
+  @else if $type ==text {
     @return $text-shadow $default-color;
-  } @else {
+  }
+
+  @else {
     @return $default-shadow $default-color;
   }
 }
@@ -126,7 +164,9 @@
 
   @if $type ==header {
     box-shadow: boxShadow(bottom);
-  } @else {
+  }
+
+  @else {
     box-shadow: boxShadow(top);
   }
 }
@@ -213,43 +253,57 @@
     $hover-color: var(--bg-color-hover);
     $disabled-color: var(--bg-color-disabled);
     $border-color: var(--bg-color-border);
-  } @else if $variant ==dark {
+  }
+
+  @else if $variant ==dark {
     $background-color: var(--item-color);
     $text-color: var(--bg-color);
     $hover-color: var(--item-color-hover);
     $disabled-color: var(--item-color-disabled);
     $border-color: var(--item-color-border);
-  } @else if $variant ==primary {
+  }
+
+  @else if $variant ==primary {
     $background-color: var(--primary);
     $text-color: var(--white);
     $hover-color: var(--primary-hover);
     $disabled-color: var(--primary-disabled);
     $border-color: var(--primary-border);
-  } @else if $variant ==secondary {
+  }
+
+  @else if $variant ==secondary {
     $background-color: var(--secondary);
     $text-color: var(--white);
     $hover-color: var(--secondary-hover);
     $disabled-color: var(--secondary-disabled);
     $border-color: var(--secondary-border);
-  } @else if $variant ==success {
+  }
+
+  @else if $variant ==success {
     $background-color: var(--success);
     $text-color: var(--white);
     $hover-color: var(--success-hover);
     $disabled-color: var(--success-disabled);
     $border-color: var(--success-border);
-  } @else if $variant ==info {
+  }
+
+  @else if $variant ==info {
     $background-color: var(--info);
     $text-color: var(--white);
     $hover-color: var(--info-hover);
     $disabled-color: var(--info-disabled);
     $border-color: var(--info-border);
-  } @else if $variant ==warning {
+  }
+
+  @else if $variant ==warning {
     $background-color: var(--warning);
     $text-color: var(--white);
     $hover-color: var(--warning-hover);
     $disabled-color: var(--warning-disabled);
     $border-color: var(--warning-border);
-  } @else if $variant ==danger {
+  }
+
+  @else if $variant ==danger {
     $background-color: var(--danger);
     $text-color: var(--white);
     $hover-color: var(--danger-hover);
@@ -281,8 +335,9 @@
 
 @mixin transformSvg($scale: 1.5) {
   &:hover {
-    & > .svg-holder svg,
-    & > svg {
+
+    &>.svg-holder svg,
+    &>svg {
       transition: 0.5s;
       transform: scale($scale);
     }

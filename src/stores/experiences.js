@@ -13,8 +13,17 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'J P Morgan Chase & Co.',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        "This is a Design system project built with React JS, Angular JS, JavaScript, Stencil Js,HTML and CSS...I'm Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices.",
-      work_skills: ['JavaScript', 'Core Java', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'Spring-Boot'],
+        "It's a Design system project that solves and minimizes design issues throughout the firm. I'm Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices.",
+      work_skills: [
+        'React JS',
+        'Angular JS',
+        'JavaScript',
+        'Stencil Js',
+        'HTML5',
+        'CSS3',
+        'Spring Boot',
+        'Node JS'
+      ],
       print_break: false,
       print_margin: false
     },
@@ -28,8 +37,17 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'Cognizant Technologies Solutions',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        "I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on Projects like Macy's and KFC India using technologies like Java Spring-boot, React Js, Vue Js, Node Js, HTML and CSS",
-      work_skills: ['JavaScript', 'Core Java', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'Spring-Boot'],
+        "I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on Projects like Macy's and KFC India.",
+      work_skills: [
+        'React JS',
+        'Redux',
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Spring Boot',
+        'JPA',
+        'Node JS'
+      ],
       print_break: false,
       print_margin: false
     },
@@ -43,8 +61,17 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'Kalpavruksh Systems Ltd',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked with clients on Project FocusVision(Decipher) using technologies like JavaScript, jQuery, HTML and CSS',
-      work_skills: ['JavaScript', 'Node JS', 'HTML5', 'CSS3', 'SCSS', 'jQuery'],
+        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked with clients on an online surveying and reporting project like google survey and forms.',
+      work_skills: [
+        'React JS',
+        'Redux',
+        'JQuery',
+        'NStyles',
+        'Node JS',
+        'JavaScript',
+        'HTML5',
+        'CSS3'
+      ],
       print_break: true,
       print_margin: false
     },
@@ -58,20 +85,21 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'IBM India Private Ltd',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on Internal Banking(KYC - FCDD) Project using technologies like JavaScript, Spring-boot, D3.JS, React Js, Vue Js, HTML, CSS and SCSS',
+        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on an online Financial Crimes Due Diligence project with IBM Watson.',
       work_skills: [
-        'JavaScript',
+        'React JS',
+        'Vue Js',
+        'Redux',
+        'Vuex',
         'Node JS',
+        'JavaScript',
         'HTML5',
         'CSS3',
-        'SCSS',
-        'Spring-Boot',
-        'D3.JS',
-        'React Js',
-        'Vue Js'
+        'Core-Java',
+        'D3 JS'
       ],
       print_break: false,
-      print_margin: true // bcz we had a page break in previous item
+      print_margin: true // bcz we need a page break after previous item
     },
     {
       exp_details: {
@@ -83,8 +111,17 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'Capricoast Home Solutions Pvt Ltd',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on a E-Commerce Project using technologies like JavaScript, Core Java, PHP, jQuery, HTML, CSS and SCSS',
-      work_skills: ['JavaScript', 'HTML', 'CSS', 'SCSS', 'Core Java', 'PHP', 'SCSS'],
+        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on an online shopping project that sells modular-kitchens, wardrobes and other home utils.',
+      work_skills: [
+        'JQuery',
+        'JavaScript',
+        'PHP',
+        'MySQL',
+        'HTML5',
+        'CSS3',
+        'Spring MVC',
+        'Hibernate'
+      ],
       print_break: false,
       print_margin: false
     },
@@ -98,7 +135,7 @@ const useExperiencesStore = defineStore('experiences', () => {
       job_company: 'Ind-Global Consultancy Solutions Pvt Ltd',
       job_location: 'Bengaluru, Karnataka',
       work_description:
-        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on multiple Projects using skills like JavaScript, PHP, jQuery, HTML, CSS, WordPress, Magento and OpenCart',
+        'I was Responsible to Write Best, Efficient, Testable Code Using Standard Software development practices. Worked on multiple small scale projects.',
       work_skills: [
         'JavaScript',
         'HTML',

@@ -66,9 +66,6 @@ const isInternal = (project) => {
           </div>
         </div>
         <div class="card-body">
-          <span class="">
-            {{ project.project_description }}
-          </span>
           <span class="project_link">
             <MasterIcon
               svgName="link"
@@ -76,10 +73,14 @@ const isInternal = (project) => {
               fillColor="var(--bg-color)"
               hoverColor="var(--theme-color)"
             />
-            <span v-if="isInternal(project)">Internal Project</span>
+            <a href="javascript:void(0)" v-if="isInternal(project)">Internal Project</a>
             <a v-else :href="project.project_link" target="_blank">Project Link</a>
           </span>
-          <MasterHrLine marginTop="5px" marginBottom="5px" thickness="1px" />
+          <span class="project_desc">
+            {{ project.project_description }}
+          </span>
+        </div>
+        <div class="card-footer">
           <div class="work_skills">
             <DetailsBadge
               v-for="(skill, idx) in project.work_skills"
@@ -103,7 +104,6 @@ const isInternal = (project) => {
   padding: 0 2rem;
 
   .grid-item {
-    padding: px2rem(10);
     text-align: left;
   }
 
@@ -124,12 +124,12 @@ const isInternal = (project) => {
       justify-content: flex-start;
       gap: px2rem(10);
       padding-top: px2rem(5);
-      padding-bottom: px2rem(5);
+      padding-bottom: px2rem(10);
     }
-
+  }
+  .card > .card-footer {
     .work_skills .skill_name {
-      margin-right: 0.25rem;
-      margin-bottom: 0.25rem;
+      margin: auto 0.25rem 0.25rem auto;
     }
   }
 }

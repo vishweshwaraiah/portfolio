@@ -13,7 +13,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_client: 'J P Morgan Chase',
       project_location: 'Bengaluru, Karnataka',
       project_description:
-        'This is a Design system project to solve and minimize design issues throughout the firm.',
+        "It's a Design system project that solves and minimizes design issues throughout the firm.",
       work_skills: [
         'React JS',
         'Angular JS',
@@ -24,9 +24,7 @@ const useProjectsStore = defineStore('projects', () => {
         'Spring Boot',
         'Node JS'
       ],
-      project_link: 'internal',
-      print_break: false,
-      print_margin: false
+      project_link: 'internal'
     },
     {
       project_duration: {
@@ -37,7 +35,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_name: 'KFC @ Cognizant',
       project_client: 'YUM',
       project_location: 'Bengaluru, Karnataka',
-      project_description: 'It was an Online food delivery and dining-in project.',
+      project_description: 'A project for fast food restaurant chain that sells food online.',
       work_skills: [
         'React JS',
         'Redux',
@@ -48,9 +46,7 @@ const useProjectsStore = defineStore('projects', () => {
         'JPA',
         'Node JS'
       ],
-      project_link: 'https://online.kfc.co.in/',
-      print_break: false,
-      print_margin: false
+      project_link: 'https://online.kfc.co.in/'
     },
     {
       project_duration: {
@@ -61,7 +57,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_name: 'Macys @ Cognizant',
       project_client: "Macy's",
       project_location: 'Bengaluru, Karnataka',
-      project_description: 'It was an Online clothing and accessories project.',
+      project_description: 'An online clothing and accessories modern department store project.',
       work_skills: [
         'React JS',
         'Redux',
@@ -72,9 +68,7 @@ const useProjectsStore = defineStore('projects', () => {
         'Node JS',
         'Micro-frontends'
       ],
-      project_link: 'https://www.macys.com/',
-      print_break: false,
-      print_margin: false
+      project_link: 'https://www.macys.com/'
     },
     {
       project_duration: {
@@ -86,7 +80,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_client: 'FocusVision',
       project_location: 'Bengaluru, Karnataka',
       project_description:
-        'It was a Surveying and reporting project similar google survey and forms.',
+        "It's an online surveying and reporting project like google survey and forms.",
       work_skills: [
         'React JS',
         'Redux',
@@ -95,11 +89,10 @@ const useProjectsStore = defineStore('projects', () => {
         'Node JS',
         'JavaScript',
         'HTML5',
-        'CSS3'
+        'CSS3',
+        'Micro-frontends'
       ],
-      project_link: 'https://www.forsta.com/company/legacy-brands/',
-      print_break: false,
-      print_margin: false
+      project_link: 'https://www.forsta.com/company/legacy-brands/'
     },
     {
       project_duration: {
@@ -110,7 +103,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_name: 'FCDD @ IBM',
       project_client: 'IBM India',
       project_location: 'Bengaluru, Karnataka',
-      project_description: 'It was a Financial Crimes Due Diligence project with IBM Watson.',
+      project_description: "It's an online Financial Crimes Due Diligence project with IBM Watson.",
       work_skills: [
         'React JS',
         'Redux',
@@ -122,9 +115,7 @@ const useProjectsStore = defineStore('projects', () => {
         'Core-Java',
         'D3 JS'
       ],
-      project_link: 'internal',
-      print_break: false,
-      print_margin: false
+      project_link: 'internal'
     },
     {
       project_duration: {
@@ -136,7 +127,7 @@ const useProjectsStore = defineStore('projects', () => {
       project_client: 'Capricoast',
       project_location: 'Bengaluru, Karnataka',
       project_description:
-        'It was an online shopping project that sells modular-kitchens, wardrobes and other home utils.',
+        "It's an online shopping project that sells modular-kitchens, wardrobes and other home utils.",
       work_skills: [
         'JQuery',
         'JavaScript',
@@ -147,9 +138,7 @@ const useProjectsStore = defineStore('projects', () => {
         'Spring MVC',
         'Hibernate'
       ],
-      project_link: 'https://www.homelane.com/',
-      print_break: false,
-      print_margin: false
+      project_link: 'https://www.homelane.com/'
     }
   ])
 

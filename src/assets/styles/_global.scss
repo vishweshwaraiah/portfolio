@@ -1216,7 +1216,7 @@ footer,
 .grid {
   &-container {
     display: grid;
-    gap: px2rem(10) 1%;
+    gap: px2rem(20) 2%;
     padding: 0.625rem 0;
   }
 
@@ -1229,25 +1229,31 @@ footer,
 
 .grids {
   &_2 {
-    grid-template-columns: repeat(auto-fit, minmax(49.5%, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(49%, 2fr));
   }
 
   &_3 {
-    grid-template-columns: repeat(auto-fit, minmax(32.66%, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(32%, 3fr));
   }
 
   &_4 {
-    grid-template-columns: repeat(auto-fit, minmax(24.25%, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(23.5%, 4fr));
   }
 
   &_5 {
-    grid-template-columns: repeat(auto-fit, minmax(19.2%, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(18.4%, 5fr));
   }
 }
 
-@include mediaQuery(laptop) {
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(32.33333%, 2fr));
+@include mediaQuery(mobile, laptop, tablet) {
+  .grids {
+
+    &_2,
+    &_3,
+    &_4,
+    &_5 {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
   }
 }
 

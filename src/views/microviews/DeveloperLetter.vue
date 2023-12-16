@@ -82,7 +82,7 @@ const fromDeveloper = letterContent.from_developer
     display: inline-block;
 
     &:focus-visible {
-      padding: 0.625rem;
+      padding: 0.25rem;
     }
   }
 
