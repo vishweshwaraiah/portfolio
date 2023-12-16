@@ -49,6 +49,7 @@ const getClasses = () => {
   img {
     width: 50%;
     height: auto;
+    min-height: 50%;
     border: 1rem solid var(--glob-light);
     border-radius: 25%;
     z-index: 200;
