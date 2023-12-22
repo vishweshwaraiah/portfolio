@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import MasterIcon from '@/components/MasterIcon.vue'
-import { RemoveMultiSpaces } from '@/utils/globals'
+import { classNames } from '@/utils/globals'
 import CheckedIcon from '@/assets/icons/checked-round.svg?url'
 import CloseIcon from '@/assets/icons/close-filled.svg?url'
 import SearchIcon from '@/assets/icons/search.svg?url'
@@ -84,19 +84,24 @@ const clearTrue = computed(() => {
 })
 
 const inputWrapper = computed(() => {
-  const defClasses = `input-span form-control ${props.inputType}`
-  const isInvalid = !validInput.value && props.inputRequired
-  const errClass = isInvalid ? 'err' : ''
-  const padClass = props.isPadded ? 'input-pad' : ''
-  const combined = `${defClasses} ${errClass} ${padClass}`
-  return RemoveMultiSpaces(combined)
+  const classList = ['form-control', 'input-span', props.inputType]
+
+  if (!validInput.value && props.inputRequired) {
+    classList.push('err')
+  }
+
+  if (props.isPadded) {
+    classList.push('input-pad')
+  }
+
+  return classNames(classList)
 })
 
 const mainWrapper = computed(() => {
-  const defClasses = 'input-group'
-  const labelPos = `label-${props.labelPos}`
-  const combined = `${defClasses} ${labelPos}`
-  return RemoveMultiSpaces(combined)
+  const classList = ['input-group']
+  classList.push(`label-${props.labelPos}`)
+
+  return classNames(classList)
 })
 
 const updateInput = (e) => {

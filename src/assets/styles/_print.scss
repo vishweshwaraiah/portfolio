@@ -13,31 +13,6 @@
     float: none;
   }
 
-  aside,
-  nav,
-  iframe,
-  .menu {
-    display: none;
-  }
-
-  footer,
-  #footer {
-    display: none;
-    position: fixed;
-    bottom: 0;
-  }
-
-  header,
-  #header {
-    display: none;
-    position: fixed;
-    top: 0;
-  }
-
-  main {
-    min-height: 100%;
-  }
-
   html,
   body {
     display: block;
@@ -49,6 +24,31 @@
     print-color-adjust: exact;
     float: none;
     background-size: cover;
+
+    aside,
+    nav,
+    iframe,
+    .menu {
+      display: none;
+    }
+
+    footer,
+    #footer {
+      display: none;
+      position: fixed;
+      bottom: 0;
+    }
+
+    header,
+    #header {
+      display: none;
+      position: fixed;
+      top: 0;
+    }
+
+    main {
+      min-height: 100%;
+    }
 
     .cover_letter {
       font-size: 10pt;

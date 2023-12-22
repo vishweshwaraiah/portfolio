@@ -44,28 +44,40 @@ const fromDeveloper = letterContent.from_developer
         <div class="strong mb-2">To,</div>
         <input class="strong dear_name mb-2" type="text" v-model.trim="toName" />
 
-        <span class="d-block thin-text">
-          <input class="strong addr_name mb-1" type="text" v-model.trim="addrLine1" />
+        <span class="d-block addr_name mb-1" contenteditable="true">
+          {{ addrLine1 }}
         </span>
-        <span class="d-block thin-text">
-          <input class="strong addr_name mb-1" type="text" v-model.trim="addrLine2" />
+        <span class="d-block addr_name mb-1" contenteditable="true">
+          {{ addrLine2 }}
         </span>
-        <span class="d-block thin-text">
-          <input class="strong addr_name mb-1" type="text" v-model.trim="addrLine3" />
+        <span class="d-block addr_name mb-1" contenteditable="true">
+          {{ addrLine3 }}
         </span>
-        <span class="d-block thin-text">
-          <input class="strong addr_name mb-1" type="text" v-model.trim="addrLine4" />
+        <span class="d-block addr_name mb-1" contenteditable="true">
+          {{ addrLine4 }}
         </span>
         <p class="mt-2 strong dear_name">Dear Mr/Mrs. {{ toName }},</p>
       </div>
       <div class="letter_body">
-        <div class="intro_desc mt-3 mb-2">{{ introDesc }}</div>
-        <div class="expertise_desc mt-3 mb-2">{{ expertiseDesc }}</div>
-        <div class="recent_projects mt-3 mb-2">{{ recentProjects }}</div>
-        <div class="passion_desc mt-3 mb-2">{{ passionDesc }}</div>
-        <div class="final_words mt-3 mb-2">{{ finalWords }}</div>
+        <div class="intro_desc mt-3 mb-2" contenteditable="true">
+          {{ introDesc }}
+        </div>
+        <div class="expertise_desc mt-3 mb-2" contenteditable="true">
+          {{ expertiseDesc }}
+        </div>
+        <div class="recent_projects mt-3 mb-2" contenteditable="true">
+          {{ recentProjects }}
+        </div>
+        <div class="passion_desc mt-3 mb-2" contenteditable="true">
+          {{ passionDesc }}
+        </div>
+        <div class="final_words mt-3 mb-2" contenteditable="true">
+          {{ finalWords }}
+        </div>
       </div>
-      <div class="letter_footer from_developer mt-3 mb-1">{{ fromDeveloper }}</div>
+      <div class="letter_footer from_developer mt-3 mb-1" contenteditable="true">
+        {{ fromDeveloper }}
+      </div>
     </div>
   </div>
   <MasterPrintBreak />
@@ -75,19 +87,35 @@ const fromDeveloper = letterContent.from_developer
 .cover_letter {
   padding: 0 2rem;
 
+  *[contenteditable='true'] {
+    outline: none;
+  }
+
   .dear_name,
   .addr_name {
     padding: 0;
     background-color: transparent;
-    display: inline-block;
+    font-weight: 100;
 
     &:focus-visible {
-      padding: 0.25rem;
+      cursor: text;
+      outline: none;
     }
   }
 
   .dear_name {
     text-transform: uppercase;
+  }
+
+  .letter_body {
+    .intro_desc,
+    .expertise_desc,
+    .recent_projects,
+    .passion_desc,
+    .final_words {
+      font-weight: 100;
+      font-size: inherit;
+    }
   }
 }
 </style>

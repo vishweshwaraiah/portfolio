@@ -1,3 +1,112 @@
+<script setup>
+import { computed, ref, useSlots } from 'vue'
+import MasterIcon from '@/components/MasterIcon.vue'
+import { classNames } from '@/utils/globals'
+
+const props = defineProps({
+  triggerId: {
+    default: 'myBtn',
+    type: String
+  },
+  modalId: {
+    type: String,
+    required: true
+  },
+  modalSize: {
+    default: 'medium',
+    type: String
+  },
+  btnClasses: {
+    default: '',
+    type: String
+  },
+  footerBtns: {
+    default: () => [],
+    type: Array
+  },
+  footerConfirm: {
+    default: () => {},
+    type: Function
+  },
+  footerCancel: {
+    default: () => {},
+    type: Function
+  }
+})
+
+const showAction = (btnName) => props.footerBtns.includes(btnName)
+
+const slots = useSlots()
+
+const isShow = ref(false)
+const size = ref(props.modalSize)
+const stopIt = () => false
+
+const toggleModal = () => {
+  isShow.value = !isShow.value
+}
+
+const headerSlot = computed(() => {
+  return !!slots.header
+})
+
+const footerSlot = computed(() => {
+  return !!slots.footer
+})
+
+const triggerClasses = computed(() => {
+  let classList = ['modal_trigger']
+  if (props.btnClasses) {
+    classList.push(props.btnClasses)
+  }
+  return classNames(classList)
+})
+
+const confirmAction = async () => {
+  const status = await props.footerConfirm()
+  if (status) toggleModal()
+}
+
+const cancelAction = async () => {
+  await props.footerCancel()
+  toggleModal()
+}
+</script>
+
+<template lang="html">
+  <span :id="triggerId" :class="triggerClasses" @click="toggleModal">
+    <slot name="trigger"></slot>
+  </span>
+  <Teleport to="body">
+    <div :id="modalId" :class="`modal ${size}`" v-if="isShow" @click="toggleModal">
+      <div class="modal-content shadow-dark" @click.stop="stopIt">
+        <span class="close medium" @click="toggleModal">
+          <MasterIcon fillColor="var(--item-color)" size="x-small" svg-name="close-cross" />
+        </span>
+        <header v-if="headerSlot" class="modal-header">
+          <slot name="header"></slot>
+        </header>
+        <main class="modal-body no-gutters m-2">
+          <slot>Default Modal Content!</slot>
+        </main>
+        <footer v-if="footerSlot" class="modal-footer">
+          <slot name="footer"></slot>
+          <button
+            v-if="showAction('confirm')"
+            class="btn btn-primary my-2 mr-2"
+            @click="confirmAction"
+          >
+            Confirm
+          </button>
+          <button v-if="showAction('cancel')" class="btn btn-danger my-2" @click="cancelAction">
+            Cancel
+          </button>
+        </footer>
+      </div>
+    </div>
+  </Teleport>
+</template>
+
 <style lang="scss" scoped>
 // Modal popup styles
 
@@ -68,113 +177,3 @@
   }
 }
 </style>
-<template lang="html">
-  <button :id="triggerId" :class="triggerBtnClasses" @click="toggleModal">
-    <slot name="trigger"></slot>
-  </button>
-  <Teleport to="body">
-    <div :id="modalId" :class="`modal ${size}`" v-if="isShow" @click="toggleModal">
-      <div class="modal-content shadow-dark" @click.stop="stopIt">
-        <span class="close medium" @click="toggleModal">
-          <MasterIcon fillColor="var(--item-color)" size="x-small" svg-name="close-cross" />
-        </span>
-        <header v-if="headerSlot" class="modal-header">
-          <slot name="header"></slot>
-        </header>
-        <main v-if="defaultSlot" class="modal-body no-gutters">
-          <slot></slot>
-        </main>
-        <footer v-if="footerSlot" class="modal-footer">
-          <slot name="footer"></slot>
-          <button
-            v-if="showAction('confirm')"
-            class="btn btn-primary my-2 mr-2"
-            @click="confirmAction"
-          >
-            Confirm
-          </button>
-          <button v-if="showAction('cancel')" class="btn btn-danger my-2" @click="cancelAction">
-            Cancel
-          </button>
-        </footer>
-      </div>
-    </div>
-  </Teleport>
-</template>
-<script setup>
-import { computed, ref, useSlots } from 'vue'
-import MasterIcon from '@/components/MasterIcon.vue'
-
-const props = defineProps({
-  triggerId: {
-    default: 'myBtn',
-    type: String
-  },
-  modalId: {
-    type: String,
-    required: true
-  },
-  modalSize: {
-    default: 'medium',
-    type: String
-  },
-  btnClasses: {
-    default: '',
-    type: String
-  },
-  footerBtns: {
-    default: () => [],
-    type: Array
-  },
-  footerConfirm: {
-    default: () => {},
-    type: Function
-  },
-  footerCancel: {
-    default: () => {},
-    type: Function
-  }
-})
-
-const showAction = (btnName) => props.footerBtns.includes(btnName)
-
-const slots = useSlots()
-
-const isShow = ref(false)
-const size = ref(props.modalSize)
-const stopIt = () => false
-
-const toggleModal = () => {
-  isShow.value = !isShow.value
-}
-
-const headerSlot = computed(() => {
-  return !!slots.header
-})
-
-const defaultSlot = computed(() => {
-  return !!slots.default
-})
-
-const footerSlot = computed(() => {
-  return !!slots.footer
-})
-
-const triggerBtnClasses = computed(() => {
-  let defClass = 'btn'
-  if (props.btnClasses) {
-    defClass = `${defClass} ${props.btnClasses}`
-  }
-  return defClass
-})
-
-const confirmAction = async () => {
-  const status = await props.footerConfirm()
-  if (status) toggleModal()
-}
-
-const cancelAction = async () => {
-  await props.footerCancel()
-  toggleModal()
-}
-</script>

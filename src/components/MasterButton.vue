@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { RemoveMultiSpaces } from '@/utils/globals'
+import { classNames } from '@/utils/globals'
 
 const props = defineProps({
   onClick: {
@@ -30,11 +30,11 @@ const props = defineProps({
 })
 
 const buttonWrapper = computed(() => {
-  const defClasses = 'btn'
-  const btnSize = `btn-${props.size}`
-  const btnVariant = `btn-${props.variant}`
-  const combined = `${defClasses} ${btnSize} ${btnVariant}`
-  return RemoveMultiSpaces(combined)
+  const classList = ['btn']
+  classList.push(`btn-${props.size}`)
+  classList.push(`btn-${props.variant}`)
+
+  return classNames(classList)
 })
 </script>
 
