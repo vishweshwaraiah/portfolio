@@ -41,7 +41,7 @@ const fromDeveloper = letterContent.from_developer
     <MasterHrLine thickness="2px" />
     <div class="letter_content">
       <div class="letter_header">
-        <div class="strong mb-2">To,</div>
+        <div class="to strong mb-2">To,</div>
         <input class="strong dear_name mb-2" type="text" v-model.trim="toName" />
 
         <span class="d-block addr_name mb-1" contenteditable="true">
@@ -53,7 +53,7 @@ const fromDeveloper = letterContent.from_developer
         <span class="d-block addr_name mb-1" contenteditable="true">
           {{ addrLine3 }}
         </span>
-        <span class="d-block addr_name mb-1" contenteditable="true">
+        <span class="d-block addr_name mb-2" contenteditable="true">
           {{ addrLine4 }}
         </span>
         <p class="mt-2 strong dear_name">Dear Mr/Mrs. {{ toName }},</p>
@@ -89,6 +89,7 @@ const fromDeveloper = letterContent.from_developer
 
   *[contenteditable='true'] {
     outline: none;
+    cursor: text;
   }
 
   .dear_name,
@@ -103,8 +104,11 @@ const fromDeveloper = letterContent.from_developer
     }
   }
 
-  .dear_name {
+  .dear_name,
+  .from_developer {
     text-transform: uppercase;
+    font-size: px2rem(20);
+    font-weight: bold;
   }
 
   .letter_body {
