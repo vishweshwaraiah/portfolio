@@ -107,8 +107,29 @@ const fromDeveloper = letterContent.from_developer
   .dear_name,
   .from_developer {
     text-transform: uppercase;
-    font-size: px2rem(20);
+    font-size: calc(1vw + 5px);
     font-weight: bold;
+  }
+
+  @include mediaQuery(mobile) {
+    .dear_name,
+    .from_developer {
+      font-size: calc(3vw + 5px);
+    }
+  }
+
+  @include mediaQuery(tablet) {
+    .dear_name,
+    .from_developer {
+      font-size: calc(2.5vw + 5px);
+    }
+  }
+
+  @include mediaQuery(laptop) {
+    .dear_name,
+    .from_developer {
+      font-size: calc(2vw + 5px);
+    }
   }
 
   .letter_body {
@@ -118,7 +139,6 @@ const fromDeveloper = letterContent.from_developer
     .passion_desc,
     .final_words {
       font-weight: 100;
-      font-size: inherit;
     }
   }
 }
