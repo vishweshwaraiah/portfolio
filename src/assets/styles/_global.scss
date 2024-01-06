@@ -1007,6 +1007,10 @@ pre {
     @include buttonVariant(secondary);
   }
 
+  &-tertiary {
+    @include buttonVariant(tertiary);
+  }
+
   &-success {
     @include buttonVariant(success);
   }
@@ -1795,7 +1799,7 @@ span.err {
 }
 
 .animate {
-  animation-duration: 0.5s;
+  animation-duration: 500ms;
   animation-fill-mode: forwards;
   z-index: 200;
 
@@ -1810,6 +1814,10 @@ span.err {
 
 .just-move {
   animation: moveIt 500ms infinite;
+}
+
+.wobble {
+  animation: wobble 2s ease;
 }
 
 .hover-transform {

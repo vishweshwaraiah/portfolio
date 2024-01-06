@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import MyPortfolio from '@/views/MyPortfolio.vue'
 import MyResume from '@/views/MyResume.vue'
 import MyProjects from '@/views/MyProjects.vue'
 import CoverLetter from '@/views/CoverLetter.vue'
@@ -10,28 +11,51 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: MyResume
+      name: 'Portfolio',
+      component: MyPortfolio,
+      meta: {
+        hidden: false
+      }
+    },
+    {
+      path: '/profile',
+      name: 'Profile',
+      component: MyResume,
+      meta: {
+        hidden: false
+      }
     },
     {
       path: '/projects',
-      name: 'projects',
-      component: MyProjects
+      name: 'Projects',
+      component: MyProjects,
+      meta: {
+        hidden: false
+      }
     },
     {
       path: '/coverletter',
-      name: 'coverletter',
-      component: CoverLetter
+      name: 'Cover letter',
+      component: CoverLetter,
+      meta: {
+        hidden: false
+      }
     },
     {
       path: '/about',
-      name: 'about',
-      component: AboutDev
+      name: 'About',
+      component: AboutDev,
+      meta: {
+        hidden: false
+      }
     },
     {
       path: '/:catchAll(.*)',
       name: '404',
-      component: PageNotFound
+      component: PageNotFound,
+      meta: {
+        hidden: true
+      }
     }
   ]
 })

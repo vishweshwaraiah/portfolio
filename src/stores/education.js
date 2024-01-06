@@ -12,7 +12,7 @@ const useEducationStore = defineStore('education', () => {
     {
       year: '2006-2008',
       institute: 'Basaveshwar Science College',
-      location: 'Bagalokote',
+      location: 'Bagalkote',
       name: 'Pre-University College'
     },
     {

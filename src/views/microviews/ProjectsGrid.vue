@@ -33,7 +33,7 @@ const isInternal = (project) => {
     <MasterHrLine thickness="2px" />
     <div class="grid-container grids_2">
       <div class="grid-item card has_space" v-for="(project, idx) in projectsList" :key="idx">
-        <div class="card-header">
+        <div class="card-header noBg">
           <DetailsBadge
             class="project_duration"
             :content="project.project_duration"
@@ -80,7 +80,7 @@ const isInternal = (project) => {
             {{ project.project_description }}
           </span>
         </div>
-        <div class="card-footer">
+        <div class="card-footer noBg">
           <div class="work_skills">
             <DetailsBadge
               v-for="(skill, idx) in project.work_skills"

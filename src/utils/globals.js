@@ -436,3 +436,7 @@ export const px2pt = (size) => {
   const ptSize = size * ptPx
   return ptSize + 'pt'
 }
+
+export const getYearsFromDateList = (datesArray) => {
+  if (!datesArray.length) return '0'
+}

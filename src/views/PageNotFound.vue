@@ -1,6 +1,13 @@
 <script setup>
+import { useRouter } from 'vue-router'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterButton from '@/components/MasterButton.vue'
+
+const router = useRouter()
+
+const goHome = () => {
+  router.push('/')
+}
 </script>
 
 <template>
@@ -15,7 +22,7 @@ import MasterButton from '@/components/MasterButton.vue'
         The page you are looking for does not exist. How you got here is a mystery. But you can
         click the button below to go back to the homepage.
       </p>
-      <MasterButton href="/" variant="dark">HOME</MasterButton>
+      <MasterButton :onClick="goHome" variant="dark">HOME</MasterButton>
     </div>
   </main>
 </template>

@@ -123,6 +123,7 @@
 }
 
 @include keyframes(spin) {
+
   0%,
   100% {
     box-shadow: 0.2em 0px 0 0px currentcolor;
@@ -168,5 +169,64 @@
 
   100% {
     transform: translate(0, -10%);
+  }
+}
+
+@include keyframes(wobble) {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateX(5px);
+  }
+
+  70% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+
+  90% {
+    transform: translateX(3px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@include keyframes(growCenter) {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@include keyframes(moveText) {
+  0% {
+    bottom: -0.2em;
+    opacity: 1;
+  }
+
+  50% {
+    bottom: 0.2em;
+    opacity: 0.5;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1;
   }
 }

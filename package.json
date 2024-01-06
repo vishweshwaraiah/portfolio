@@ -6,7 +6,8 @@
   "scripts": {
     "start": "vite",
     "copy": "cd dist && cp index.html 404.html",
-    "build": "vite build && npm run copy && robocopy ./dist ../vishweshwaraiah.github.io /e /w:1 /r:2 /COPYALL /DCOPY:DAT /MT",
+    "robo:copy": "robocopy ./dist ../vishweshwaraiah.github.io /e /w:1 /r:2 /COPYALL /DCOPY:DAT /MT",
+    "build": "vite build && npm run copy && npm run robo:copy",
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",

@@ -279,6 +279,14 @@
     $border-color: var(--secondary-border);
   }
 
+  @else if $variant ==tertiary {
+    $background-color: var(--tertiary);
+    $text-color: var(--dark);
+    $hover-color: var(--tertiary-hover);
+    $disabled-color: var(--tertiary-disabled);
+    $border-color: var(--tertiary-border);
+  }
+
   @else if $variant ==success {
     $background-color: var(--success);
     $text-color: var(--white);
@@ -373,32 +381,7 @@
   }
 }
 
-@mixin floatingBox($pos: top_right, $gap: 16) {
-  $top: px2rem($gap);
-  $right: px2rem($gap);
-  $bottom: auto;
-  $left: auto;
-
-  @if ($pos ==bottom_right) {
-    $top: auto;
-    $right: px2rem($gap);
-    $bottom: px2rem($gap);
-    $left: auto;
-  }
-
-  @if ($pos ==bottom_left) {
-    $top: auto;
-    $right: auto;
-    $bottom: px2rem($gap);
-    $left: px2rem($gap);
-  }
-
-  @if ($pos ==top_left) {
-    $top: px2rem($gap);
-    $left: px2rem($gap);
-    $bottom: auto;
-    $right: auto;
-  }
+@mixin floatingBox($top, $right, $bottom, $left) {
 
   position: fixed;
   top: $top;

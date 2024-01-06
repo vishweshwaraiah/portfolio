@@ -10,6 +10,10 @@ const props = defineProps({
   hasTriangle: {
     default: false,
     type: Boolean
+  },
+  width: {
+    default: '50%',
+    type: String
   }
 })
 
@@ -47,7 +51,7 @@ const getClasses = () => {
   padding: 2rem 0;
 
   img {
-    width: 50%;
+    width: v-bind('width');
     height: auto;
     min-height: 50%;
     border: 1rem solid var(--glob-light);

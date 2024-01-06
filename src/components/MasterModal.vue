@@ -87,7 +87,7 @@ const cancelAction = async () => {
           <slot name="header"></slot>
         </header>
         <main class="modal-body no-gutters m-2">
-          <slot>Default Modal Content!</slot>
+          <slot></slot>
         </main>
         <footer v-if="footerSlot" class="modal-footer">
           <slot name="footer"></slot>

@@ -3,23 +3,23 @@ import { defineStore } from 'pinia'
 
 const useSkillsStore = defineStore('skills', () => {
   const skills = ref([
-    'Business Requirements',
-    'JSON',
-    'Technical Requirements',
+    'Technical requirements',
+    'jSon',
+    'Business requirements',
     'Git',
-    'Responsive Design',
+    'Responsive design',
     'Teamwork',
-    'Problem Solving',
+    'Problem solving',
+    'Code review',
     'Ajax',
-    'Code Review',
-    'Unit Testing',
+    'Design systems',
     'Debugging',
-    'Stencil JS',
-    'Design Systems',
-    'Spring-Boot',
-    'Hibernate',
-    'Node.Js',
-    'SQL'
+    'React.js',
+    'Vue.js',
+    'Node.js',
+    'Unit testing',
+    'Spring-boot',
+    'Sql'
   ])
 
   const getSkills = computed(() => skills.value)
