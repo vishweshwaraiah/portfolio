@@ -1,5 +1,5 @@
 <script setup>
-import DeveloperPicture from '@/views/microviews/DeveloperPicture.vue'
+import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
 
 const devName = 'Vishweshwarayya Kj'
 </script>

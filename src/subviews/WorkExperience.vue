@@ -1,6 +1,6 @@
 <script setup>
 import { dateDiffer, toUTCDate } from '@/utils/globals.js'
-import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
+import DetailsBadge from '@/subviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
@@ -90,7 +90,7 @@ const getDateDifference = (exp_details) => {
           />
         </div>
       </div>
-      <MasterHrLine margin-bottom="3rem" />
+      <MasterHrLine margin-bottom="2.25rem" />
       <MasterPrintBreak v-if="item.print_break" />
       <MasterPrintBreak v-else action="avoid" />
     </div>
@@ -121,7 +121,6 @@ const getDateDifference = (exp_details) => {
         display: flex;
         text-transform: uppercase;
         font-family: var(--secondary-font-family);
-        margin-bottom: 1rem;
         align-items: baseline;
 
         .exp_badge {
@@ -151,7 +150,7 @@ const getDateDifference = (exp_details) => {
   }
 }
 
-@include mediaQuery(mobile) {
+@include mediaQuery(mobile, tablet, laptop) {
   .work_experience .work_header .work_designation .job_title {
     flex-direction: column;
     margin-bottom: 0;

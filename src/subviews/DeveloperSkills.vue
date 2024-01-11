@@ -1,7 +1,7 @@
 <script setup>
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
-import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
+import DetailsBadge from '@/subviews/DetailsBadge.vue'
 
 defineProps({
   devSkills: {

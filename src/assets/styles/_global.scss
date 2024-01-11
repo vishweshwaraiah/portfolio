@@ -3,13 +3,14 @@
 *::after {
   box-sizing: border-box;
   font-family: var(--global-font-family);
-  user-select: none;
   -webkit-user-select: none;
+  user-select: none;
 }
 
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-tap-highlight-color: #00000000;
 }
 
@@ -54,6 +55,12 @@ body {
 @include mediaQuery(laptop) {
   body {
     font-size: 2vw;
+  }
+}
+
+@include mediaQuery(desktop) {
+  body {
+    font-size: 1.5vw;
   }
 }
 
@@ -195,11 +202,13 @@ pre {
 img {
   vertical-align: middle;
   border-style: none;
+  animation: fadeIn 3s;
 }
 
 svg {
   overflow: hidden;
   vertical-align: middle;
+  animation: fadeIn 3s;
 }
 
 caption {
@@ -350,32 +359,32 @@ summary {
 
 h1,
 .h1 {
-  @include headings(3vw);
+  @include headings(3.5vw);
 }
 
 h2,
 .h2 {
-  @include headings(2.5vw);
+  @include headings(3vw);
 }
 
 h3,
 .h3 {
-  @include headings(2vw);
+  @include headings(2.5vw);
 }
 
 h4,
 .h4 {
-  @include headings(1.5vw);
+  @include headings(2vw);
 }
 
 h5,
 .h5 {
-  @include headings(1vw);
+  @include headings(1.5vw);
 }
 
 h6,
 .h6 {
-  @include headings(0.8vw);
+  @include headings(1vw);
 }
 
 @include mediaQuery(mobile) {
@@ -403,6 +412,39 @@ h6,
   h5,
   .h5 {
     @include headings(3vw);
+  }
+
+  h6,
+  .h6 {
+    @include headings(2vw);
+  }
+}
+
+@include mediaQuery(laptop, tablet) {
+
+  h1,
+  .h1 {
+    @include headings(4.5vw);
+  }
+
+  h2,
+  .h2 {
+    @include headings(4vw);
+  }
+
+  h3,
+  .h3 {
+    @include headings(3.5vw);
+  }
+
+  h4,
+  .h4 {
+    @include headings(3vw);
+  }
+
+  h5,
+  .h5 {
+    @include headings(2.5vw);
   }
 
   h6,

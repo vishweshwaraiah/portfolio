@@ -1,9 +1,9 @@
 <script setup>
-import DeveloperTitle from '@/views/microviews/DeveloperTitle.vue'
-import MasterTemplate from '@/views/microviews/MasterTemplate.vue'
-import DeveloperPicture from '@/views/microviews/DeveloperPicture.vue'
-import DeveloperContact from '@/views/microviews/DeveloperContact.vue'
-import DeveloperLetter from '@/views/microviews/DeveloperLetter.vue'
+import DeveloperTitle from '@/subviews/DeveloperTitle.vue'
+import MasterTemplate from '@/subviews/MasterTemplate.vue'
+import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
+import DeveloperContact from '@/subviews/DeveloperContact.vue'
+import DeveloperLetter from '@/subviews/DeveloperLetter.vue'
 import useContactStore from '@/stores/contact.js'
 
 const contact = useContactStore()

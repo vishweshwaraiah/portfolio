@@ -1,12 +1,7 @@
 <script setup>
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
-import { dateDiffer } from '@/utils/globals.js'
-import { careerStarted } from '@/utils/constants.js'
-
-const from = careerStarted
-
-const diffDate = dateDiffer({ from, format: 'Y+' })
+import TotalExperience from '@/subviews/TotalExperience.vue'
 
 defineProps({
   content: {
@@ -36,7 +31,7 @@ defineProps({
       {{ content.developer_aim }}
     </p>
     <p class="developer_exp" v-if="content.developer_exp">
-      {{ `${diffDate} ${content.developer_exp}` }}
+      <TotalExperience /> {{ content.developer_exp }}
     </p>
   </div>
 </template>

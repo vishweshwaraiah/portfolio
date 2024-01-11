@@ -346,6 +346,24 @@ export const monthDiffer = (d1, d2) => {
   return months <= 0 ? 0 : months
 }
 
+export const monthsCount = (d1, d2) => {
+  if (typeof d1 === 'string' && d1.toLowerCase() === 'present') {
+    d1 = new Date()
+  } else {
+    d1 = new Date(d1)
+  }
+  if (typeof d2 === 'string' && d2.toLowerCase() === 'present') {
+    d2 = new Date()
+  } else {
+    d2 = new Date(d2)
+  }
+  let months
+  months = (d2.getFullYear() - d1.getFullYear()) * 12
+  months -= d1.getMonth()
+  months += d2.getMonth()
+  return months <= 0 ? 0 : months
+}
+
 export const dateDiffer = (props) => {
   let { from, to, format = 'YMD' } = props
   let startDate = new Date(new Date(from).toISOString().slice(0, 10))
@@ -439,4 +457,14 @@ export const px2pt = (size) => {
 
 export const getYearsFromDateList = (datesArray) => {
   if (!datesArray.length) return '0'
+  const totalMonths = datesArray
+    .map((date) => {
+      return monthsCount(date.from, date.to)
+    })
+    .reduce((acc, months) => {
+      acc += months
+      return acc
+    }, 0)
+
+  return monthsToYears(totalMonths)
 }

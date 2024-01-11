@@ -1,5 +1,5 @@
 <script setup>
-import DetailsBadge from '@/views/microviews/DetailsBadge.vue'
+import DetailsBadge from '@/subviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 

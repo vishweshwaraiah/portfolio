@@ -51,12 +51,12 @@ const goHome = () => {
   router.push('/')
 }
 
-const methodClick = () => {
+const closeMenu = () => {
   isVisible.value = false
 }
 
 const printPage = () => {
-  methodClick()
+  closeMenu()
   window?.print()
 }
 </script>
@@ -79,7 +79,7 @@ const printPage = () => {
       @click="toggleMenu"
       title="Floating Menu"
     />
-    <div v-if="isVisible" class="floating_menu">
+    <div v-if="isVisible" class="floating_menu" @click="closeMenu">
       <header class="menu">
         <nav>
           <RouterLink
@@ -87,10 +87,11 @@ const printPage = () => {
             :key="route.path"
             class="flex-between"
             :to="route.path"
-            @click="methodClick"
+            @click="closeMenu"
           >
             <span>{{ route.name }}</span>
             <MasterIcon
+              v-if="route.meta.print"
               svgName="printer"
               class="has_print"
               @click="printPage"

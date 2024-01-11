@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterPrintBreak from '@/components/MasterPrintBreak.vue'
+import TotalExperience from '@/subviews/TotalExperience.vue'
 import useCoverLetterStore from '@/stores/coverletter.js'
 
 const sectionTitle = 'Cover Letter'
@@ -20,6 +21,7 @@ const addrLine2 = letterContent.addrLine2
 const addrLine3 = letterContent.addrLine3
 const addrLine4 = letterContent.addrLine4
 const introDesc = letterContent.intro_desc
+const experienceDesc = letterContent.experience_desc
 const expertiseDesc = letterContent.expertise_desc
 const recentProjects = letterContent.recent_projects
 const passionDesc = letterContent.passion_desc
@@ -60,7 +62,8 @@ const fromDeveloper = letterContent.from_developer
       </div>
       <div class="letter_body">
         <div class="intro_desc mt-3 mb-2" contenteditable="true">
-          {{ introDesc }}
+          {{ introDesc }} <TotalExperience prepend="I have" append="of" />
+          {{ experienceDesc }}
         </div>
         <div class="expertise_desc mt-3 mb-2" contenteditable="true">
           {{ expertiseDesc }}

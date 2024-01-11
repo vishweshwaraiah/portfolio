@@ -33,7 +33,7 @@ const useProjectsStore = defineStore('projects', () => {
         type: 'Full-Time'
       },
       project_name: 'KFC @ Cognizant',
-      project_client: 'YUM',
+      project_client: 'YUM India',
       project_location: 'Bengaluru, Karnataka',
       project_description: 'A project for fast food restaurant chain that sells food online.',
       work_skills: [
@@ -55,7 +55,7 @@ const useProjectsStore = defineStore('projects', () => {
         type: 'Full-Time'
       },
       project_name: 'Macys @ Cognizant',
-      project_client: "Macy's",
+      project_client: "Macy's India",
       project_location: 'Bengaluru, Karnataka',
       project_description: 'An online clothing and accessories modern department store project.',
       work_skills: [
@@ -123,8 +123,8 @@ const useProjectsStore = defineStore('projects', () => {
         to: 'Nov 2016',
         type: 'Full-Time'
       },
-      project_name: 'Capricoast Home Solutions',
-      project_client: 'Capricoast',
+      project_name: 'Capricoast',
+      project_client: 'Capricoast Home Solutions',
       project_location: 'Bengaluru, Karnataka',
       project_description:
         "It's an online shopping project that sells modular-kitchens, wardrobes and other home utils.",

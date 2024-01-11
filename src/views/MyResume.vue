@@ -1,13 +1,13 @@
 <script setup>
-import DeveloperTitle from '@/views/microviews/DeveloperTitle.vue'
-import MasterTemplate from '@/views/microviews/MasterTemplate.vue'
-import WorkExperience from '@/views/microviews/WorkExperience.vue'
-import DeveloperPicture from '@/views/microviews/DeveloperPicture.vue'
-import AboutDeveloper from '@/views/microviews/AboutDeveloper.vue'
-import PersonalDetails from '@/views/microviews/PersonalDetails.vue'
 import useExperiencesStore from '@/stores/experiences.js'
 import useAboutDevStore from '@/stores/aboutdev.js'
-import Responsibilities from '@/views/microviews/Responsibilities.vue'
+import DeveloperTitle from '@/subviews/DeveloperTitle.vue'
+import MasterTemplate from '@/subviews/MasterTemplate.vue'
+import WorkExperience from '@/subviews/WorkExperience.vue'
+import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
+import AboutDeveloper from '@/subviews/AboutDeveloper.vue'
+import PersonalDetails from '@/subviews/PersonalDetails.vue'
+import Responsibilities from '@/subviews/Responsibilities.vue'
 
 const aboutDev = useAboutDevStore()
 const aboutDevData = aboutDev.getAboutDev

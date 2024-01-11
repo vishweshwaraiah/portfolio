@@ -1,7 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { dateDiffer } from '@/utils/globals.js'
-import { careerStarted } from '@/utils/constants.js'
+import TotalExperience from '@/subviews/TotalExperience.vue'
 
 defineProps({
   title: {
@@ -13,20 +11,13 @@ defineProps({
     type: String
   }
 })
-const from = careerStarted
-const expYears = ref('')
-
-onMounted(() => {
-  const diffDate = dateDiffer({ from, format: 'Y+' })
-  expYears.value = diffDate
-})
 </script>
 
 <template>
   <div class="master_title section_title">
     <h1 class="title">{{ title }}</h1>
     <h4 class="subtitle">{{ subtitle }}</h4>
-    <h4 class="exp_years">From Past {{ expYears }}</h4>
+    <h4 class="exp_years">From Past <TotalExperience /></h4>
   </div>
 </template>
 
@@ -36,7 +27,7 @@ onMounted(() => {
   background-color: var(--theme-color);
   padding: 1rem 2rem;
   width: auto;
-  border-width: 5px 0 5px 0;
+  border-width: px2rem(5) 0 px2rem(5) 0;
   border-style: double;
   border-color: var(--item-color);
   text-transform: uppercase;
@@ -50,12 +41,17 @@ onMounted(() => {
   .subtitle {
     font-size: 2.5vw;
     padding: 0.625rem 0;
-    border-top: 2px solid var(--item-color);
-    border-bottom: 2px solid var(--item-color);
+    border-top: px2rem(2) solid var(--item-color);
+    border-bottom: px2rem(2) solid var(--item-color);
   }
 
   .exp_years {
     margin-top: 0.625rem;
+
+    * {
+      font-family: var(--secondary-font-family);
+      text-transform: uppercase;
+    }
   }
 
   @include mediaQuery(mobile) {
