@@ -1,5 +1,6 @@
 <script setup>
 import { classNames } from '@/utils/globals.js'
+import MasterIcon from '@/components/MasterIcon.vue'
 import DevPic from '@/assets/Vishu.png'
 
 const props = defineProps({
@@ -14,6 +15,10 @@ const props = defineProps({
   width: {
     default: '50%',
     type: String
+  },
+  isSvg: {
+    default: false,
+    type: Boolean
   }
 })
 
@@ -35,7 +40,8 @@ const getClasses = () => {
 <template>
   <div :class="getClasses()">
     <span class="triangle"></span>
-    <img :src="DevPic" alt="Vishweshwarayya Kj" />
+    <MasterIcon v-if="isSvg" svgName="vishu" :size="width" />
+    <img v-else :src="DevPic" alt="Vishweshwarayya Kj" />
     <h1>{{ titleText }}</h1>
   </div>
 </template>

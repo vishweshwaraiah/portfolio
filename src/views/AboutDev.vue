@@ -1,25 +1,12 @@
 <script setup>
 import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
+import RootTemplate from '@/subviews/RootTemplate.vue'
 
 const devName = 'Vishweshwarayya Kj'
 </script>
 
 <template>
-  <div class="about_dev">
-    <DeveloperPicture :titleText="devName" />
-  </div>
+  <RootTemplate class="about_dev">
+    <DeveloperPicture :titleText="devName" width="30vw" :isSvg="true" />
+  </RootTemplate>
 </template>
-
-<style lang="scss" scoped>
-.about_dev {
-  display: flex;
-  width: 100%;
-  flex: 1;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  color: var(--item-color);
-  background-color: var(--theme-color);
-}
-</style>

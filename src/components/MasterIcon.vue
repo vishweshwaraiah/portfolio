@@ -28,7 +28,7 @@ const props = defineProps({
     type: String
   },
   bgColor: {
-    default: 'var(--bg-color)',
+    default: '',
     type: String
   },
   labelAfter: {
@@ -45,10 +45,14 @@ const SvgIcon = defineAsyncComponent(() => {
   return import(`@/assets/icons/${props.svgName}.svg`)
 })
 
+const sizes = ['x-large', 'large', 'medium', 'small', 'x-small']
+
 const svgWrapper = computed(() => {
   const defaults = ['svg-holder']
 
-  defaults.push(props.size)
+  if (sizes.includes(props.size)) {
+    defaults.push(props.size)
+  }
 
   if (props.class) {
     defaults.push(props.class)
@@ -105,6 +109,7 @@ const getSize = computed(() => {
   justify-content: center;
   height: auto;
   width: auto;
+  z-index: 200;
 
   &.hover-inverse:hover svg {
     fill: v-bind(hoverColor);

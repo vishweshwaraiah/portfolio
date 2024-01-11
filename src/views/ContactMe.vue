@@ -1,34 +1,23 @@
 <script setup>
+import RootTemplate from '@/subviews/RootTemplate.vue'
+
 const contact = '+91-7353333573'
 </script>
 
 <template>
-  <div class="contact_me">
+  <RootTemplate class="contact_me">
+    <h4>Call me on</h4>
     <h1>{{ contact }}</h1>
-  </div>
+  </RootTemplate>
 </template>
 
 <style lang="scss" scoped>
 .contact_me {
-  display: flex;
-  width: 100vw;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  height: 100vh;
-  color: var(--item-color);
-  background-color: var(--theme-color);
-  padding: 10%;
-  gap: 5%;
+  flex-direction: column;
+  justify-content: center;
 
   > * {
     text-align: left;
-  }
-}
-
-@media print {
-  .contact_me {
-    height: 100vh;
   }
 }
 </style>

@@ -16,7 +16,7 @@ const props = defineProps({
 const textArray = ref([])
 
 const styleObject = (idx) => ({
-  animationDelay: 0.75 + idx / 10 + 's'
+  animationDelay: 0.75 + idx / 25 + 's'
 })
 
 const spanClasses = (word) => {
@@ -54,7 +54,7 @@ onMounted(() => {
   line-height: 2;
 
   > span {
-    opacity: 0;
+    opacity: 0.2;
     position: relative;
     animation: moveText 0.75s forwards;
   }

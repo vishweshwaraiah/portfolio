@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <main class="main_template">
     <div class="main_sidebar">

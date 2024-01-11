@@ -5,6 +5,7 @@ import { openLink } from '@/utils/globals.js'
 import { linkedIn, github } from '@/utils/constants.js'
 import useSkillsStore from '@/stores/skills.js'
 import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
+import RootTemplate from '@/subviews/RootTemplate.vue'
 import MasterButton from '@/components/MasterButton.vue'
 import MasterAnimate from '@/components/MasterAnimate.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
@@ -16,7 +17,7 @@ const skills = useSkillsStore()
 
 const devSkills = skills.getSkills
 
-const hlText = ref(['frontend'])
+const hlText = ref(['frontend', 'full-stack'])
 
 const toProfile = () => {
   router.push('/profile')
@@ -58,8 +59,8 @@ const goTo = (type) => {
 </script>
 
 <template>
-  <div class="my_portfolio">
-    <DeveloperPicture class="dev_pic" width="100%" />
+  <RootTemplate class="my_portfolio">
+    <DeveloperPicture class="dev_pic" width="30vw" :isSvg="true" />
     <div class="dev_details">
       <div class="dev_title wobble mb-3">
         <span class="dev_greet">Hello, I'm</span>
@@ -97,22 +98,11 @@ const goTo = (type) => {
         />
       </div>
     </div>
-  </div>
+  </RootTemplate>
 </template>
 
 <style lang="scss" scoped>
 .my_portfolio {
-  display: flex;
-  width: 100vw;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  height: auto;
-  color: var(--item-color);
-  background-color: var(--theme-color);
-  padding: 10%;
-  gap: 5%;
-
   > * {
     text-align: center;
   }
@@ -200,12 +190,6 @@ const goTo = (type) => {
         font-size: px2rem(32);
       }
     }
-  }
-}
-
-@media print {
-  .my_portfolio {
-    height: 100vh;
   }
 }
 </style>
