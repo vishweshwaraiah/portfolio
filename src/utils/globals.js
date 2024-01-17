@@ -328,6 +328,33 @@ export const monthsToYears = (months) => {
   return Math.floor(months / 12) + ' years and ' + (months % 12) + ' months'
 }
 
+export const toUTCDate = (dateStr) => {
+  const montStrs = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ]
+
+  let year = new Date().getUTCFullYear()
+  let month = new Date().getUTCMonth()
+  if (dateStr.toLowerCase() !== 'present') {
+    const dateArr = dateStr.split(' ')
+    year = dateArr[1]
+    month = montStrs.findIndex((month) => month === dateArr[0])
+  }
+
+  return new Date(Date.UTC(year, month))
+}
+
 export const monthDiffer = (d1, d2) => {
   if (typeof d1 === 'string' && d1.toLowerCase() === 'present') {
     d1 = new Date()
@@ -350,17 +377,19 @@ export const monthsCount = (d1, d2) => {
   if (typeof d1 === 'string' && d1.toLowerCase() === 'present') {
     d1 = new Date()
   } else {
-    d1 = new Date(d1)
+    d1 = toUTCDate(d1)
   }
   if (typeof d2 === 'string' && d2.toLowerCase() === 'present') {
     d2 = new Date()
   } else {
-    d2 = new Date(d2)
+    d2 = toUTCDate(d2)
   }
+
   let months
   months = (d2.getFullYear() - d1.getFullYear()) * 12
   months -= d1.getMonth()
   months += d2.getMonth()
+
   return months <= 0 ? 0 : months
 }
 
@@ -416,33 +445,6 @@ export const dateDiffer = (props) => {
   }
 }
 
-export const toUTCDate = (dateStr) => {
-  const montStrs = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
-
-  let year = new Date().getUTCFullYear()
-  let month = new Date().getUTCMonth()
-  if (dateStr.toLowerCase() !== 'present') {
-    const dateArr = dateStr.split(' ')
-    year = dateArr[1]
-    month = montStrs.findIndex((month) => month === dateArr[0])
-  }
-
-  return new Date(Date.UTC(year, month))
-}
-
 export const px2rem = (size) => {
   const remPx = 16
   const remSize = size / remPx
@@ -456,14 +458,15 @@ export const px2pt = (size) => {
 }
 
 export const getYearsFromDateList = (datesArray) => {
-  if (!datesArray.length) return '0'
+  if (!datesArray.length) return 'Error!'
+
   const totalMonths = datesArray
     .map((date) => {
       return monthsCount(date.from, date.to)
     })
     .reduce((acc, months) => {
       acc += months
-      return acc
+      return Number(acc)
     }, 0)
 
   return monthsToYears(totalMonths)

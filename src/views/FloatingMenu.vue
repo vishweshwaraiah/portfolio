@@ -212,6 +212,24 @@ const printPage = () => {
   }
 }
 
+@include mediaQuery(mobile, tablet) {
+  .floating_box .floating_menu .menu {
+    width: 50vw;
+  }
+}
+
+@include mediaQuery(laptop) {
+  .floating_box .floating_menu .menu {
+    width: 40vw;
+  }
+}
+
+@include mediaQuery(desktop) {
+  .floating_box .floating_menu .menu {
+    width: 30vw;
+  }
+}
+
 @media print {
   .floating_box {
     display: none;

@@ -1,7 +1,8 @@
 <script setup>
 import { classNames } from '@/utils/globals.js'
 import MasterIcon from '@/components/MasterIcon.vue'
-import DevPic from '@/assets/Vishu.png'
+import MasterImage from '@/components/MasterImage.vue'
+import DevPic from '@/assets/images/vishu.png'
 
 const props = defineProps({
   titleText: {
@@ -40,8 +41,14 @@ const getClasses = () => {
 <template>
   <div :class="getClasses()">
     <span class="triangle"></span>
-    <MasterIcon v-if="isSvg" svgName="vishu" :size="width" />
-    <img v-else :src="DevPic" alt="Vishweshwarayya Kj" />
+    <MasterIcon
+      v-if="isSvg"
+      class="dev_pic"
+      svgName="vishu"
+      :size="width"
+      title="Vishweshwarayya Kj"
+    />
+    <MasterImage v-else class="dev_pic" :image="DevPic" width="50%" altText="Vishweshwarayya Kj" />
     <h1>{{ titleText }}</h1>
   </div>
 </template>
@@ -56,20 +63,10 @@ const getClasses = () => {
   height: auto;
   padding: 2rem 0;
 
-  img {
-    width: v-bind('width');
-    height: auto;
-    min-height: 50%;
-    border: 1rem solid var(--glob-light);
-    border-radius: 25%;
-    z-index: 200;
-  }
-
   &.has_title {
     flex-direction: column;
 
-    img {
-      width: 25%;
+    .dev_pic {
       margin-bottom: 2rem;
     }
   }
