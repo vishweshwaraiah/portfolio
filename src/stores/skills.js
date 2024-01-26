@@ -10,6 +10,7 @@ const useSkillsStore = defineStore('skills', () => {
     'Technical requirements',
     'Teamwork',
     'Ajax',
+    'AWS',
     'Business requirements',
     'Responsive design',
     'Git',

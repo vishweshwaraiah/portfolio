@@ -46,7 +46,8 @@ const useExperiencesStore = defineStore('experiences', () => {
         'CSS3',
         'Spring Boot',
         'JPA',
-        'Node JS'
+        'Node JS',
+        'AWS'
       ],
       print_break: false,
       print_margin: false

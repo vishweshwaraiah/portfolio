@@ -6,7 +6,7 @@ const contact = '+91-7353333573'
 
 <template>
   <RootTemplate class="contact_me">
-    <h4>Call me on</h4>
+    <h4 class="mb-3">Call me on</h4>
     <h1>{{ contact }}</h1>
   </RootTemplate>
 </template>

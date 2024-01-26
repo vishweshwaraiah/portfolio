@@ -44,7 +44,8 @@ const useProjectsStore = defineStore('projects', () => {
         'CSS3',
         'Spring Boot',
         'JPA',
-        'Node JS'
+        'Node JS',
+        'AWS'
       ],
       project_link: 'https://online.kfc.co.in/'
     },
@@ -66,7 +67,8 @@ const useProjectsStore = defineStore('projects', () => {
         'HTML5',
         'CSS3',
         'Node JS',
-        'Micro-frontends'
+        'Micro-frontends',
+        'AWS'
       ],
       project_link: 'https://www.macys.com/'
     },
