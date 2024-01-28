@@ -48,7 +48,14 @@ const getClasses = () => {
       :size="width"
       title="Vishweshwarayya Kj"
     />
-    <MasterImage v-else class="dev_pic" :image="DevPic" width="50%" altText="Vishweshwarayya Kj" />
+    <MasterImage
+      v-else
+      class="dev_pic"
+      hasBorder
+      :image="DevPic"
+      width="50%"
+      altText="Vishweshwarayya Kj"
+    />
     <h1>{{ titleText }}</h1>
   </div>
 </template>

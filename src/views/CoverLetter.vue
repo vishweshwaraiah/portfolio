@@ -16,7 +16,7 @@ const devTitle = 'Vishweshwarayya K J'
 <template>
   <MasterTemplate class="cover_letter">
     <template #sidebar>
-      <DeveloperPicture :hasTriangle="true" />
+      <DeveloperPicture :hasTriangle="true" :isSvg="true" width="15vw" />
       <DeveloperContact :devContact="devContact" sectionTitle="Contact" />
     </template>
     <template #content>

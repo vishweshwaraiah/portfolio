@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { classNames } from '@/utils/globals.js'
 import placeholder from '@/assets/images/placeholder.jpg'
 
 const props = defineProps({
@@ -26,12 +27,34 @@ const props = defineProps({
   minWidth: {
     default: 'auto',
     type: String
+  },
+  classes: {
+    default: '',
+    type: String
+  },
+  hasBorder: {
+    default: false,
+    type: Boolean
   }
 })
 
 const uid = new Date().getTime().toString(36)
 
 const picture = ref(placeholder)
+
+const getClasses = () => {
+  const classList = ['master_image']
+
+  if (props.hasBorder) {
+    classList.push('has_border')
+  }
+
+  if (props.classes) {
+    classList.push(props.classes)
+  }
+
+  return classNames(classList)
+}
 
 onMounted(() => {
   if (props.image) {
@@ -41,8 +64,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="master_image has_border">
-    <img class="picture" :src="`${picture}?ver=${uid}`" loading="lazy" :alt="altText" />
+  <div :class="getClasses()">
+    <img class="picture" :src="`${picture}?ver=${uid}`" :alt="altText" />
   </div>
 </template>
 

@@ -21,7 +21,7 @@ const sectionTitle = 'Projects'
 <template>
   <MasterTemplate class="worked_projects">
     <template #sidebar>
-      <DeveloperPicture :hasTriangle="true" />
+      <DeveloperPicture :hasTriangle="true" :isSvg="true" width="15vw" />
       <DeveloperContact :devContact="devContact" sectionTitle="Contact" />
     </template>
     <template #content>

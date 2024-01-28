@@ -12,7 +12,7 @@
 <style lang="scss" scoped>
 .main_template {
   display: grid;
-  grid-template-columns: fit-content(30vw) 1fr;
+  grid-template-columns: 3fr 7fr;
   width: 100vw;
   height: 100vh;
 
