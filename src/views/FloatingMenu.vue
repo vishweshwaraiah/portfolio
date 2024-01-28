@@ -169,7 +169,7 @@ const printPage = () => {
 
         a {
           -webkit-app-region: no-drag;
-          color: var(--glob-dark);
+          color: var(--text-default);
           font-weight: bold;
           padding: 0.5rem 1rem;
           height: 100%;

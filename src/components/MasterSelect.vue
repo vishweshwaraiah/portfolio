@@ -1,166 +1,3 @@
-<style lang="scss" scoped>
-.input-group {
-  width: v-bind(selectBoxWidth);
-
-  .multiselect {
-    position: relative;
-    width: 100%;
-    box-shadow: boxShadow();
-
-    .dropdown-arrow {
-      position: absolute;
-      top: 0;
-      right: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: px2rem(45);
-    }
-
-    &.active,
-    &.err {
-      .dropdown-arrow {
-        transform: rotate(180deg);
-        -webkit-transform: rotate(180deg);
-      }
-    }
-
-    &.active,
-    &.active.err {
-      button.menu-btn {
-        z-index: 201;
-      }
-    }
-
-    &.inactive {
-      .dropdown-arrow {
-        transform: rotate(0deg);
-        -webkit-transform: rotate(0deg);
-      }
-    }
-
-    .menu-btn {
-      padding: px2rem(2) px2rem(10);
-      background: var(--input-bg-color);
-      width: 100%;
-      text-align: left;
-      color: var(--item-color);
-      border: 0;
-    }
-
-    .optionsBox {
-      position: absolute;
-      width: 100%;
-      left: 0;
-      z-index: 200;
-      margin-top: 0.25rem;
-      background-color: var(--bg-color);
-      color: var(--item-color);
-      max-height: 20rem;
-      overflow: auto;
-
-      @include hideScroll();
-
-      &.top {
-        bottom: px2rem(34);
-        box-shadow: boxShadow(top);
-      }
-
-      &.bottom {
-        top: px2rem(34);
-        box-shadow: boxShadow(bottom);
-      }
-
-      .menu-option {
-        align-items: center;
-        margin: px2rem(5);
-
-        &.selected-bg {
-          background-color: var(--input-selected);
-        }
-
-        label {
-          margin-top: 0.5rem;
-          display: flex;
-          justify-content: flex-start;
-          width: 100%;
-          align-items: center;
-          cursor: pointer;
-
-          .check-box {
-            margin-right: 1rem;
-            margin-left: 1rem;
-          }
-        }
-
-        input {
-          display: none;
-        }
-      }
-
-      .select-input {
-        display: inline-block;
-        margin-bottom: 0.5rem;
-        margin-right: 1rem;
-
-        &[type='checkbox'] {
-          width: auto;
-          margin-left: 1rem;
-        }
-      }
-    }
-  }
-}
-</style>
-
-<template lang="html">
-  <div :class="mainWrapper">
-    <label v-if="selectLabel" class="input-label">
-      {{ selectLabel }}
-    </label>
-    <div v-if="isVisible" class="backDrop" @click.stop="(e) => dropDown(e, 'close')"></div>
-    <div :class="inputWrapper" @mouseleave.stop="(e) => dropDown(e, 'close')">
-      <button class="menu-btn" type="button" @click.stop="(e) => dropDown(e, 'open')">
-        {{ selectedCountText || selectPlaceholder }}
-        <span class="dropdown-arrow">
-          <span class="down-arrow" />
-        </span>
-      </button>
-      <div v-if="isVisible" :class="`optionsBox animate ${alignDropdown}`">
-        <span
-          v-for="opt in propOptions"
-          :key="opt.id"
-          class="d-flex menu-option"
-          :class="isCheckedItem(opt.optValue) && `selected-bg`"
-        >
-          <input
-            :id="opt.optValue"
-            type="checkbox"
-            class="select-input"
-            :value="opt.optValue"
-            v-model="checkedValues"
-            @click="filterData"
-          />
-          <label :for="opt.optValue">
-            <MasterIcon
-              :size="`small`"
-              :class="`check-box`"
-              :key="getSvgName(opt.optValue)"
-              :svgName="getSvgName(opt.optValue)"
-              fillColor="var(--item-color)"
-            />
-            {{ opt.optName }}
-          </label>
-        </span>
-      </div>
-    </div>
-    <span class="err small" v-if="!validInput && isRequired">
-      {{ errMessage }}
-    </span>
-  </div>
-</template>
-
 <script setup>
 import { ref, computed, watchEffect, onMounted } from 'vue'
 import { RemoveMultiSpaces } from '@/utils/globals'
@@ -369,3 +206,166 @@ const inputWrapper = computed(() => {
   return RemoveMultiSpaces(combined)
 })
 </script>
+
+<template lang="html">
+  <div :class="mainWrapper">
+    <label v-if="selectLabel" class="input-label">
+      {{ selectLabel }}
+    </label>
+    <div v-show="isVisible" class="backDrop" @click.stop="(e) => dropDown(e, 'close')"></div>
+    <div :class="inputWrapper" @mouseleave.stop="(e) => dropDown(e, 'close')">
+      <button class="menu-btn" type="button" @click.stop="(e) => dropDown(e, 'open')">
+        {{ selectedCountText || selectPlaceholder }}
+        <span class="dropdown-arrow">
+          <span class="down-arrow" />
+        </span>
+      </button>
+      <div v-show="isVisible" :class="`optionsBox animate ${alignDropdown}`">
+        <span
+          v-for="opt in propOptions"
+          :key="opt.id"
+          class="d-flex menu-option"
+          :class="isCheckedItem(opt.optValue) && `selected-bg`"
+        >
+          <input
+            :id="opt.optValue"
+            type="checkbox"
+            class="select-input"
+            :value="opt.optValue"
+            v-model="checkedValues"
+            @click="filterData"
+          />
+          <label :for="opt.optValue">
+            <MasterIcon
+              :size="`small`"
+              :class="`check-box`"
+              :key="getSvgName(opt.optValue)"
+              :svgName="getSvgName(opt.optValue)"
+              fillColor="var(--item-color)"
+            />
+            {{ opt.optName }}
+          </label>
+        </span>
+      </div>
+    </div>
+    <span class="err small" v-if="!validInput && isRequired">
+      {{ errMessage }}
+    </span>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.input-group {
+  width: v-bind(selectBoxWidth);
+
+  .multiselect {
+    position: relative;
+    width: 100%;
+    box-shadow: boxShadow();
+
+    .dropdown-arrow {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: px2rem(45);
+    }
+
+    &.active,
+    &.err {
+      .dropdown-arrow {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+      }
+    }
+
+    &.active,
+    &.active.err {
+      button.menu-btn {
+        z-index: 201;
+      }
+    }
+
+    &.inactive {
+      .dropdown-arrow {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+      }
+    }
+
+    .menu-btn {
+      padding: px2rem(2) px2rem(10);
+      background: var(--input-bg-color);
+      width: 100%;
+      text-align: left;
+      color: var(--item-color);
+      border: 0;
+    }
+
+    .optionsBox {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      z-index: 200;
+      margin-top: 0.25rem;
+      background-color: var(--bg-color);
+      color: var(--item-color);
+      max-height: 20rem;
+      overflow: auto;
+
+      @include hideScroll();
+
+      &.top {
+        bottom: px2rem(34);
+        box-shadow: boxShadow(top);
+      }
+
+      &.bottom {
+        top: px2rem(34);
+        box-shadow: boxShadow(bottom);
+      }
+
+      .menu-option {
+        align-items: center;
+        margin: px2rem(5);
+
+        &.selected-bg {
+          background-color: var(--input-selected);
+        }
+
+        label {
+          margin-top: 0.5rem;
+          display: flex;
+          justify-content: flex-start;
+          width: 100%;
+          align-items: center;
+          cursor: pointer;
+
+          .check-box {
+            margin-right: 1rem;
+            margin-left: 1rem;
+          }
+        }
+
+        input {
+          display: none;
+        }
+      }
+
+      .select-input {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        margin-right: 1rem;
+
+        &[type='checkbox'] {
+          width: auto;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+</style>

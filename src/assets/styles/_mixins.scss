@@ -281,7 +281,7 @@
 
   @else if $variant ==tertiary {
     $background-color: var(--tertiary);
-    $text-color: var(--dark);
+    $text-color: var(--glob-dark);
     $hover-color: var(--tertiary-hover);
     $disabled-color: var(--tertiary-disabled);
     $border-color: var(--tertiary-border);

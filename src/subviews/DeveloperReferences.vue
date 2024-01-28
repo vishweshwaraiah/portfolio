@@ -75,7 +75,7 @@ defineProps({
 
     .refs_line {
       background-color: var(--theme-color);
-      color: var(--glob-dark);
+      color: var(--text-default);
       padding: px2rem(10);
 
       .section_title {

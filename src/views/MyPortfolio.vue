@@ -10,6 +10,19 @@ import MasterButton from '@/components/MasterButton.vue'
 import MasterAnimate from '@/components/MasterAnimate.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 
+const isOpen = ref(false)
+
+const showThemes = () => {
+  isOpen.value = !isOpen.value
+}
+
+const changeTheme = (theme) => {
+  // update theme attribute on HTML to switch theme in CSS
+  const domRoot = document.querySelector('html')
+  domRoot.setAttribute('data-theme', theme)
+  isOpen.value = !isOpen.value
+}
+
 const devName = 'Vishweshwarayya'
 
 const router = useRouter()
@@ -59,6 +72,55 @@ const goTo = (type) => {
 </script>
 
 <template>
+  <div class="theme_changer">
+    <MasterButton
+      :onClick="() => showThemes()"
+      variant="secondary"
+      size="medium"
+      width="5rem"
+      class="mb-1"
+    >
+      Themes
+    </MasterButton>
+    <div class="themes" v-if="isOpen">
+      <MasterButton
+        :onClick="() => changeTheme('default')"
+        variant="tertiary"
+        size="medium"
+        width="5rem"
+        class="mb-1"
+      >
+        Default
+      </MasterButton>
+      <MasterButton
+        :onClick="() => changeTheme('dark')"
+        variant="tertiary"
+        size="medium"
+        width="5rem"
+        class="mb-1"
+      >
+        Dark
+      </MasterButton>
+      <MasterButton
+        :onClick="() => changeTheme('light')"
+        variant="tertiary"
+        size="medium"
+        width="5rem"
+        class="mb-1"
+      >
+        Light
+      </MasterButton>
+      <MasterButton
+        :onClick="() => changeTheme('pink')"
+        variant="tertiary"
+        size="medium"
+        width="5rem"
+        class="mb-1"
+      >
+        Pink
+      </MasterButton>
+    </div>
+  </div>
   <RootTemplate class="my_portfolio">
     <DeveloperPicture class="dev_pic" width="30vw" :isSvg="true" />
     <div class="dev_details">
@@ -102,6 +164,19 @@ const goTo = (type) => {
 </template>
 
 <style lang="scss" scoped>
+.theme_changer {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .themes {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .my_portfolio {
   > * {
     text-align: center;
