@@ -241,7 +241,8 @@ const inputWrapper = computed(() => {
               :class="`check-box`"
               :key="getSvgName(opt.optValue)"
               :svgName="getSvgName(opt.optValue)"
-              fillColor="var(--item-color)"
+              fillColor="var(--primary-icon)"
+              hoverColor="var(--themed-icon)"
             />
             {{ opt.optName }}
           </label>

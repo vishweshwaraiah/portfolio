@@ -139,7 +139,8 @@ const readOnlyInput = (e) => {
         :svgIcon="SearchIcon"
         size="small"
         class="left-icon"
-        fillColor="var(--item-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
       <MasterIcon
         @click="clearInput"
@@ -147,14 +148,16 @@ const readOnlyInput = (e) => {
         size="small"
         :svgIcon="CloseIcon"
         class="clear-icon"
-        fillColor="var(--item-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
       <MasterIcon
         v-if="rightIcon && !inputValue"
         :svgIcon="CheckedIcon"
         size="small"
         class="right-icon"
-        fillColor="var(--item-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
       <textarea
         v-if="inputType === 'textarea'"

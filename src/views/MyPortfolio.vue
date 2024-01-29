@@ -10,6 +10,7 @@ import MasterButton from '@/components/MasterButton.vue'
 import MasterAnimate from '@/components/MasterAnimate.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 
+const currentTheme = ref('default')
 const isOpen = ref(false)
 
 const showThemes = () => {
@@ -20,6 +21,7 @@ const changeTheme = (theme) => {
   // update theme attribute on HTML to switch theme in CSS
   const domRoot = document.querySelector('html')
   domRoot.setAttribute('data-theme', theme)
+  currentTheme.value = domRoot.getAttribute('data-theme')
   isOpen.value = !isOpen.value
 }
 
@@ -80,7 +82,7 @@ const goTo = (type) => {
       width="5rem"
       class="mb-1"
     >
-      Themes
+      {{ currentTheme.toCapitalized() }}
     </MasterButton>
     <div class="themes" v-if="isOpen">
       <MasterButton
@@ -148,15 +150,15 @@ const goTo = (type) => {
           svgName="github"
           size="large"
           @click="goTo('github')"
-          fillColor="var(--item-color)"
-          hoverColor="var(--theme-color)"
+          fillColor="var(--primary-icon)"
+          hoverColor="var(--themed-icon)"
         />
         <MasterIcon
           svgName="linkedin"
           size="large"
           @click="goTo('linkedin')"
-          fillColor="var(--item-color)"
-          hoverColor="var(--theme-color)"
+          fillColor="var(--primary-icon)"
+          hoverColor="var(--themed-icon)"
         />
       </div>
     </div>

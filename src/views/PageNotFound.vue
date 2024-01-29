@@ -13,7 +13,12 @@ const goHome = () => {
 <template>
   <main class="not_found">
     <div class="not_found_icon">
-      <MasterIcon svgName="lost_space" size="50vh" />
+      <MasterIcon
+        svgName="lost_space"
+        size="50vh"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
+      />
     </div>
     <div class="not_found_content">
       <h1>404</h1>

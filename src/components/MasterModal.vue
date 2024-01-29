@@ -81,7 +81,12 @@ const cancelAction = async () => {
     <div :id="modalId" :class="`modal ${size}`" v-if="isShow" @click="toggleModal">
       <div class="modal-content shadow-dark" @click.stop="stopIt">
         <span class="close medium" @click="toggleModal">
-          <MasterIcon fillColor="var(--item-color)" size="x-small" svg-name="close-cross" />
+          <MasterIcon
+            size="x-small"
+            svg-name="close-cross"
+            fillColor="var(--primary-icon)"
+            hoverColor="var(--themed-icon)"
+          />
         </span>
         <header v-if="headerSlot" class="modal-header">
           <slot name="header"></slot>

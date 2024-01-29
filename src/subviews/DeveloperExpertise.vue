@@ -21,8 +21,8 @@ defineProps({
       <MasterIcon
         svgName="expert"
         size="medium"
-        fillColor="var(--bg-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />

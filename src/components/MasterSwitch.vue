@@ -46,8 +46,9 @@ $box-size: v-bind(inputWidth);
         :svgName="iconSvg"
         :key="iconSvg"
         size="100%"
-        fillColor="var(--item-color)"
         @click="updateStatus"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </span>
     <span class="err small" v-if="!validInput && inputRequired">

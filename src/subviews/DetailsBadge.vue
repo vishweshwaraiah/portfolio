@@ -67,7 +67,12 @@ const cardWrapper = computed(() => {
 <template lang="html">
   <div :class="cardWrapper">
     <div class="flex-center no-space" v-if="svgName">
-      <MasterIcon :svgName="svgName" fillColor="var(--glob-light)" size="small" />
+      <MasterIcon
+        :svgName="svgName"
+        size="small"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
+      />
     </div>
     <div v-if="contentType === 'string'" class="flex-column">
       <span class="custom_str" v-if="content">{{ content }}</span>

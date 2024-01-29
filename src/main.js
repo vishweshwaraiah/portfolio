@@ -1,4 +1,5 @@
 import '@/assets/index.scss'
+import '@/utils/prototypes.js'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

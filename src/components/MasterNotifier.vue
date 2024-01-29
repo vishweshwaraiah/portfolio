@@ -3,7 +3,12 @@
     <header>
       <h5>{{ type.Capitalize() }}</h5>
       <span class="close small" @click="hideNotifier">
-        <MasterIcon size="small" svgName="close-filled" fillColor="var(--bg-color)" />
+        <MasterIcon
+          size="small"
+          svgName="close-filled"
+          fillColor="var(--primary-icon)"
+          hoverColor="var(--themed-icon)"
+        />
       </span>
     </header>
     <main>

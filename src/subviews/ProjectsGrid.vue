@@ -26,8 +26,8 @@ const isInternal = (project) => {
       <MasterIcon
         svgName="company"
         size="medium"
-        fillColor="var(--item-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="2px" />
@@ -48,8 +48,8 @@ const isInternal = (project) => {
               <MasterIcon
                 svgName="company"
                 size="x-small"
-                fillColor="var(--item-color)"
-                hoverColor="var(--theme-color)"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
               <span>{{ project.project_client }}</span>
             </div>
@@ -58,8 +58,8 @@ const isInternal = (project) => {
               <MasterIcon
                 svgName="location"
                 size="x-small"
-                fillColor="var(--item-color)"
-                hoverColor="var(--theme-color)"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
               <span>{{ project.project_location }}</span>
             </div>
@@ -70,8 +70,8 @@ const isInternal = (project) => {
             <MasterIcon
               svgName="link"
               size="small"
-              fillColor="var(--bg-color)"
-              hoverColor="var(--theme-color)"
+              fillColor="var(--secondary-icon)"
+              hoverColor="var(--themed-icon)"
             />
             <a href="javascript:void(0)" v-if="isInternal(project)">Internal Project</a>
             <a v-else :href="project.project_link" target="_blank">Project Link</a>

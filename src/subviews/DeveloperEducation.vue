@@ -22,8 +22,8 @@ defineProps({
       <MasterIcon
         svgName="degree"
         size="medium"
-        fillColor="var(--bg-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -42,8 +42,8 @@ defineProps({
         <MasterIcon
           svgName="school-college"
           size="x-small"
-          fillColor="var(--bg-color)"
-          hoverColor="var(--theme-color)"
+          fillColor="var(--secondary-icon)"
+          hoverColor="var(--themed-icon)"
         />
         {{ line.institute }}
       </div>
@@ -51,8 +51,8 @@ defineProps({
         <MasterIcon
           svgName="location"
           size="x-small"
-          fillColor="var(--bg-color)"
-          hoverColor="var(--theme-color)"
+          fillColor="var(--secondary-icon)"
+          hoverColor="var(--themed-icon)"
         />
         {{ line.location }}
       </div>

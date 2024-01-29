@@ -13,7 +13,7 @@ Array.prototype.pushUnique = function (key, object) {
   return fullArray
 }
 
-String.prototype.Capitalize = function () {
+String.prototype.toCapitalized = function () {
   const payload = JSON.parse(JSON.stringify(this))
   return payload.charAt(0).toUpperCase() + payload.slice(1)
 }

@@ -259,16 +259,18 @@
               <MasterIcon
                 size="x-small"
                 svg-name="first"
-                fillColor="var(--glob-light)"
                 @click="prevYear"
                 tabIndex="-1"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
               <MasterIcon
                 size="x-small"
                 svg-name="previous"
-                fillColor="var(--glob-light)"
                 @click="prevMonth"
                 tabIndex="-1"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
             </div>
             <div class="details">
@@ -278,16 +280,18 @@
               <MasterIcon
                 size="x-small"
                 svg-name="next"
-                fillColor="var(--glob-light)"
                 @click="nextMonth"
                 tabIndex="-1"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
               <MasterIcon
                 size="x-small"
                 svg-name="last"
-                fillColor="var(--glob-light)"
                 @click="nextYear"
                 tabIndex="-1"
+                fillColor="var(--primary-icon)"
+                hoverColor="var(--themed-icon)"
               />
             </div>
           </div>
@@ -359,12 +363,22 @@
                 </span>
                 <span class="toggler" @click="dateOrTime('date')">
                   <label class="toggle-cal">
-                    <MasterIcon svgName="calendar" fillColor="var(--glob-light)" size="small" />
+                    <MasterIcon
+                      svgName="calendar"
+                      size="small"
+                      fillColor="var(--primary-icon)"
+                      hoverColor="var(--themed-icon)"
+                    />
                   </label>
                 </span>
                 <span class="update-data" @click="(e) => updateInputStr(e)">
                   <label class="update-date-time">
-                    <MasterIcon svgName="checked-square" fillColor="var(--glob-light)" size="28" />
+                    <MasterIcon
+                      svgName="checked-square"
+                      size="28"
+                      fillColor="var(--primary-icon)"
+                      hoverColor="var(--themed-icon)"
+                    />
                   </label>
                 </span>
               </div>

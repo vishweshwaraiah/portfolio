@@ -22,8 +22,8 @@ defineProps({
       <MasterIcon
         svgName="others-list"
         size="medium"
-        fillColor="var(--item-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="2px" />

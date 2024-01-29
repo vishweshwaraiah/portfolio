@@ -36,6 +36,8 @@
         svgName="close-filled"
         size="small"
         class="close small"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
       {{ currDesc }}
     </div>

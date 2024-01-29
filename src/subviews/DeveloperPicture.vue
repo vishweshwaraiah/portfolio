@@ -47,6 +47,8 @@ const getClasses = () => {
       svgName="vishu"
       :size="width"
       title="Vishweshwarayya Kj"
+      fillColor="var(--primary-icon)"
+      hoverColor="var(--themed-icon)"
     />
     <MasterImage
       v-else

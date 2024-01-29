@@ -66,18 +66,20 @@ const printPage = () => {
     <MasterIcon
       svgName="home"
       size="medium"
-      fillColor="var(--item-color)"
       class="home_btn"
       @click="goHome"
       title="Floating Menu"
+      fillColor="var(--primary-icon)"
+      hoverColor="var(--themed-icon)"
     />
     <MasterIcon
       svgName="menu-bars"
       size="medium"
-      fillColor="var(--item-color)"
       class="floating_btn"
       @click="toggleMenu"
       title="Floating Menu"
+      fillColor="var(--primary-icon)"
+      hoverColor="var(--themed-icon)"
     />
     <div v-if="isVisible" class="floating_menu" @click="closeMenu">
       <header class="menu">
@@ -95,10 +97,10 @@ const printPage = () => {
               svgName="printer"
               class="has_print"
               @click="printPage"
-              fillColor="var(--glob-light)"
               size="small"
               title="Print Page"
-              hoverColor="var(--theme-color)"
+              fillColor="var(--primary-icon)"
+              hoverColor="var(--themed-icon)"
             />
           </RouterLink>
         </nav>

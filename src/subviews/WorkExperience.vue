@@ -31,8 +31,8 @@ const getDateDifference = (exp_details) => {
       <MasterIcon
         svgName="company"
         size="medium"
-        fillColor="var(--item-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="2px" />
@@ -58,8 +58,8 @@ const getDateDifference = (exp_details) => {
             <MasterIcon
               svgName="company"
               size="small"
-              fillColor="var(--item-color)"
-              hoverColor="var(--theme-color)"
+              fillColor="var(--primary-icon)"
+              hoverColor="var(--themed-icon)"
             />
             <span class="px-2">{{ item.job_company }}</span>
           </span>
@@ -67,8 +67,8 @@ const getDateDifference = (exp_details) => {
             <MasterIcon
               svgName="family-house"
               size="small"
-              fillColor="var(--item-color)"
-              hoverColor="var(--theme-color)"
+              fillColor="var(--primary-icon)"
+              hoverColor="var(--themed-icon)"
             />
             <span class="px-2">{{ item.job_location }}</span>
           </span>

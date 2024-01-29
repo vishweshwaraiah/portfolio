@@ -32,7 +32,8 @@ const copyText = () => {
       @click.prevent="copyText()"
       :key="copyIcon"
       size="small"
-      fillColor="gray"
+      fillColor="var(--primary-icon)"
+      hoverColor="var(--themed-icon)"
     />
     <span v-if="isVisible" class="copied_note">Copied!</span>
   </div>

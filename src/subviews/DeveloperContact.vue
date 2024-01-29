@@ -22,8 +22,8 @@ defineProps({
       <MasterIcon
         svgName="contact"
         size="medium"
-        fillColor="var(--bg-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -31,13 +31,13 @@ defineProps({
       <MasterIcon
         :svgName="line.iconName"
         size="medium"
-        fillColor="var(--glob-dark)"
-        hoverColor="var(--theme-color)"
         roundSpace="5px"
-        bgColor="var(--theme-color)"
         :title="line.iName"
         :labelAfter="line.iValue"
         class="line_name"
+        bgColor="var(--theme-color)"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </span>
     <MasterPrintBreak action="avoid" />

@@ -22,8 +22,8 @@ defineProps({
       <MasterIcon
         svgName="friends"
         size="medium"
-        fillColor="var(--bg-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -45,8 +45,8 @@ defineProps({
           <MasterIcon
             svgName="phone-call"
             size="x-small"
-            fillColor="var(--item-color)"
-            hoverColor="var(--theme-color)"
+            fillColor="var(--primary-icon)"
+            hoverColor="var(--themed-icon)"
           />
           {{ refdetail.ref_mobile }}
         </span>
@@ -54,8 +54,8 @@ defineProps({
           <MasterIcon
             svgName="email-small"
             size="x-small"
-            fillColor="var(--item-color)"
-            hoverColor="var(--theme-color)"
+            fillColor="var(--primary-icon)"
+            hoverColor="var(--themed-icon)"
           />
           {{ refdetail.ref_email }}
         </span>

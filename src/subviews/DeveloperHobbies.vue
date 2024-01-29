@@ -21,8 +21,8 @@ defineProps({
       <MasterIcon
         svgName="support"
         size="medium"
-        fillColor="var(--bg-color)"
-        hoverColor="var(--theme-color)"
+        fillColor="var(--secondary-icon)"
+        hoverColor="var(--themed-icon)"
       />
     </div>
     <MasterHrLine thickness="1px" hrColor="var(--glob-light)" />
@@ -31,11 +31,11 @@ defineProps({
         <MasterIcon
           :svgName="line.iconName"
           size="x-large"
-          fillColor="var(--item-color)"
-          hoverColor="var(--theme-color)"
           roundSpace="20%"
-          bgColor="var(--theme-color)"
           :title="line.iName"
+          bgColor="var(--theme-color)"
+          fillColor="var(--primary-icon)"
+          hoverColor="var(--themed-icon)"
         />
         <label>{{ line.iName }}</label>
       </span>

@@ -38,7 +38,12 @@ window.addEventListener('scroll', (e) => {
 <template lang="html">
   <div class="master-scroller">
     <button class="to_top btn" @click="goTop">
-      <MasterIcon :svgName="svgName" size="medium" fillColor="var(--item-color)" />
+      <MasterIcon
+        :svgName="svgName"
+        size="medium"
+        fillColor="var(--primary-icon)"
+        hoverColor="var(--themed-icon)"
+      />
     </button>
   </div>
 </template>
