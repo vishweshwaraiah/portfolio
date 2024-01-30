@@ -1,6 +1,6 @@
 @mixin mediaQuery($keys...) {
   // map holding breakpoint values
-  $mobileMin: 320px;
+  $mobileMin: 200px;
   $mobileMax: 600px;
   $tabletMin: 600px;
   $tabletMax: 768px;

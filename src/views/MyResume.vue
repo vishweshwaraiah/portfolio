@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+import { findWindowSize } from '@/utils/globals.js'
 import useExperiencesStore from '@/stores/experiences.js'
 import useAboutDevStore from '@/stores/aboutdev.js'
 import DeveloperTitle from '@/subviews/DeveloperTitle.vue'
@@ -18,12 +20,24 @@ const experiencesData = experiences.getExperiences
 const subTitle = 'Senior Fullstack Developer'
 const devTitle = 'Vishweshwarayya K J'
 const sectionTitle = 'Work Experience'
+
+let devPicWidth = ref('')
+const device = findWindowSize()
+if (device === 'mobile') {
+  devPicWidth.value = '50vw'
+} else if (device === 'tablet') {
+  devPicWidth.value = '25vw'
+} else if (device === 'laptop') {
+  devPicWidth.value = '20vw'
+} else {
+  devPicWidth.value = '15vw'
+}
 </script>
 
 <template>
   <MasterTemplate class="my_resume">
     <template #sidebar>
-      <DeveloperPicture :hasTriangle="true" :isSvg="true" width="15vw" />
+      <DeveloperPicture :hasTriangle="true" :isSvg="true" :width="devPicWidth" />
       <PersonalDetails />
     </template>
     <template #content>

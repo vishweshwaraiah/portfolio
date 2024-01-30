@@ -55,7 +55,7 @@ const getClasses = () => {
       class="dev_pic"
       hasBorder
       :image="DevPic"
-      width="50%"
+      :width="width"
       altText="Vishweshwarayya Kj"
     />
     <h1>{{ titleText }}</h1>

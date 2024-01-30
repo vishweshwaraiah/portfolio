@@ -471,3 +471,32 @@ export const getYearsFromDateList = (datesArray) => {
 
   return monthsToYears(totalMonths)
 }
+
+export const findWindowSize = () => {
+  const mobileMin = 200
+  const mobileMax = 600
+  const tabletMin = 600
+  const tabletMax = 768
+  const laptopMin = 768
+  const laptopMax = 960
+  const desktopMin = 960
+  const desktopMax = 1200
+  const monitorMin = 1200
+  const monitorMax = 1800
+
+  let deviceType = 'mobile'
+
+  const width = document.documentElement.clientWidth || document.body.clientWidth
+
+  if (width > mobileMin && width <= mobileMax) deviceType = 'mobile'
+
+  if (width > tabletMin && width <= tabletMax) deviceType = 'tablet'
+
+  if (width > laptopMin && width <= laptopMax) deviceType = 'laptop'
+
+  if (width > desktopMin && width <= desktopMax) deviceType = 'desktop'
+
+  if (width > monitorMin && width <= monitorMax) deviceType = 'monitor'
+
+  return deviceType
+}
