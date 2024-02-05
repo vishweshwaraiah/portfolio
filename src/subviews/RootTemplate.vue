@@ -1,4 +1,23 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const props = defineProps({
+  bg_color: {
+    default: '',
+    type: String
+  }
+})
+
+const bgColor = ref('')
+
+onMounted(() => {
+  if (props.bg_color === 'light') {
+    bgColor.value = 'var(--white)'
+  } else {
+    bgColor.value = 'var(--theme-color)'
+  }
+})
+</script>
 
 <template>
   <main class="root_template">
@@ -16,7 +35,7 @@
   min-height: 100vh;
   height: 100%;
   color: var(--item-color);
-  background-color: var(--theme-color);
+  background-color: v-bind(bgColor);
   padding: 0 10%;
   gap: 5%;
 }

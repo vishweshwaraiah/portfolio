@@ -27,7 +27,7 @@ const goHome = () => {
         The page you are looking for does not exist. How you got here is a mystery. But you can
         click the button below to go back to the homepage.
       </p>
-      <MasterButton :onClick="goHome" variant="dark">HOME</MasterButton>
+      <MasterButton @click="goHome" variant="dark">HOME</MasterButton>
     </div>
   </main>
 </template>

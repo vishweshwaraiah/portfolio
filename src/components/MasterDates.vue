@@ -52,7 +52,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
-import { monthStrings } from '@/constants/DateTime'
+import { monthObjects } from '@/constants/DateTime'
 
 const props = defineProps({
   format: {
@@ -79,7 +79,7 @@ const hours = dateObj.value.getHours()
 let minutes = dateObj.value.getMinutes()
 
 const digitsMonth = ('0' + month).slice(-2)
-const stringMonth = monthStrings.find((i) => i.id === month)
+const stringMonth = monthObjects.find((i) => i.id === month)
 
 const digitsDate = ('0' + date).slice(-2)
 const hours24 = ('0' + hours).slice(-2)

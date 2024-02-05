@@ -3,10 +3,6 @@ import { computed } from 'vue'
 import { classNames } from '@/utils/globals'
 
 const props = defineProps({
-  onClick: {
-    type: Function,
-    default: () => {}
-  },
   type: {
     type: String,
     default: 'button'
@@ -42,7 +38,7 @@ const buttonWrapper = computed(() => {
   <a v-if="href" :href="href" :class="buttonWrapper" :style="{ width: width }">
     <slot>Button Link</slot>
   </a>
-  <button v-else @click="onClick" :type="type" :class="buttonWrapper" :style="{ width: width }">
+  <button v-else :type="type" :class="buttonWrapper" :style="{ width: width }">
     <slot>Button</slot>
   </button>
 </template>

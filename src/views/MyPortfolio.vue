@@ -75,18 +75,12 @@ const goTo = (type) => {
 
 <template>
   <div class="theme_changer">
-    <MasterButton
-      :onClick="() => showThemes()"
-      variant="secondary"
-      size="medium"
-      width="5rem"
-      class="mb-1"
-    >
+    <MasterButton @click="showThemes" variant="secondary" size="medium" width="5rem" class="mb-1">
       {{ currentTheme.toCapitalized() }}
     </MasterButton>
     <div class="themes" v-if="isOpen">
       <MasterButton
-        :onClick="() => changeTheme('default')"
+        @click="() => changeTheme('default')"
         variant="tertiary"
         size="medium"
         width="5rem"
@@ -95,7 +89,7 @@ const goTo = (type) => {
         Default
       </MasterButton>
       <MasterButton
-        :onClick="() => changeTheme('dark')"
+        @click="() => changeTheme('dark')"
         variant="tertiary"
         size="medium"
         width="5rem"
@@ -104,7 +98,7 @@ const goTo = (type) => {
         Dark
       </MasterButton>
       <MasterButton
-        :onClick="() => changeTheme('light')"
+        @click="() => changeTheme('light')"
         variant="tertiary"
         size="medium"
         width="5rem"
@@ -113,7 +107,7 @@ const goTo = (type) => {
         Light
       </MasterButton>
       <MasterButton
-        :onClick="() => changeTheme('pink')"
+        @click="() => changeTheme('pink')"
         variant="tertiary"
         size="medium"
         width="5rem"
@@ -135,13 +129,13 @@ const goTo = (type) => {
         <div class="dev_desc mb-3">
           <MasterAnimate :textContent="skillsContent()" :highlights="hlText" />
         </div>
-        <MasterButton :onClick="toProfile" class="mr-2" variant="tertiary" size="medium">
+        <MasterButton @click="toProfile" class="mr-2" variant="tertiary" size="medium">
           Profile
         </MasterButton>
-        <MasterButton :onClick="toProjects" class="mx-2" variant="dark" size="medium">
+        <MasterButton @click="toProjects" class="mx-2" variant="dark" size="medium">
           Projects
         </MasterButton>
-        <MasterButton :onClick="toContact" class="ml-2" variant="light" size="medium">
+        <MasterButton @click="toContact" class="ml-2" variant="light" size="medium">
           Contact
         </MasterButton>
       </div>

@@ -1,4 +1,5 @@
 import ErrorMessages from '@/utils/ErrorMessages'
+import { monthObjects, monthsArray } from '@/utils/DateTime.js'
 
 const TrimString = (s) => {
   let l = 0
@@ -329,27 +330,12 @@ export const monthsToYears = (months) => {
 }
 
 export const toUTCDate = (dateStr) => {
-  const montStrs = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]
-
   let year = new Date().getUTCFullYear()
   let month = new Date().getUTCMonth()
   if (dateStr.toLowerCase() !== 'present') {
     const dateArr = dateStr.split(' ')
     year = dateArr[1]
-    month = montStrs.findIndex((month) => month === dateArr[0])
+    month = monthsArray.findIndex((month) => month.includes(dateArr[0]))
   }
 
   return new Date(Date.UTC(year, month))
@@ -443,6 +429,23 @@ export const dateDiffer = (props) => {
   } else {
     return ydt + mdt + ddt
   }
+}
+
+export const fetchMstrMonth = (dateRefStr, type) => {
+  if (!dateRefStr) return monthObjects[0]
+  let monthNum = new Date(dateRefStr).getMonth() + 1
+  if (type === 'next') {
+    monthNum = new Date(dateRefStr).getMonth() + 2
+  } else if (type === 'previous') {
+    monthNum = new Date(dateRefStr).getMonth()
+  }
+  if (monthNum > 12) {
+    monthNum = 1
+  } else if (monthNum < 1) {
+    monthNum = 12
+  }
+  const monthObject = monthObjects.find((i) => i.id === monthNum)
+  return monthObject
 }
 
 export const px2rem = (size) => {

@@ -933,6 +933,28 @@ pre {
   }
 }
 
+.gap {
+  &-1 {
+    gap: px2rem(8);
+  }
+
+  &-2 {
+    gap: px2rem(16);
+  }
+
+  &-3 {
+    gap: px2rem(24);
+  }
+
+  &-4 {
+    gap: px2rem(32);
+  }
+
+  &-5 {
+    gap: px2rem(40);
+  }
+}
+
 .input-group {
   display: flex;
   justify-content: flex-start;

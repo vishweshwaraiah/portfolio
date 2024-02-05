@@ -6,6 +6,7 @@ import CoverLetter from '@/views/CoverLetter.vue'
 import PageNotFound from '@/views/PageNotFound.vue'
 import AboutDev from '@/views/AboutDev.vue'
 import ContactMe from '@/views/ContactMe.vue'
+import MiscTools from '@/views/MiscTools.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,6 +63,15 @@ const router = createRouter({
       meta: {
         hidden: false,
         print: false
+      }
+    },
+    {
+      path: '/tools',
+      name: 'Tools',
+      component: MiscTools,
+      meta: {
+        hidden: true,
+        print: true
       }
     },
     {

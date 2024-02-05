@@ -2,9 +2,6 @@
 import { computed, ref } from 'vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import { classNames } from '@/utils/globals'
-import CheckedIcon from '@/assets/icons/checked-round.svg?url'
-import CloseIcon from '@/assets/icons/close-filled.svg?url'
-import SearchIcon from '@/assets/icons/search.svg?url'
 
 const emits = defineEmits(['update:inputValue', 'onFocus', 'onBlur', 'onInputClear'])
 
@@ -136,7 +133,7 @@ const readOnlyInput = (e) => {
     <span :class="inputWrapper">
       <MasterIcon
         v-if="leftIcon"
-        :svgIcon="SearchIcon"
+        :svgName="leftIcon"
         size="small"
         class="left-icon"
         fillColor="var(--primary-icon)"
@@ -146,14 +143,14 @@ const readOnlyInput = (e) => {
         @click="clearInput"
         v-if="clearTrue && inputValue"
         size="small"
-        :svgIcon="CloseIcon"
+        svgName="close-border"
         class="clear-icon"
         fillColor="var(--primary-icon)"
         hoverColor="var(--themed-icon)"
       />
       <MasterIcon
         v-if="rightIcon && !inputValue"
-        :svgIcon="CheckedIcon"
+        :svgName="rightIcon"
         size="small"
         class="right-icon"
         fillColor="var(--primary-icon)"
