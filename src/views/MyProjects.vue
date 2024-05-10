@@ -7,13 +7,13 @@ import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
 import DeveloperContact from '@/subviews/DeveloperContact.vue'
 import ProjectsGrid from '@/subviews//ProjectsGrid.vue'
 import useContactStore from '@/stores/contact.js'
-import useProjectsStore from '@/stores/projects'
+import useExperiencesStore from '@/stores/experiences'
 
 const contact = useContactStore()
 const devContact = contact.getContact
 
-const projects = useProjectsStore()
-const projectsList = projects.getProjects
+const experiences = useExperiencesStore()
+const orgsList = experiences.getExperiences
 
 const subTitle = 'Senior Fullstack Developer'
 const devTitle = 'Vishweshwarayya K J'
@@ -40,7 +40,7 @@ if (device === 'mobile') {
     </template>
     <template #content>
       <DeveloperTitle :title="devTitle" :subtitle="subTitle" />
-      <ProjectsGrid :projectsList="projectsList" :sectionTitle="sectionTitle" />
+      <ProjectsGrid :orgsList="orgsList" :sectionTitle="sectionTitle" />
     </template>
   </MasterTemplate>
 </template>

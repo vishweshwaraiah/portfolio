@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { openLink } from '@/utils/globals.js'
-import { linkedIn, github } from '@/utils/constants.js'
+import { linkedIn, github, themesList } from '@/utils/constants.js'
 import useSkillsStore from '@/stores/skills.js'
 import DeveloperPicture from '@/subviews/DeveloperPicture.vue'
 import RootTemplate from '@/subviews/RootTemplate.vue'
@@ -80,40 +80,15 @@ const goTo = (type) => {
     </MasterButton>
     <div class="themes" v-if="isOpen">
       <MasterButton
-        @click="() => changeTheme('default')"
+        v-for="theme in themesList"
+        :key="theme"
+        @click="() => changeTheme(theme.toLowerCase())"
         variant="tertiary"
         size="medium"
         width="5rem"
         class="mb-1"
       >
-        Default
-      </MasterButton>
-      <MasterButton
-        @click="() => changeTheme('dark')"
-        variant="tertiary"
-        size="medium"
-        width="5rem"
-        class="mb-1"
-      >
-        Dark
-      </MasterButton>
-      <MasterButton
-        @click="() => changeTheme('light')"
-        variant="tertiary"
-        size="medium"
-        width="5rem"
-        class="mb-1"
-      >
-        Light
-      </MasterButton>
-      <MasterButton
-        @click="() => changeTheme('pink')"
-        variant="tertiary"
-        size="medium"
-        width="5rem"
-        class="mb-1"
-      >
-        Pink
+        {{ theme }}
       </MasterButton>
     </div>
   </div>

@@ -3,8 +3,8 @@ import DetailsBadge from '@/subviews/DetailsBadge.vue'
 import MasterIcon from '@/components/MasterIcon.vue'
 import MasterHrLine from '@/components/MasterHrLine.vue'
 
-defineProps({
-  projectsList: {
+const props = defineProps({
+  orgsList: {
     type: Array,
     default: () => []
   },
@@ -13,6 +13,23 @@ defineProps({
     default: ''
   }
 })
+
+const projectsList = () => {
+  if (props.orgsList.length) {
+    const list = props.orgsList
+      .map((x) =>
+        x.projects_list.map((project) => ({
+          ...project,
+          project_duration: x.exp_details,
+          project_client: x.job_company,
+          project_location: x.job_location
+        }))
+      )
+      .flat()
+      .filter((i) => i.isProject)
+    return list
+  }
+}
 
 const isInternal = (project) => {
   return project.project_link === 'internal'
@@ -32,7 +49,7 @@ const isInternal = (project) => {
     </div>
     <MasterHrLine thickness="2px" />
     <div class="grid-container grids_2">
-      <div class="grid-item card has_space" v-for="(project, idx) in projectsList" :key="idx">
+      <div class="grid-item card has_space" v-for="(project, idx) in projectsList()" :key="idx">
         <div class="card-header noBg">
           <DetailsBadge
             class="project_duration"

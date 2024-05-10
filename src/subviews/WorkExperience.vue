@@ -16,6 +16,18 @@ const props = defineProps({
   }
 })
 
+const getSkills = (exp) => {
+  const projects = exp.projects_list
+  let skills = []
+  if (projects?.length) {
+    projects.forEach((element) => {
+      skills = element.work_skills
+    })
+  }
+
+  return skills
+}
+
 const getDateDifference = (exp_details) => {
   const { from, to } = exp_details
   const fromDate = toUTCDate(from)
@@ -48,7 +60,7 @@ const getDateDifference = (exp_details) => {
         />
         <div class="work_designation">
           <div class="job_title">
-            <h3>{{ item.job_title }}</h3>
+            <h4>{{ item.job_title }}</h4>
             <span class="exp_badge">
               For
               {{ getDateDifference(item.exp_details) }}
@@ -57,7 +69,7 @@ const getDateDifference = (exp_details) => {
           <span class="job_company">
             <MasterIcon
               svgName="company"
-              size="small"
+              size="x-small"
               fillColor="var(--primary-icon)"
               hoverColor="var(--themed-icon)"
             />
@@ -66,7 +78,7 @@ const getDateDifference = (exp_details) => {
           <span class="job_location">
             <MasterIcon
               svgName="family-house"
-              size="small"
+              size="x-small"
               fillColor="var(--primary-icon)"
               hoverColor="var(--themed-icon)"
             />
@@ -78,10 +90,9 @@ const getDateDifference = (exp_details) => {
         <p class="work_desc">
           {{ item.work_description }}
         </p>
-
         <div class="work_skills">
           <DetailsBadge
-            v-for="(skill, idx) in item.work_skills"
+            v-for="(skill, idx) in getSkills(item)"
             class="skill_name"
             :content="skill"
             :key="idx"

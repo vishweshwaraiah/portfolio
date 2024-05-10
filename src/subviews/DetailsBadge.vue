@@ -91,9 +91,9 @@ const cardWrapper = computed(() => {
   background: v-bind('theme.bgColor');
   width: auto;
   height: auto;
-  padding: 0.25rem 1rem 0.25rem 0.5rem;
+  padding: px2rem(4) px2rem(8);
   display: inline-block;
-  border-radius: 0 px2rem(25) px2rem(25) 0;
+  border-radius: px2rem(4) px2rem(16);
   font-weight: bolder;
 
   &.absolute {
